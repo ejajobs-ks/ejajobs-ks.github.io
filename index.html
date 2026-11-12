@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="sq"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eja Jobs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F6F3EA;--surface:#FFF;--ink:#0B2A21;--muted:#4F645B;--line:#DDD8C8;--brand:#0B3B2D;--signal:#F28C28;--signal-ink:#2A1500;--ok:#0E7A4D;--ok-bg:#DCF2E6;--bad:#B3261E;--bad-bg:#FBE0DC;--fd:Poppins,system-ui,sans-serif;--fb:"Instrument Sans",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#07201A;--surface:#0F2A22;--ink:#F6F3EA;--muted:#B5C7BE;--line:#23423A;--brand:#F6F3EA;--ok-bg:#12382B;--ok:#6FD3A4;--bad-bg:#40201C;--bad:#FF9D94;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;margin-bottom:20px}
+.lg-ink{fill:var(--ink)}.lg-gold{fill:var(--signal)}
+h1{font-family:var(--fd);font-size:clamp(28px,6vw,44px);line-height:1.08;letter-spacing:-.03em;margin:8px 0 6px}
+h2{font-family:var(--fd);font-size:22px;letter-spacing:-.02em;margin:28px 0 12px}
+p{margin:0 0 12px}.muted{color:var(--muted)}.small{font-size:14px}
+.btn{font:600 16px var(--fb);border:0;border-radius:12px;padding:12px 18px;min-height:46px;background:var(--signal);color:var(--signal-ink);cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.sm{padding:8px 12px;min-height:38px;font-size:14px}
+.btn.danger{background:transparent;color:var(--bad);border:1.5px solid var(--bad)}
+.btn:disabled{opacity:.55;cursor:default}
+.link{background:none;border:0;color:var(--ink);text-decoration:underline;font:600 15px var(--fb);cursor:pointer;padding:6px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:12px}
+.row{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.role{font-family:var(--fd);font-weight:700;font-size:18px}
+.pay{font-family:var(--fd);font-weight:700;font-size:22px;white-space:nowrap}.pay small{font:500 13px var(--fb);color:var(--muted)}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px;background:var(--ok-bg);color:var(--ok);margin-right:6px}
+.tag.o{background:var(--signal);color:var(--signal-ink)}.tag.bad{background:var(--bad-bg);color:var(--bad)}.tag.n{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px;scrollbar-width:none}
+.chip{flex:none;font:600 15px var(--fb);border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 16px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--bg);border-color:var(--brand)}
+label{display:block;font-size:14px;font-weight:600;color:var(--muted);margin:12px 0 4px}
+input,select{width:100%;font:500 17px var(--fb);padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chk{display:flex;gap:10px;align-items:center;margin-top:12px;font-weight:500;color:var(--ink)}.chk input{width:22px;height:22px}
+.msg{border-radius:12px;padding:10px 14px;margin:12px 0;font-weight:500}.msg.err{background:var(--bad-bg);color:var(--bad)}.msg.ok{background:var(--ok-bg);color:var(--ok)}
+.person{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+dialog{border:0;border-radius:20px;padding:22px;width:min(440px,calc(100vw - 24px));background:var(--surface);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+[hidden]{display:none!important}
+</style></head><body><div class="wrap">
+<header><a href="#" id="home" aria-label="Eja Jobs"><svg viewBox="0 0 339.8 108.7" height="30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eja Jobs"><path class="lg-ink" d="M58.5 58.345186288976535H19.8Q20.200000000000003 63.54518628897653 23.150000000000002 66.29518628897654Q26.1 69.04518628897654 30.400000000000002 69.04518628897654Q36.800000000000004 69.04518628897654 39.300000000000004 63.64518628897653H57.5Q56.1 69.14518628897653 52.45 73.54518628897654Q48.800000000000004 77.94518628897653 43.300000000000004 80.44518628897653Q37.800000000000004 82.94518628897653 31.0 82.94518628897653Q22.8 82.94518628897653 16.4 79.44518628897653Q10.0 75.94518628897653 6.4 69.44518628897653Q2.8000000000000003 62.94518628897653 2.8000000000000003 54.24518628897653Q2.8000000000000003 45.54518628897653 6.3500000000000005 39.04518628897653Q9.9 32.54518628897653 16.3 29.04518628897653Q22.700000000000003 25.54518628897653 31.0 25.54518628897653Q39.1 25.54518628897653 45.400000000000006 28.94518628897653Q51.7 32.34518628897653 55.25 38.64518628897653Q58.800000000000004 44.94518628897653 58.800000000000004 53.345186288976535Q58.800000000000004 55.74518628897653 58.5 58.345186288976535ZM41.300000000000004 48.84518628897653Q41.300000000000004 44.44518628897653 38.300000000000004 41.84518628897653Q35.300000000000004 39.24518628897653 30.8 39.24518628897653Q26.5 39.24518628897653 23.55 41.74518628897653Q20.6 44.245186288976534 19.900000000000002 48.84518628897653Z M82.9 89.34518628897654Q82.9 99.64518628897653 77.7 104.19518628897653Q72.5 108.74518628897653 63.2 108.74518628897653H56.5V94.24518628897653H60.6Q63.4 94.24518628897653 64.6 93.14518628897653Q65.8 92.04518628897654 65.8 89.54518628897654V26.345186288976528H82.9Z M114.4 25.54518628897653Q120.30000000000001 25.54518628897653 124.75 27.94518628897653Q129.2 30.345186288976528 131.6 34.24518628897653V26.345186288976528H148.7V82.14518628897653H131.6V74.24518628897653Q129.1 78.14518628897653 124.65 80.54518628897654Q120.2 82.94518628897653 114.3 82.94518628897653Q107.5 82.94518628897653 101.9 79.39518628897653Q96.3 75.84518628897654 93.05 69.29518628897654Q89.8 62.74518628897653 89.8 54.14518628897653Q89.8 45.54518628897653 93.05 39.04518628897653Q96.3 32.54518628897653 101.9 29.04518628897653Q107.5 25.54518628897653 114.4 25.54518628897653ZM119.4 40.44518628897653Q114.3 40.44518628897653 110.75 44.095186288976535Q107.2 47.745186288976534 107.2 54.14518628897653Q107.2 60.54518628897653 110.75 64.29518628897654Q114.3 68.04518628897654 119.4 68.04518628897654Q124.5 68.04518628897654 128.05 64.34518628897654Q131.6 60.64518628897653 131.6 54.24518628897653Q131.6 47.84518628897653 128.05 44.14518628897653Q124.5 40.44518628897653 119.4 40.44518628897653Z"/><circle class="lg-gold" cx="74.3" cy="10.7" r="10.7"/><path class="lg-gold" d="M210.4378580357653 55.59854850709422V74.73504567072449Q210.4378580357653 78.28732957535047 208.2797500722022 80.34994603610104Q206.12164210863912 82.4125624968516 202.60755480513814 82.4125624968516Q199.09346750163718 82.4125624968516 196.93535953807407 80.34994603610104Q194.77725157451098 78.28732957535047 194.77725157451098 74.73504567072449H199.1698607038872Q199.2080573050122 76.49208932247498 200.06748083032494 77.52339755285027Q200.92690435563767 78.55470578322554 202.60755480513814 78.55470578322554Q204.2882052546386 78.55470578322554 205.16672708051385 77.50429925228775Q206.04524890638908 76.45389272134996 206.04524890638908 74.73504567072449V55.59854850709422Z M232.09533087364628 68.81457249634786Q232.09533087364628 64.91851918159679 233.90966942708428 61.824594490470936Q235.72400798052226 58.73066979934508 238.8370309722106 56.992724448157105Q241.95005396389897 55.25477909696913 245.655124273025 55.25477909696913Q249.39839118327603 55.25477909696913 252.5114141749644 56.992724448157105Q255.62443716665274 58.73066979934508 257.4196774195282 61.824594490470936Q259.2149176724037 64.91851918159679 259.2149176724037 68.81457249634786Q259.2149176724037 72.71062581109894 257.4196774195282 75.82364880278729Q255.62443716665274 78.93667179447564 252.5114141749644 80.67461714566363Q249.39839118327603 82.4125624968516 245.655124273025 82.4125624968516Q241.95005396389897 82.4125624968516 238.8370309722106 80.67461714566363Q235.72400798052226 78.93667179447564 233.90966942708428 75.82364880278729Q232.09533087364628 72.71062581109894 232.09533087364628 68.81457249634786ZM254.74591534077751 68.81457249634786Q254.74591534077751 65.87343420972205 253.58091900646468 63.65803134447144Q252.41592267215185 61.44262847922083 250.35330621140128 60.25853384434551Q248.29068975065073 59.07443920947018 245.655124273025 59.07443920947018Q243.01955879539926 59.07443920947018 240.95694233464872 60.25853384434551Q238.89432587389814 61.44262847922083 237.7293295395853 63.65803134447144Q236.5643332052725 65.87343420972205 236.5643332052725 68.81457249634786Q236.5643332052725 71.75571078297367 237.7293295395853 73.9902119487868Q238.89432587389814 76.22471311459991 240.95694233464872 77.42790605003773Q243.01955879539926 78.63109898547556 245.655124273025 78.63109898547556Q248.29068975065073 78.63109898547556 250.35330621140128 77.42790605003773Q252.41592267215185 76.22471311459991 253.58091900646468 73.9902119487868Q254.74591534077751 71.75571078297367 254.74591534077751 68.81457249634786Z M298.86298964016464 75.00242187859956Q298.86298964016464 77.02684173822513 297.8125831092268 78.65019728603806Q296.76217657828903 80.27355283385101 294.7759533197885 81.20936956141378Q292.78973006128797 82.14518628897653 290.15416458366224 82.14518628897653H279.5355094709093V55.59854850709422H289.6576087690371Q292.36956744891285 55.59854850709422 294.31759410628837 56.51526693409447Q296.2656207636639 57.431985361094725 297.25873239291417 58.97894770665765Q298.25184402216445 60.52591005222058 298.25184402216445 62.43574010847111Q298.25184402216445 64.72753617597174 297.0295527861641 66.25540022097215Q295.8072615501638 67.78326426597258 293.7446450894132 68.50899968734778Q295.8836547524138 68.89096569859788 297.3733221962892 70.7625991537234Q298.86298964016464 72.63423260884892 298.86298964016464 75.00242187859956ZM283.8899219991605 66.75195603559729H289.27564275778695Q291.41465242078755 66.75195603559729 292.6178453562254 65.77794270690953Q293.8210382916632 64.80392937822175 293.8210382916632 62.97049252422126Q293.8210382916632 61.175252271345755 292.6178453562254 60.16304234153298Q291.41465242078755 59.1508324117202 289.27564275778695 59.1508324117202H283.8899219991605ZM294.50857711191344 74.54406266509943Q294.50857711191344 72.59603600772391 293.17169607253805 71.4501379739736Q291.83481503316267 70.30423994022327 289.61941216791206 70.30423994022327H283.8899219991605V78.59290238435055H289.7721985724121Q291.9876014376627 78.59290238435055 293.2480892747881 77.52339755285026Q294.50857711191344 76.45389272134996 294.50857711191344 74.54406266509943Z M318.99259843304515 74.81143887297452H323.6525837702964Q323.80537017479645 76.53028592359999 325.00856311023426 77.6379873562253Q326.21175604567213 78.7456887888506 328.38896230979776 78.7456887888506Q330.64256177617335 78.7456887888506 331.90304961329866 77.6570856567878Q333.16353745042403 76.568482524725 333.16353745042403 74.84963547409953Q333.16353745042403 73.51275443472416 332.3805071273613 72.67242920997393Q331.5974768042986 71.8321039852237 330.43248046998576 71.37374477172357Q329.267484135673 70.91538555822343 327.2048676749224 70.3806331424733Q324.6074987984217 69.6930943222231 322.9841432506088 68.98645720141042Q321.3607877027958 68.27982008059772 320.2148896690455 66.7901526367223Q319.06899163529516 65.30048519284689 319.06899163529516 62.81770611972121Q319.06899163529516 60.52591005222058 320.2148896690455 58.807063001595104Q321.3607877027958 57.08821595096963 323.42340416354637 56.17149752396938Q325.48602062429694 55.25477909696913 328.1979793041727 55.25477909696913Q332.05583601779875 55.25477909696913 334.51951679036193 57.18370745378216Q336.9831975629251 59.112635810595194 337.2505737708002 62.47393670959612H332.43780202904884Q332.32321222567384 61.022465866845714 331.0627243885485 59.99115763647043Q329.8022365514231 58.959849406095145 327.73962009067253 58.959849406095145Q325.867986635547 58.959849406095145 324.6838920006717 59.91476443422041Q323.4997973657964 60.86967946234567 323.4997973657964 62.66491971522117Q323.4997973657964 63.887210951221505 324.2446310877341 64.67024127428422Q324.9894648096718 65.45327159734694 326.1353628434221 65.91163081084707Q327.28126087717243 66.36999002434719 329.267484135673 66.90474244009734Q331.9030496132987 67.63047786147254 333.56460176223663 68.35621328284773Q335.2261539111746 69.08194870422294 336.39115024548744 70.59071444866086Q337.55614657980027 72.09948019309877 337.55614657980027 74.62045586734946Q337.55614657980027 76.64487572697502 336.46754344773746 78.4401159798505Q335.37894031567464 80.235356232726 333.2972255543616 81.3239593647888Q331.2155107930485 82.4125624968516 328.38896230979776 82.4125624968516Q325.715200231047 82.4125624968516 323.5761905680464 81.47674576928884Q321.4371809050458 80.54092904172609 320.2148896690455 78.82208199110062Q318.99259843304515 77.10323494047515 318.99259843304515 74.81143887297452Z"/></svg></a><div id="auth"></div></header>
+<main id="main"><p class="muted">Duke u ngarkuar…</p></main>
+</div>
+<dialog id="dlg"><div id="dlgBody"></div></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+"use strict";
+var SUPABASE_URL="https://ercqsqqfvccpwbpjmcls.supabase.co";
+var SUPABASE_KEY="sb_publishable_NfpjsF9jxPJ7cFGHnwlLxw_GUROvOE9";
+var CITY={"pr": "Prishtinë", "pz": "Prizren", "pe": "Pejë", "gk": "Gjakovë", "fz": "Ferizaj", "gj": "Gjilan", "mt": "Mitrovicë", "de": "Deçan", "dg": "Dragash", "dr": "Drenas", "fk": "Fushë Kosovë", "gr": "Graçanicë", "he": "Hani i Elezit", "is": "Istog", "ju": "Junik", "ka": "Kamenicë", "kc": "Kaçanik", "kl": "Klinë", "ko": "Kllokot", "le": "Leposaviq", "li": "Lipjan", "ml": "Malishevë", "ms": "Mamushë", "mn": "Mitrovicë e Veriut", "nb": "Novobërdë", "ob": "Obiliq", "pa": "Partesh", "pd": "Podujevë", "ra": "Rahovec", "rn": "Ranillug", "st": "Shtime", "sr": "Shtërpcë", "sk": "Skenderaj", "sh": "Suharekë", "vi": "Viti", "vu": "Vushtrri", "zp": "Zubin Potok", "zv": "Zveçan"};
+var ROLE={"waiter": "Kamarier/e", "cleaner": "Pastrues/e", "loader": "Ngarkues/e", "helper": "Ndihmës ndërtimi", "cashier": "Arkëtar/e", "driver": "Dërgues", "kitchen": "Ndihmës kuzhine", "agent": "Operator/e thirrjesh", "hclean": "Pastrim shtëpie", "garden": "Kopsht dhe oborr", "moving": "Bartje / zhvendosje", "repair": "Riparime të vogla", "care": "Kujdes për fëmijë / të moshuar", "paint": "Lyerje", "errand": "Blerje dhe shërbime", "cook": "Kuzhinier/e", "barista": "Barista", "mason": "Murator", "wedwaiter": "Kamarier/e dasme", "wedcook": "Kuzhinier/e dasme", "decorator": "Dekorues/e", "dj": "DJ / muzikë", "photographer": "Fotograf/e", "sales": "Shitës/e", "assistant": "Asistent/e zyre", "farmhand": "Punë bujqësore"};
+var BIG=["pr","pz","pe","gk","fz","gj","mt"];
+var UNIT={h:"€/orë",d:"€/ditë",m:"€/muaj"}, TYPE={d:"Ditore",w:"Javore",m:"Mujore"};
+var ROLENAME={firm:"Firmë",worker:"Punëtor",private:"Person privat"};
+var STAT={pending:"Në pritje",accepted:"Pranuar",rejected:"Refuzuar"};
+var db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+var me=null, profile=null, view="board", fCity="all", fStu=false, pendingApply=null;
+function savePending(){ try{ if(pendingApply) localStorage.setItem("eja-apply",pendingApply); else localStorage.removeItem("eja-apply"); }catch(e){} }
+try{ pendingApply=localStorage.getItem("eja-apply")||null; }catch(e){}
+function el(id){return document.getElementById(id);}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function opts(map,sel,keys){return (keys||Object.keys(map)).map(function(k){return '<option value="'+k+'"'+(k===sel?" selected":"")+'>'+esc(map[k])+'</option>';}).join("");}
+function errText(e){var m=(e&&e.message)||String(e);
+  if(/rate limit|security purposes/i.test(m)) return "Shumë kërkesa. Prit pak minuta dhe provo përsëri.";
+  if(/expired|invalid/i.test(m)&&/token|otp/i.test(m)) return "Kodi nuk është i saktë ose ka skaduar.";
+  if(/duplicate key/i.test(m)) return "Kjo ekziston tashmë.";
+  if(/Failed to fetch|NetworkError/i.test(m)) return "Nuk u lidh me serverin. Kontrollo internetin.";
+  return "Gabim: "+m;}
+function msg(box,text,ok){box.innerHTML='<div class="msg '+(ok?"ok":"err")+'" role="status">'+esc(text)+'</div>';}
+
+async function boot(){
+  var s=await db.auth.getSession(); me=s.data.session?s.data.session.user:null;
+  if(me) await loadProfile();
+  if(me&&profile&&profile.role==="worker"&&pendingApply){ var id=pendingApply; pendingApply=null; savePending(); await apply(id); return; }
+  if(!me){ var h=location.hash+location.search; if(/error_description=/.test(h)){ render(); alertBox("Linku ka skaduar ose është përdorur. Kërko një të ri."); return; } }
+  render();
+}
+db.auth.onAuthStateChange(function(ev,session){
+  if(ev==="SIGNED_IN"&&session&&(!me||me.id!==session.user.id)){ setTimeout(function(){ boot(); },0); }
+});
+async function loadProfile(){
+  var r=await db.from("profiles").select("*").eq("id",me.id).maybeSingle();
+  profile=r.data||null;
+}
+function renderAuth(){
+  el("auth").innerHTML=me
+    ? (profile?'<button class="btn alt sm" data-act="account">'+esc(profile.name)+'</button>':'')+'<button class="link" data-act="logout">Dil</button>'
+    : '<button class="btn sm" data-act="login">Hyr ose regjistrohu</button>';
+}
+async function render(){
+  renderAuth();
+  if(me&&!profile) return renderProfileForm();
+  if(view==="account"&&me) return renderAccount();
+  return renderBoard();
+}
+
+/* ---------- Lista e punëve ---------- */
+async function renderBoard(){
+  var m=el("main");
+  m.innerHTML='<h1>Punë për sot, për javën, për muajin.</h1><p class="muted">Zgjidh qytetin dhe apliko.</p>'+
+    '<div class="chips" id="chips"></div><div id="list"><p class="muted">Duke u ngarkuar…</p></div>';
+  el("chips").innerHTML='<button class="chip" data-city="all" aria-pressed="'+(fCity==="all")+'">Të gjithë qytetet</button>'+
+    BIG.map(function(c){return '<button class="chip" data-city="'+c+'" aria-pressed="'+(fCity===c)+'">'+esc(CITY[c])+'</button>';}).join("")+
+    '<button class="chip" data-stu="1" aria-pressed="'+fStu+'">Për studentë</button>';
+  var q=db.from("jobs").select("*, firm:profiles(name)").eq("active",true).order("urgent",{ascending:false}).order("created_at",{ascending:false}).limit(100);
+  if(fCity!=="all") q=q.eq("city",fCity);
+  if(fStu) q=q.eq("student",true);
+  var r=await q, mine={};
+  if(!el("list")) return;
+  if(r.error){ msg(el("list"),errText(r.error)); return; }
+  if(me&&profile&&profile.role==="worker"){
+    var a=await db.from("applications").select("job_id,status").eq("worker_id",me.id);
+    (a.data||[]).forEach(function(x){mine[x.job_id]=x.status;});
+    if(!el("list")) return;
+  }
+  if(!r.data.length){ el("list").innerHTML='<div class="card"><p class="role">Ende asnjë punë këtu.</p><p class="muted">Bëhu i pari që poston një punë, ose provo një qytet tjetër.</p></div>'; return; }
+  el("list").innerHTML=r.data.map(function(j){
+    var own=me&&j.owner===me.id, st=mine[j.id];
+    var btn=own?'<span class="tag n">Puna jote</span>'
+      :st?'<span class="tag'+(st==="rejected"?" bad":"")+'">'+esc(STAT[st])+'</span>'
+      :(profile&&profile.role!=="worker")?'':'<button class="btn" data-act="apply" data-id="'+j.id+'">Apliko</button>';
+    return '<div class="card"><div class="row"><div><div class="role">'+esc(ROLE[j.job_role]||j.job_role)+'</div>'+
+      '<div class="muted small">'+esc((j.firm&&j.firm.name)||"")+' · '+esc(CITY[j.city]||j.city)+' · '+esc(j.when_text)+'</div></div>'+
+      '<div class="pay">'+esc(Number(j.pay))+' <small>'+esc(UNIT[j.unit]||"")+'</small></div></div>'+
+      '<div class="row" style="margin-top:12px"><div><span class="tag o">'+esc(TYPE[j.job_type]||"")+'</span>'+(j.urgent?'<span class="tag bad">Urgjente</span>':'')+(j.student?'<span class="tag">Për studentë</span>':'')+'<span class="tag n">'+esc(j.spots)+' vende</span></div>'+btn+'</div></div>';
+  }).join("");
+}
+
+/* ---------- Hyrja me kod në email ---------- */
+function openLogin(){
+  el("dlgBody").innerHTML='<h2 style="margin-top:0">Hyr ose regjistrohu</h2><p class="muted">Shkruaj email-in. Të dërgojmë një link për të hyrë. Pa fjalëkalim.</p>'+
+    '<form id="fEmail"><label for="em">Email-i yt</label><input id="em" type="email" required autocomplete="email" placeholder="emri@gmail.com">'+
+    '<div id="m1"></div><div class="row" style="margin-top:14px"><button class="btn" type="submit">Më dërgo linkun</button><button class="link" type="button" data-act="close">Mbyll</button></div></form>';
+  el("dlg").showModal();
+}
+async function sendCode(email,btn){
+  btn.disabled=true; savePending();
+  var r=await db.auth.signInWithOtp({email:email,options:{shouldCreateUser:true,emailRedirectTo:location.origin+location.pathname}});
+  btn.disabled=false;
+  if(r.error){ msg(el("m1"),errText(r.error)); return; }
+  el("dlgBody").innerHTML='<h2 style="margin-top:0">Shiko email-in</h2><p>Dërguam një link te <strong>'+esc(email)+'</strong>.</p><p class="muted">Hape email-in dhe shtyp linkun. Do të kthehesh këtu i kyçur. Shiko edhe te Spam.</p>'+
+    '<div class="row" style="margin-top:14px"><button class="btn" type="button" data-act="close">Në rregull</button><button class="link" type="button" data-act="login">Ndrysho email-in</button></div>';
+}
+
+/* ---------- Profili ---------- */
+function renderProfileForm(){
+  el("main").innerHTML='<h1>Kush je ti?</h1><p class="muted">Vetëm kjo, dhe je gati.</p><form id="fProf" class="card">'+
+    '<label for="pr">Unë jam</label><select id="pr">'+opts(ROLENAME,pendingApply?"worker":"firm")+'</select>'+
+    '<label for="pn">Emri (ose emri i firmës)</label><input id="pn" required maxlength="60" autocomplete="name">'+
+    '<label for="pc">Qyteti</label><select id="pc">'+opts(CITY,"pr")+'</select>'+
+    '<div id="m2"></div><button class="btn" type="submit" style="margin-top:16px">Ruaj dhe vazhdo</button></form>';
+}
+async function saveProfile(btn){
+  btn.disabled=true;
+  var r=await db.from("profiles").insert({id:me.id,role:el("pr").value,name:el("pn").value.trim(),city:el("pc").value}).select().single();
+  btn.disabled=false;
+  if(r.error){ msg(el("m2"),errText(r.error)); return; }
+  profile=r.data;
+  if(pendingApply&&profile.role==="worker"){ var id=pendingApply; pendingApply=null; savePending(); view="account"; await apply(id); return; }
+  else { pendingApply=null; savePending(); view=profile.role==="worker"?"board":"account"; }
+  render();
+}
+
+/* ---------- Aplikimi ---------- */
+async function apply(id){
+  if(!me){ pendingApply=id; savePending(); openLogin(); return; }
+  if(!profile){ pendingApply=id; savePending(); render(); return; }
+  var r=await db.from("applications").insert({job_id:id,worker_id:me.id});
+  if(r.error&&!/duplicate key/i.test(r.error.message)){ alertBox(errText(r.error)); return; }
+  render();
+}
+function alertBox(text){ el("dlgBody").innerHTML='<p>'+esc(text)+'</p><button class="btn" data-act="close">Në rregull</button>'; el("dlg").showModal(); }
+
+/* ---------- Llogaria ---------- */
+async function renderAccount(){
+  var m=el("main");
+  m.innerHTML='<p class="muted small">Llogaria · '+esc(ROLENAME[profile.role])+'</p><h1>'+esc(profile.name)+'</h1><p><button class="link" data-act="board">Kthehu te punët</button></p><div id="acc"><p class="muted">Duke u ngarkuar…</p></div>';
+  if(profile.role==="worker") return renderMyApps();
+  var r=await db.from("jobs").select("*, applications(id,status,worker:profiles(name,city))").eq("owner",me.id).order("created_at",{ascending:false});
+  if(!el("acc")) return;
+  var form='<h2>Posto një punë</h2><form id="fJob" class="card">'+
+    '<label for="jr">Çfarë pune</label><select id="jr">'+opts(ROLE,"waiter")+'</select>'+
+    '<label for="jw">Kur</label><input id="jw" required maxlength="80" placeholder="E shtunë · 18:00–24:00">'+
+    '<div class="two"><div><label for="jp">Paga</label><input id="jp" type="number" min="0" step="0.5" required value="7"></div><div><label for="ju">Njësia</label><select id="ju">'+opts(UNIT,"h")+'</select></div></div>'+
+    '<div class="two"><div><label for="jc">Qyteti</label><select id="jc">'+opts(CITY,profile.city||"pr")+'</select></div><div><label for="js">Sa persona</label><input id="js" type="number" min="1" max="50" required value="1"></div></div>'+
+    '<label for="jt">Lloji</label><select id="jt">'+opts(TYPE,"d")+'</select>'+
+    '<label class="chk"><input type="checkbox" id="jst"> E përshtatshme për studentë</label>'+
+    '<label class="chk"><input type="checkbox" id="jug"> Urgjente</label>'+
+    '<div id="m3"></div><button class="btn" type="submit" style="margin-top:16px">Posto</button></form>';
+  var list;
+  if(r.error) list='<div class="msg err">'+esc(errText(r.error))+'</div>';
+  else if(!r.data.length) list='<p class="muted">Ende nuk ke postuar asnjë punë.</p>';
+  else list=r.data.map(function(j){
+    var ap=j.applications||[];
+    return '<div class="card"><div class="row"><div><div class="role">'+esc(ROLE[j.job_role]||j.job_role)+'</div><div class="muted small">'+esc(CITY[j.city]||j.city)+' · '+esc(j.when_text)+' · '+esc(Number(j.pay))+' '+esc(UNIT[j.unit]||"")+'</div></div>'+
+      '<button class="btn danger sm" data-act="deljob" data-id="'+j.id+'">Fshij</button></div>'+
+      '<p class="small muted" style="margin:10px 0 0">Aplikues: '+ap.length+'</p>'+
+      ap.map(function(a){
+        return '<div class="person row"><div><strong>'+esc((a.worker&&a.worker.name)||"Punëtor")+'</strong> <span class="muted small">'+esc((a.worker&&CITY[a.worker.city])||"")+'</span><br><span class="tag'+(a.status==="rejected"?" bad":a.status==="pending"?" n":"")+'">'+esc(STAT[a.status])+'</span></div>'+
+          (a.status==="pending"?'<div><button class="btn sm" data-act="setapp" data-id="'+a.id+'" data-st="accepted">Prano</button> <button class="btn alt sm" data-act="setapp" data-id="'+a.id+'" data-st="rejected">Refuzo</button></div>':'')+'</div>';
+      }).join("")+'</div>';
+  }).join("");
+  el("acc").innerHTML=form+'<h2>Shpalljet e mia</h2>'+list;
+}
+async function renderMyApps(){
+  var r=await db.from("applications").select("id,status,job:jobs(job_role,city,when_text,pay,unit,firm:profiles(name))").eq("worker_id",me.id).order("created_at",{ascending:false});
+  if(!el("acc")) return;
+  var h='<h2>Aplikimet e mia</h2>';
+  if(r.error) h+='<div class="msg err">'+esc(errText(r.error))+'</div>';
+  else if(!r.data.length) h+='<p class="muted">Ende nuk ke aplikuar. Kthehu te punët dhe shtyp Apliko.</p>';
+  else h+=r.data.map(function(a){ var j=a.job||{};
+    return '<div class="card"><div class="row"><div><div class="role">'+esc(ROLE[j.job_role]||j.job_role||"")+'</div><div class="muted small">'+esc((j.firm&&j.firm.name)||"")+' · '+esc(CITY[j.city]||"")+' · '+esc(j.when_text||"")+' · '+esc(Number(j.pay))+' '+esc(UNIT[j.unit]||"")+'</div></div>'+
+      '<span class="tag'+(a.status==="rejected"?" bad":a.status==="pending"?" n":"")+'">'+esc(STAT[a.status])+'</span></div>'+
+      (a.status==="pending"?'<button class="link" data-act="withdraw" data-id="'+a.id+'">Tërhiq aplikimin</button>':'')+'</div>'; }).join("");
+  el("acc").innerHTML=h;
+}
+async function postJob(btn){
+  btn.disabled=true;
+  var r=await db.from("jobs").insert({owner:me.id,job_role:el("jr").value,city:el("jc").value,job_type:el("jt").value,when_text:el("jw").value.trim(),pay:parseFloat(el("jp").value)||0,unit:el("ju").value,spots:parseInt(el("js").value,10)||1,student:el("jst").checked,urgent:el("jug").checked});
+  btn.disabled=false;
+  if(r.error){ msg(el("m3"),errText(r.error)); return; }
+  renderAccount();
+}
+
+/* ---------- Ngjarjet ---------- */
+document.addEventListener("submit",function(e){
+  e.preventDefault(); var f=e.target, b=f.querySelector('button[type="submit"]');
+  if(f.id==="fEmail") sendCode(el("em").value.trim(),b);
+  else if(f.id==="fProf") saveProfile(b);
+  else if(f.id==="fJob") postJob(b);
+});
+document.addEventListener("click",async function(e){
+  var c=e.target.closest("[data-city]"); if(c){ fCity=c.getAttribute("data-city"); renderBoard(); return; }
+  if(e.target.closest("[data-stu]")){ fStu=!fStu; renderBoard(); return; }
+  if(e.target.closest("#home")){ e.preventDefault(); view="board"; render(); return; }
+  var a=e.target.closest("[data-act]"); if(!a) return;
+  var k=a.getAttribute("data-act"), id=a.getAttribute("data-id");
+  if(k==="login") openLogin();
+  else if(k==="close") el("dlg").close();
+  else if(k==="logout"){ me=null; await db.auth.signOut(); profile=null; view="board"; render(); }
+  else if(k==="account"){ view="account"; render(); }
+  else if(k==="board"){ view="board"; render(); }
+  else if(k==="apply"){ a.disabled=true; await apply(id); }
+  else if(k==="setapp"){ a.disabled=true; var r=await db.from("applications").update({status:a.getAttribute("data-st")}).eq("id",id); if(r.error) alertBox(errText(r.error)); renderAccount(); }
+  else if(k==="withdraw"){ a.disabled=true; var r2=await db.from("applications").delete().eq("id",id); if(r2.error) alertBox(errText(r2.error)); renderAccount(); }
+  else if(k==="deljob"){
+    if(a.getAttribute("data-sure")!=="1"){ a.setAttribute("data-sure","1"); a.textContent="Shtyp prapë për ta fshirë"; return; }
+    a.disabled=true; var r3=await db.from("jobs").delete().eq("id",id); if(r3.error) alertBox(errText(r3.error)); renderAccount(); }
+});
+boot().catch(function(e){ el("main").innerHTML='<div class="msg err">'+esc(errText(e))+'</div>'; });
+</script></body></html>
