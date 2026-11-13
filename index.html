@@ -102,6 +102,13 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 :root{--ic-bg:#E3EDE6;--ic:#0B3B2D}
 @media (prefers-color-scheme:dark){:root{--ic-bg:#163A2F;--ic:#F6F3EA}}
 .big{--ic-bg:#E3EDE6;--ic:#0B3B2D}
+.pwrow{display:flex;gap:6px;align-items:center}.pwrow input{flex:1;min-width:0}
+.citysel{width:auto;font:600 16px var(--fb);padding:10px 14px}.citysel.on{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+@media (prefers-color-scheme:dark){.citysel.on{background:var(--signal);color:var(--signal-ink);border-color:var(--signal)}}
+.gbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#fff;color:#1f1f1f;border:1.5px solid #747775}
+details.more>summary{list-style:none;cursor:pointer}details.more>summary::-webkit-details-marker{display:none}
+.skills{display:flex;flex-wrap:wrap;gap:6px}.skills label{margin:0;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;color:var(--ink);font-weight:600;cursor:pointer}.skills input{width:18px;height:18px}
+textarea{width:100%;font:500 17px var(--fb);padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);min-height:84px}
 </style></head><body><div class="wrap">
 <header><a href="#" id="home" class="logo" aria-label="Eja Jobs"><svg viewBox="0 0 339.8 108.7" height="38" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eja Jobs"><path class="lg-ink" d="M58.5 58.345186288976535H19.8Q20.200000000000003 63.54518628897653 23.150000000000002 66.29518628897654Q26.1 69.04518628897654 30.400000000000002 69.04518628897654Q36.800000000000004 69.04518628897654 39.300000000000004 63.64518628897653H57.5Q56.1 69.14518628897653 52.45 73.54518628897654Q48.800000000000004 77.94518628897653 43.300000000000004 80.44518628897653Q37.800000000000004 82.94518628897653 31.0 82.94518628897653Q22.8 82.94518628897653 16.4 79.44518628897653Q10.0 75.94518628897653 6.4 69.44518628897653Q2.8000000000000003 62.94518628897653 2.8000000000000003 54.24518628897653Q2.8000000000000003 45.54518628897653 6.3500000000000005 39.04518628897653Q9.9 32.54518628897653 16.3 29.04518628897653Q22.700000000000003 25.54518628897653 31.0 25.54518628897653Q39.1 25.54518628897653 45.400000000000006 28.94518628897653Q51.7 32.34518628897653 55.25 38.64518628897653Q58.800000000000004 44.94518628897653 58.800000000000004 53.345186288976535Q58.800000000000004 55.74518628897653 58.5 58.345186288976535ZM41.300000000000004 48.84518628897653Q41.300000000000004 44.44518628897653 38.300000000000004 41.84518628897653Q35.300000000000004 39.24518628897653 30.8 39.24518628897653Q26.5 39.24518628897653 23.55 41.74518628897653Q20.6 44.245186288976534 19.900000000000002 48.84518628897653Z M82.9 89.34518628897654Q82.9 99.64518628897653 77.7 104.19518628897653Q72.5 108.74518628897653 63.2 108.74518628897653H56.5V94.24518628897653H60.6Q63.4 94.24518628897653 64.6 93.14518628897653Q65.8 92.04518628897654 65.8 89.54518628897654V26.345186288976528H82.9Z M114.4 25.54518628897653Q120.30000000000001 25.54518628897653 124.75 27.94518628897653Q129.2 30.345186288976528 131.6 34.24518628897653V26.345186288976528H148.7V82.14518628897653H131.6V74.24518628897653Q129.1 78.14518628897653 124.65 80.54518628897654Q120.2 82.94518628897653 114.3 82.94518628897653Q107.5 82.94518628897653 101.9 79.39518628897653Q96.3 75.84518628897654 93.05 69.29518628897654Q89.8 62.74518628897653 89.8 54.14518628897653Q89.8 45.54518628897653 93.05 39.04518628897653Q96.3 32.54518628897653 101.9 29.04518628897653Q107.5 25.54518628897653 114.4 25.54518628897653ZM119.4 40.44518628897653Q114.3 40.44518628897653 110.75 44.095186288976535Q107.2 47.745186288976534 107.2 54.14518628897653Q107.2 60.54518628897653 110.75 64.29518628897654Q114.3 68.04518628897654 119.4 68.04518628897654Q124.5 68.04518628897654 128.05 64.34518628897654Q131.6 60.64518628897653 131.6 54.24518628897653Q131.6 47.84518628897653 128.05 44.14518628897653Q124.5 40.44518628897653 119.4 40.44518628897653Z"/><circle class="lg-gold" cx="74.3" cy="10.7" r="10.7"/><path class="lg-gold" d="M210.4378580357653 55.59854850709422V74.73504567072449Q210.4378580357653 78.28732957535047 208.2797500722022 80.34994603610104Q206.12164210863912 82.4125624968516 202.60755480513814 82.4125624968516Q199.09346750163718 82.4125624968516 196.93535953807407 80.34994603610104Q194.77725157451098 78.28732957535047 194.77725157451098 74.73504567072449H199.1698607038872Q199.2080573050122 76.49208932247498 200.06748083032494 77.52339755285027Q200.92690435563767 78.55470578322554 202.60755480513814 78.55470578322554Q204.2882052546386 78.55470578322554 205.16672708051385 77.50429925228775Q206.04524890638908 76.45389272134996 206.04524890638908 74.73504567072449V55.59854850709422Z M232.09533087364628 68.81457249634786Q232.09533087364628 64.91851918159679 233.90966942708428 61.824594490470936Q235.72400798052226 58.73066979934508 238.8370309722106 56.992724448157105Q241.95005396389897 55.25477909696913 245.655124273025 55.25477909696913Q249.39839118327603 55.25477909696913 252.5114141749644 56.992724448157105Q255.62443716665274 58.73066979934508 257.4196774195282 61.824594490470936Q259.2149176724037 64.91851918159679 259.2149176724037 68.81457249634786Q259.2149176724037 72.71062581109894 257.4196774195282 75.82364880278729Q255.62443716665274 78.93667179447564 252.5114141749644 80.67461714566363Q249.39839118327603 82.4125624968516 245.655124273025 82.4125624968516Q241.95005396389897 82.4125624968516 238.8370309722106 80.67461714566363Q235.72400798052226 78.93667179447564 233.90966942708428 75.82364880278729Q232.09533087364628 72.71062581109894 232.09533087364628 68.81457249634786ZM254.74591534077751 68.81457249634786Q254.74591534077751 65.87343420972205 253.58091900646468 63.65803134447144Q252.41592267215185 61.44262847922083 250.35330621140128 60.25853384434551Q248.29068975065073 59.07443920947018 245.655124273025 59.07443920947018Q243.01955879539926 59.07443920947018 240.95694233464872 60.25853384434551Q238.89432587389814 61.44262847922083 237.7293295395853 63.65803134447144Q236.5643332052725 65.87343420972205 236.5643332052725 68.81457249634786Q236.5643332052725 71.75571078297367 237.7293295395853 73.9902119487868Q238.89432587389814 76.22471311459991 240.95694233464872 77.42790605003773Q243.01955879539926 78.63109898547556 245.655124273025 78.63109898547556Q248.29068975065073 78.63109898547556 250.35330621140128 77.42790605003773Q252.41592267215185 76.22471311459991 253.58091900646468 73.9902119487868Q254.74591534077751 71.75571078297367 254.74591534077751 68.81457249634786Z M298.86298964016464 75.00242187859956Q298.86298964016464 77.02684173822513 297.8125831092268 78.65019728603806Q296.76217657828903 80.27355283385101 294.7759533197885 81.20936956141378Q292.78973006128797 82.14518628897653 290.15416458366224 82.14518628897653H279.5355094709093V55.59854850709422H289.6576087690371Q292.36956744891285 55.59854850709422 294.31759410628837 56.51526693409447Q296.2656207636639 57.431985361094725 297.25873239291417 58.97894770665765Q298.25184402216445 60.52591005222058 298.25184402216445 62.43574010847111Q298.25184402216445 64.72753617597174 297.0295527861641 66.25540022097215Q295.8072615501638 67.78326426597258 293.7446450894132 68.50899968734778Q295.8836547524138 68.89096569859788 297.3733221962892 70.7625991537234Q298.86298964016464 72.63423260884892 298.86298964016464 75.00242187859956ZM283.8899219991605 66.75195603559729H289.27564275778695Q291.41465242078755 66.75195603559729 292.6178453562254 65.77794270690953Q293.8210382916632 64.80392937822175 293.8210382916632 62.97049252422126Q293.8210382916632 61.175252271345755 292.6178453562254 60.16304234153298Q291.41465242078755 59.1508324117202 289.27564275778695 59.1508324117202H283.8899219991605ZM294.50857711191344 74.54406266509943Q294.50857711191344 72.59603600772391 293.17169607253805 71.4501379739736Q291.83481503316267 70.30423994022327 289.61941216791206 70.30423994022327H283.8899219991605V78.59290238435055H289.7721985724121Q291.9876014376627 78.59290238435055 293.2480892747881 77.52339755285026Q294.50857711191344 76.45389272134996 294.50857711191344 74.54406266509943Z M318.99259843304515 74.81143887297452H323.6525837702964Q323.80537017479645 76.53028592359999 325.00856311023426 77.6379873562253Q326.21175604567213 78.7456887888506 328.38896230979776 78.7456887888506Q330.64256177617335 78.7456887888506 331.90304961329866 77.6570856567878Q333.16353745042403 76.568482524725 333.16353745042403 74.84963547409953Q333.16353745042403 73.51275443472416 332.3805071273613 72.67242920997393Q331.5974768042986 71.8321039852237 330.43248046998576 71.37374477172357Q329.267484135673 70.91538555822343 327.2048676749224 70.3806331424733Q324.6074987984217 69.6930943222231 322.9841432506088 68.98645720141042Q321.3607877027958 68.27982008059772 320.2148896690455 66.7901526367223Q319.06899163529516 65.30048519284689 319.06899163529516 62.81770611972121Q319.06899163529516 60.52591005222058 320.2148896690455 58.807063001595104Q321.3607877027958 57.08821595096963 323.42340416354637 56.17149752396938Q325.48602062429694 55.25477909696913 328.1979793041727 55.25477909696913Q332.05583601779875 55.25477909696913 334.51951679036193 57.18370745378216Q336.9831975629251 59.112635810595194 337.2505737708002 62.47393670959612H332.43780202904884Q332.32321222567384 61.022465866845714 331.0627243885485 59.99115763647043Q329.8022365514231 58.959849406095145 327.73962009067253 58.959849406095145Q325.867986635547 58.959849406095145 324.6838920006717 59.91476443422041Q323.4997973657964 60.86967946234567 323.4997973657964 62.66491971522117Q323.4997973657964 63.887210951221505 324.2446310877341 64.67024127428422Q324.9894648096718 65.45327159734694 326.1353628434221 65.91163081084707Q327.28126087717243 66.36999002434719 329.267484135673 66.90474244009734Q331.9030496132987 67.63047786147254 333.56460176223663 68.35621328284773Q335.2261539111746 69.08194870422294 336.39115024548744 70.59071444866086Q337.55614657980027 72.09948019309877 337.55614657980027 74.62045586734946Q337.55614657980027 76.64487572697502 336.46754344773746 78.4401159798505Q335.37894031567464 80.235356232726 333.2972255543616 81.3239593647888Q331.2155107930485 82.4125624968516 328.38896230979776 82.4125624968516Q325.715200231047 82.4125624968516 323.5761905680464 81.47674576928884Q321.4371809050458 80.54092904172609 320.2148896690455 78.82208199110062Q318.99259843304515 77.10323494047515 318.99259843304515 74.81143887297452Z"/></svg></a><div class="right"><div id="auth"></div><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="sq">SQ</button><button type="button" data-lang="en">EN</button></div></div></header>
 <main id="main"><p class="muted">Duke u ngarkuar…</p></main>
@@ -115,7 +122,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 "use strict";
 var SUPABASE_URL="https://ercqsqqfvccpwbpjmcls.supabase.co";
 var SUPABASE_KEY="sb_publishable_NfpjsF9jxPJ7cFGHnwlLxw_GUROvOE9";
-var CITY={"pr": {"sq": "Prishtinë", "en": "Pristina"}, "pz": {"sq": "Prizren", "en": "Prizren"}, "pe": {"sq": "Pejë", "en": "Peja"}, "gk": {"sq": "Gjakovë", "en": "Gjakova"}, "fz": {"sq": "Ferizaj", "en": "Ferizaj"}, "gj": {"sq": "Gjilan", "en": "Gjilan"}, "mt": {"sq": "Mitrovicë", "en": "Mitrovica"}, "de": {"sq": "Deçan", "en": "Deçan"}, "dg": {"sq": "Dragash", "en": "Dragash"}, "dr": {"sq": "Drenas", "en": "Drenas"}, "fk": {"sq": "Fushë Kosovë", "en": "Fushë Kosovë"}, "gr": {"sq": "Graçanicë", "en": "Graçanica"}, "he": {"sq": "Hani i Elezit", "en": "Hani i Elezit"}, "is": {"sq": "Istog", "en": "Istog"}, "ju": {"sq": "Junik", "en": "Junik"}, "ka": {"sq": "Kamenicë", "en": "Kamenica"}, "kc": {"sq": "Kaçanik", "en": "Kaçanik"}, "kl": {"sq": "Klinë", "en": "Klina"}, "ko": {"sq": "Kllokot", "en": "Kllokot"}, "le": {"sq": "Leposaviq", "en": "Leposaviq"}, "li": {"sq": "Lipjan", "en": "Lipjan"}, "ml": {"sq": "Malishevë", "en": "Malishevo"}, "ms": {"sq": "Mamushë", "en": "Mamusha"}, "mn": {"sq": "Mitrovicë e Veriut", "en": "North Mitrovica"}, "nb": {"sq": "Novobërdë", "en": "Novo Brdo"}, "ob": {"sq": "Obiliq", "en": "Obiliq"}, "pa": {"sq": "Partesh", "en": "Partesh"}, "pd": {"sq": "Podujevë", "en": "Podujevo"}, "ra": {"sq": "Rahovec", "en": "Rahovec"}, "rn": {"sq": "Ranillug", "en": "Ranilug"}, "st": {"sq": "Shtime", "en": "Shtime"}, "sr": {"sq": "Shtërpcë", "en": "Shtërpcë"}, "sk": {"sq": "Skenderaj", "en": "Skenderaj"}, "sh": {"sq": "Suharekë", "en": "Suhareka"}, "vi": {"sq": "Viti", "en": "Viti"}, "vu": {"sq": "Vushtrri", "en": "Vushtrri"}, "zp": {"sq": "Zubin Potok", "en": "Zubin Potok"}, "zv": {"sq": "Zveçan", "en": "Zvečan"}}, ROLE={"waiter": {"sq": "Kamarier/e", "en": "Waiter"}, "cleaner": {"sq": "Pastrues/e", "en": "Cleaner"}, "loader": {"sq": "Ngarkues/e", "en": "Loader"}, "helper": {"sq": "Ndihmës ndërtimi", "en": "Construction helper"}, "cashier": {"sq": "Arkëtar/e", "en": "Cashier"}, "driver": {"sq": "Dërgues", "en": "Delivery driver"}, "kitchen": {"sq": "Ndihmës kuzhine", "en": "Kitchen helper"}, "agent": {"sq": "Operator/e thirrjesh", "en": "Call agent"}, "hclean": {"sq": "Pastrim shtëpie", "en": "House cleaning"}, "garden": {"sq": "Kopsht dhe oborr", "en": "Garden and yard"}, "moving": {"sq": "Bartje / zhvendosje", "en": "Moving help"}, "repair": {"sq": "Riparime të vogla", "en": "Small repairs"}, "care": {"sq": "Kujdes për fëmijë / të moshuar", "en": "Child / elder care"}, "paint": {"sq": "Lyerje", "en": "Painting"}, "errand": {"sq": "Blerje dhe shërbime", "en": "Errands"}, "cook": {"sq": "Kuzhinier/e", "en": "Cook"}, "barista": {"sq": "Barista", "en": "Barista"}, "mason": {"sq": "Murator", "en": "Mason"}, "wedwaiter": {"sq": "Kamarier/e dasme", "en": "Wedding waiter"}, "wedcook": {"sq": "Kuzhinier/e dasme", "en": "Wedding cook"}, "decorator": {"sq": "Dekorues/e", "en": "Decorator"}, "dj": {"sq": "DJ / muzikë", "en": "DJ / music"}, "photographer": {"sq": "Fotograf/e", "en": "Photographer"}, "sales": {"sq": "Shitës/e", "en": "Sales assistant"}, "assistant": {"sq": "Asistent/e zyre", "en": "Office assistant"}, "farmhand": {"sq": "Punë bujqësore", "en": "Farm work"}}, CAT={"food": {"sq": "Gastronomi", "en": "Food & drink", "roles": ["waiter", "kitchen", "cook", "barista"]}, "events": {"sq": "Dasma dhe evente", "en": "Weddings & events", "roles": ["wedwaiter", "wedcook", "decorator", "dj", "photographer"]}, "build": {"sq": "Ndërtim", "en": "Construction", "roles": ["helper", "mason"]}, "home": {"sq": "Punë në shtëpi", "en": "Home jobs", "roles": ["hclean", "garden", "moving", "repair", "care", "paint", "errand"]}, "retail": {"sq": "Tregti", "en": "Retail", "roles": ["cashier", "sales"]}, "logi": {"sq": "Transport e magazina", "en": "Transport & warehouse", "roles": ["loader", "driver"]}, "clean": {"sq": "Pastrim", "en": "Cleaning", "roles": ["cleaner"]}, "office": {"sq": "Zyrë e thirrje", "en": "Office & calls", "roles": ["agent", "assistant"]}, "farm": {"sq": "Bujqësi", "en": "Farming", "roles": ["farmhand"]}}, FAQ=[{"q": {"sq": "Sa kushton?", "en": "How much does it cost?"}, "a": {"sq": "Për punëtorët është pa pagesë. Personat privatë kanë muajin e parë pa pagesë, dhe çmimi pas tij njoftohet më vonë. Firmat kanë muajin e parë falas, pastaj ose 3 € për çdo postim ose 19 € në muaj pa limit.", "en": "No charge for workers. Private persons get the first month free, and the price after that will be announced later. Firms get the first month free, then either €3 per post or €19 per month unlimited."}}, {"q": {"sq": "Si paguhem për punën?", "en": "How do I get paid?"}, "a": {"sq": "Paga merret vesh drejtpërdrejt mes teje dhe punëdhënësit, me para në dorë ose me bankë. Platforma nuk e prek pagën.", "en": "Pay is agreed directly between you and the employer, in cash or by bank. The platform never handles wages."}}, {"q": {"sq": "Nuk dij të përdor teknologjinë. Si hyj?", "en": "I'm not good with technology. How do I sign in?"}, "a": {"sq": "Shkruaj email-in dhe një fjalëkalim. Herën e parë hapet llogaria, herën tjetër hyn me të njëjtat. Nëse ngec, kërko ndihmë nga dikush i afërt.", "en": "Enter your email and a password. The first time creates your account, next time you sign in with the same details."}}, {"q": {"sq": "A është e sigurt?", "en": "Is it safe?"}, "a": {"sq": "Çdo palë ka profil dhe vlerësime nga përdorues të tjerë. Kontakti i plotë shfaqet vetëm pasi aplikimi pranohet. Mos jep kurrë para përpara punës.", "en": "Every party has a profile and reviews from other users. Full contact details appear only once an application is accepted. Never pay money before the work."}}, {"q": {"sq": "Po nëse dikush nuk e respekton marrëveshjen?", "en": "What if someone doesn't keep the agreement?"}, "a": {"sq": "Lër një vlerësim të sinqertë, që të tjerët ta dinë. Është një platformë lidhëse, jo punëdhënës, ndaj marrëveshja mbetet mes dy palëve.", "en": "Leave an honest review so others know. This is a matching platform, not an employer, so the agreement stays between the two parties."}}];
+var CITY={"pr": {"sq": "Prishtinë", "en": "Pristina"}, "pz": {"sq": "Prizren", "en": "Prizren"}, "pe": {"sq": "Pejë", "en": "Peja"}, "gk": {"sq": "Gjakovë", "en": "Gjakova"}, "fz": {"sq": "Ferizaj", "en": "Ferizaj"}, "gj": {"sq": "Gjilan", "en": "Gjilan"}, "mt": {"sq": "Mitrovicë", "en": "Mitrovica"}, "de": {"sq": "Deçan", "en": "Deçan"}, "dg": {"sq": "Dragash", "en": "Dragash"}, "dr": {"sq": "Drenas", "en": "Drenas"}, "fk": {"sq": "Fushë Kosovë", "en": "Fushë Kosovë"}, "gr": {"sq": "Graçanicë", "en": "Graçanica"}, "he": {"sq": "Hani i Elezit", "en": "Hani i Elezit"}, "is": {"sq": "Istog", "en": "Istog"}, "ju": {"sq": "Junik", "en": "Junik"}, "ka": {"sq": "Kamenicë", "en": "Kamenica"}, "kc": {"sq": "Kaçanik", "en": "Kaçanik"}, "kl": {"sq": "Klinë", "en": "Klina"}, "ko": {"sq": "Kllokot", "en": "Kllokot"}, "le": {"sq": "Leposaviq", "en": "Leposaviq"}, "li": {"sq": "Lipjan", "en": "Lipjan"}, "ml": {"sq": "Malishevë", "en": "Malishevo"}, "ms": {"sq": "Mamushë", "en": "Mamusha"}, "mn": {"sq": "Mitrovicë e Veriut", "en": "North Mitrovica"}, "nb": {"sq": "Novobërdë", "en": "Novo Brdo"}, "ob": {"sq": "Obiliq", "en": "Obiliq"}, "pa": {"sq": "Partesh", "en": "Partesh"}, "pd": {"sq": "Podujevë", "en": "Podujevo"}, "ra": {"sq": "Rahovec", "en": "Rahovec"}, "rn": {"sq": "Ranillug", "en": "Ranilug"}, "st": {"sq": "Shtime", "en": "Shtime"}, "sr": {"sq": "Shtërpcë", "en": "Shtërpcë"}, "sk": {"sq": "Skenderaj", "en": "Skenderaj"}, "sh": {"sq": "Suharekë", "en": "Suhareka"}, "vi": {"sq": "Viti", "en": "Viti"}, "vu": {"sq": "Vushtrri", "en": "Vushtrri"}, "zp": {"sq": "Zubin Potok", "en": "Zubin Potok"}, "zv": {"sq": "Zveçan", "en": "Zvečan"}}, ROLE={"waiter": {"sq": "Kamarier/e", "en": "Waiter"}, "cleaner": {"sq": "Pastrues/e", "en": "Cleaner"}, "loader": {"sq": "Ngarkues/e", "en": "Loader"}, "helper": {"sq": "Ndihmës ndërtimi", "en": "Construction helper"}, "cashier": {"sq": "Arkëtar/e", "en": "Cashier"}, "driver": {"sq": "Dërgues", "en": "Delivery driver"}, "kitchen": {"sq": "Ndihmës kuzhine", "en": "Kitchen helper"}, "agent": {"sq": "Operator/e thirrjesh", "en": "Call agent"}, "hclean": {"sq": "Pastrim shtëpie", "en": "House cleaning"}, "garden": {"sq": "Kopsht dhe oborr", "en": "Garden and yard"}, "moving": {"sq": "Bartje / zhvendosje", "en": "Moving help"}, "repair": {"sq": "Riparime të vogla", "en": "Small repairs"}, "care": {"sq": "Kujdes për fëmijë / të moshuar", "en": "Child / elder care"}, "paint": {"sq": "Lyerje", "en": "Painting"}, "errand": {"sq": "Blerje dhe shërbime", "en": "Errands"}, "cook": {"sq": "Kuzhinier/e", "en": "Cook"}, "barista": {"sq": "Barista", "en": "Barista"}, "mason": {"sq": "Murator", "en": "Mason"}, "wedwaiter": {"sq": "Kamarier/e dasme", "en": "Wedding waiter"}, "wedcook": {"sq": "Kuzhinier/e dasme", "en": "Wedding cook"}, "decorator": {"sq": "Dekorues/e", "en": "Decorator"}, "dj": {"sq": "DJ / muzikë", "en": "DJ / music"}, "photographer": {"sq": "Fotograf/e", "en": "Photographer"}, "sales": {"sq": "Shitës/e", "en": "Sales assistant"}, "assistant": {"sq": "Asistent/e zyre", "en": "Office assistant"}, "farmhand": {"sq": "Punë bujqësore", "en": "Farm work"}}, CAT={"food": {"sq": "Gastronomi", "en": "Food & drink", "roles": ["waiter", "kitchen", "cook", "barista"]}, "events": {"sq": "Dasma dhe evente", "en": "Weddings & events", "roles": ["wedwaiter", "wedcook", "decorator", "dj", "photographer"]}, "build": {"sq": "Ndërtim", "en": "Construction", "roles": ["helper", "mason"]}, "home": {"sq": "Punë në shtëpi", "en": "Home jobs", "roles": ["hclean", "garden", "moving", "repair", "care", "paint", "errand"]}, "retail": {"sq": "Tregti", "en": "Retail", "roles": ["cashier", "sales"]}, "logi": {"sq": "Transport e magazina", "en": "Transport & warehouse", "roles": ["loader", "driver"]}, "clean": {"sq": "Pastrim", "en": "Cleaning", "roles": ["cleaner"]}, "office": {"sq": "Zyrë e thirrje", "en": "Office & calls", "roles": ["agent", "assistant"]}, "farm": {"sq": "Bujqësi", "en": "Farming", "roles": ["farmhand"]}}, FAQ=[{"q": {"sq": "Sa kushton?", "en": "How much does it cost?"}, "a": {"sq": "Për punëtorët është pa pagesë. Personat privatë kanë muajin e parë pa pagesë, dhe çmimi pas tij njoftohet më vonë. Firmat kanë muajin e parë falas, pastaj ose 3 € për çdo postim ose 19 € në muaj pa limit.", "en": "No charge for workers. Private persons get the first month free, and the price after that will be announced later. Firms get the first month free, then either €3 per post or €19 per month unlimited."}}, {"q": {"sq": "Si paguhem për punën?", "en": "How do I get paid?"}, "a": {"sq": "Paga merret vesh drejtpërdrejt mes teje dhe punëdhënësit, me para në dorë ose me bankë. Platforma nuk e prek pagën.", "en": "Pay is agreed directly between you and the employer, in cash or by bank. The platform never handles wages."}}, {"q": {"sq": "Nuk dij të përdor teknologjinë. Si hyj?", "en": "I'm not good with technology. How do I sign in?"}, "a": {"sq": "Shtyp \"Hyr ose regjistrohu\" dhe pastaj \"Vazhdo me Google\". Zgjidh llogarinë e Google që ke në telefon. Nuk të duhet fjalëkalim i ri. Nëse ngec, kërko ndihmë nga dikush i afërt.", "en": "Tap \"Sign in or register\" and then \"Continue with Google\". Choose the Google account on your phone. No new password needed."}}, {"q": {"sq": "A është e sigurt?", "en": "Is it safe?"}, "a": {"sq": "Çdo palë ka profil dhe vlerësime nga përdorues të tjerë. Kontakti i plotë shfaqet vetëm pasi aplikimi pranohet. Mos jep kurrë para përpara punës.", "en": "Every party has a profile and reviews from other users. Full contact details appear only once an application is accepted. Never pay money before the work."}}, {"q": {"sq": "Po nëse dikush nuk e respekton marrëveshjen?", "en": "What if someone doesn't keep the agreement?"}, "a": {"sq": "Lër një vlerësim të sinqertë, që të tjerët ta dinë. Është një platformë lidhëse, jo punëdhënës, ndaj marrëveshja mbetet mes dy palëve.", "en": "Leave an honest review so others know. This is a matching platform, not an employer, so the agreement stays between the two parties."}}];
 var ROLECAT={}; Object.keys(CAT).forEach(function(c){ CAT[c].roles.forEach(function(r){ ROLECAT[r]=c; }); });
 var BIG=["pr","pz","pe","gk","fz","gj","mt"], TILES=["retail","logi","food","clean","build","home"];
 var UNIT={h:{sq:"€/orë",en:"€/hour"},d:{sq:"€/ditë",en:"€/day"},m:{sq:"€/muaj",en:"€/month"}};
@@ -134,12 +141,12 @@ var T={
  b_worker:["Kërkoj punë","I'm looking for work"],b_worker_d:["Punë ditore, javore, mujore","Daily, weekly, monthly jobs"],
  b_priv:["Kam punë në shtëpi","I have a job at home"],b_priv_d:["Pastrim, kopsht, bartje, riparime","Cleaning, garden, moving, repairs"],
  stu:["Për studentë","For students"],board_h:["Punët e hapura","Open jobs"],all_cities:["Të gjithë qytetet","All cities"],
- search:["Kërko punë ose firmë…","Search job or firm…"],clear_cat:["Hiq kategorinë","Clear category"],
+ other_city:["Qytet tjetër…","Other city…"],search:["Kërko punë ose firmë…","Search job or firm…"],clear_cat:["Hiq kategorinë","Clear category"],
  empty_h:["Ende asnjë punë këtu.","No jobs here yet."],empty_p:["Bëhu i pari që poston një punë, ose provo një filtër tjetër.","Be the first to post a job, or try another filter."],
  more:["Shiko edhe {n} punë","Show {n} more jobs"],apply:["Apliko","Apply"],yours:["Puna jote","Your job"],urgent:["Urgjente","Urgent"],
  spot1:["vend","spot"],spotN:["vende","spots"],
  how_h:["Si funksionon","How it works"],
- s1:["Hap llogari","Open an account"],s1p:["Me email dhe fjalëkalim.","With email and password."],
+ s1:["Hap llogari","Open an account"],s1p:["Me llogarinë tënde të Google.","With your Google account."],
  s2:["Posto ose apliko","Post or apply"],s2p:["Firma poston, punëtori aplikon.","The firm posts, the worker applies."],
  s3:["Firma zgjedh","The firm chooses"],s3p:["Pas pranimit shihni telefonin e njëri-tjetrit.","After acceptance you see each other's phone."],
  s4:["Punëtori vjen në punë","The worker arrives"],s4p:["Ardhja konfirmohet me kod.","Arrival is confirmed with a code."],
@@ -152,6 +159,16 @@ var T={
  auth_p:["Herën e parë hapet llogaria. Herën tjetër hyn me të njëjtat të dhëna.","The first time creates your account. Next time, sign in with the same details."],
  email:["Email-i yt","Your email"],pw:["Fjalëkalimi (të paktën 6 shkronja)","Password (at least 6 characters)"],cont:["Vazhdo","Continue"],close:["Mbyll","Close"],ok:["Në rregull","OK"],
  e_rate:["Shumë kërkesa. Prit pak minuta dhe provo përsëri.","Too many requests. Wait a few minutes and try again."],e_dup:["Kjo ekziston tashmë.","This already exists."],e_net:["Nuk u lidh me serverin. Kontrollo internetin.","Could not reach the server. Check your connection."],e_gen:["Gabim: ","Error: "],e_pw:["Fjalëkalimi nuk është i saktë.","Wrong password."],e_conf:["Llogaria u krijua, por kërkon konfirmim me email.","Account created, but it needs email confirmation."],
+ show:["Shfaq","Show"],hide:["Fshih","Hide"],forgot:["Harrova fjalëkalimin","Forgot password"],forgot_need:["Shkruaj email-in më parë.","Enter your email first."],
+ forgot_sent:["Të dërguam një link te {e}. Hape email-in dhe shtyp linkun. Shiko edhe te Spam.","We sent a link to {e}. Open the email and tap the link. Check Spam too."],
+ newpw_h:["Vendos fjalëkalim të ri","Set a new password"],newpw:["Fjalëkalimi i ri (të paktën 6 shkronja)","New password (at least 6 characters)"],newpw_ok:["Fjalëkalimi u ndryshua.","Password changed."],
+ google:["Vazhdo me Google","Continue with Google"],google_p:["Hyr me llogarinë tënde të Google. Pa fjalëkalim të ri.","Sign in with your Google account. No new password."],
+ email_old:["Kam llogari me email dhe fjalëkalim","I have an account with email and password"],e_cred:["Email-i ose fjalëkalimi nuk është i saktë. Për llogari të re përdor Google.","Wrong email or password. For a new account use Google."],
+ edit_prof:["Ndrysho profilin","Edit profile"],edit_h:["Profili yt","Your profile"],cancel:["Anulo","Cancel"],optional:["Këto janë opsionale, por ndihmojnë që të zgjedhin ty.","These are optional, but they help others choose you."],
+ f_birth:["Viti i lindjes","Year of birth"],f_skills:["Çfarë punësh bën","What work you do"],f_exp:["Përvoja","Experience"],f_exp_ph:["P.sh. 2 vjet kamarier","E.g. 2 years as a waiter"],f_student:["Jam student/e","I am a student"],f_avail:["Kur je i lirë","When you are free"],f_avail_ph:["P.sh. fundjavë, pas orës 16","E.g. weekends, after 4 pm"],
+ f_nui:["Numri i biznesit (NUI)","Business number (NUI)"],f_addr:["Adresa","Address"],f_addr_p:["Lagjja ose adresa","Neighbourhood or address"],f_contact:["Personi kontaktues","Contact person"],f_about:["Përshkrim i shkurtër","Short description"],
+ addr_note:["Adresën e sheh vetëm pala tjetër, pasi aplikimi të pranohet.","Only the other party sees the address, after the application is accepted."],
+ years:["vjeç","years old"],student:["Student/e","Student"],verified:["E verifikuar","Verified"],
  who_h:["Kush je ti?","Who are you?"],who_p:["Vetëm kjo, dhe je gati.","Just this, and you're set."],iam:["Unë jam","I am"],city:["Qyteti","City"],phone:["Numri i telefonit","Phone number"],
  phone_note:["Numrin e sheh vetëm pala tjetër, dhe vetëm pasi aplikimi të pranohet.","Only the other party sees your number, and only after the application is accepted."],save_go:["Ruaj dhe vazhdo","Save and continue"],save:["Ruaj","Save"],
  acc:["Llogaria","Account"],back:["Kthehu te punët","Back to jobs"],your_phone:["Telefoni yt","Your phone"],add_phone:["Shto numrin e telefonit","Add your phone number"],
@@ -169,7 +186,7 @@ var lang="sq"; try{ lang=localStorage.getItem("eja-lang")==="en"?"en":"sq"; }cat
 function t(k){ var v=T[k]; return v?v[lang==="en"?1:0]:k; }
 function L(o){ return o?(o[lang]||o.sq||""):""; }
 var db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-var me=null, profile=null, myPhone=null, view=(location.hash==="#llogaria"?"account":"home"), fCity="all", fCat="all", fStu=false, fQ="", showAll=false, JOBS=[], RT={}, MINE={}, pendingApply=null, manual=false;
+var me=null, profile=null, myPhone=null, myCon={}, myDet={}, editing=false, view=(location.hash==="#llogaria"?"account":"home"), fCity="all", fCat="all", fStu=false, fQ="", showAll=false, JOBS=[], RT={}, MINE={}, pendingApply=null, manual=false;
 function savePending(){ try{ if(pendingApply) localStorage.setItem("eja-apply",pendingApply); else localStorage.removeItem("eja-apply"); }catch(e){} }
 try{ pendingApply=localStorage.getItem("eja-apply")||null; }catch(e){}
 function el(id){return document.getElementById(id);}
@@ -190,9 +207,24 @@ async function ratingsFor(ids){ var m={}; ids=uniq(ids); if(!ids.length) return 
   (r.data||[]).forEach(function(x){ var o=m[x.target_id]||(m[x.target_id]={n:0,s:0}); o.n++; o.s+=x.stars; }); return m; }
 function rate(o){ return o?'<span class="rate">★ '+(o.s/o.n).toFixed(1)+' ('+o.n+')</span>':''; }
 async function phonesFor(ids){ var m={}; ids=uniq(ids); if(!ids.length) return m;
-  var r=await db.from("contacts").select("id,phone").in("id",ids);
-  (r.data||[]).forEach(function(x){ m[x.id]=x.phone; }); return m; }
-function phoneLine(ph){ return ph?'<p style="margin:10px 0 0">'+esc(t("tel"))+': <a href="tel:'+esc(cleanPhone(ph))+'"><strong>'+esc(ph)+'</strong></a></p>':'<p class="muted small" style="margin:10px 0 0">'+esc(t("no_tel"))+'</p>'; }
+  var r=await db.from("contacts").select("*").in("id",ids);
+  (r.data||[]).forEach(function(x){ m[x.id]=x; }); return m; }
+async function detailsFor(ids){ var m={}; ids=uniq(ids); if(!ids.length) return m;
+  var r=await db.from("worker_details").select("*").in("id",ids);
+  (r.data||[]).forEach(function(x){ m[x.id]=x; }); return m; }
+function detLine(d){ if(!d) return ""; var a=[];
+  if(d.birth_year) a.push((new Date().getFullYear()-d.birth_year)+" "+t("years"));
+  if(d.student) a.push(t("student"));
+  if(d.skills&&d.skills.length) a.push(d.skills.map(function(k){return L(CAT[k]);}).filter(Boolean).join(", "));
+  var h=a.length?'<p class="small muted" style="margin:6px 0 0">'+esc(a.join(" · "))+'</p>':'';
+  if(d.experience) h+='<p class="small" style="margin:4px 0 0">'+esc(d.experience)+'</p>';
+  if(d.available) h+='<p class="small muted" style="margin:4px 0 0">'+esc(t("f_avail"))+': '+esc(d.available)+'</p>';
+  return h; }
+function phoneLine(c){ c=c||{}; var ph=c.phone;
+  var h=ph?'<p style="margin:10px 0 0">'+esc(t("tel"))+': <a href="tel:'+esc(cleanPhone(ph))+'"><strong>'+esc(ph)+'</strong></a></p>':'<p class="muted small" style="margin:10px 0 0">'+esc(t("no_tel"))+'</p>';
+  if(c.contact_person) h+='<p class="small" style="margin:4px 0 0">'+esc(t("f_contact"))+': '+esc(c.contact_person)+'</p>';
+  if(c.address) h+='<p class="small" style="margin:4px 0 0">'+esc(t("f_addr"))+': '+esc(c.address)+'</p>';
+  return h; }
 function statTag(st){ return '<span class="tag'+(st==="rejected"?" bad":st==="pending"?" n":"")+'">'+esc(L(STAT[st]))+'</span>'; }
 
   function illus(c){
@@ -212,16 +244,21 @@ function statTag(st){ return '<span class="tag'+(st==="rejected"?" bad":st==="pe
 async function boot(){
   var s=await db.auth.getSession(); me=s.data.session?s.data.session.user:null;
   if(me) await loadProfile();
+  if(me&&el("dlg").open&&!el("fNewPw")) el("dlg").close();
   if(me&&profile&&profile.role==="worker"&&pendingApply){ var id=pendingApply; pendingApply=null; savePending(); await apply(id); return; }
   render();
 }
 db.auth.onAuthStateChange(function(ev,session){
+  if(ev==="PASSWORD_RECOVERY"){ setTimeout(openNewPw,400); }
   if(!manual&&ev==="SIGNED_IN"&&session&&(!me||me.id!==session.user.id)){ setTimeout(function(){ boot(); },0); }
 });
 async function loadProfile(){
   var r=await db.from("profiles").select("*").eq("id",me.id).maybeSingle();
-  profile=r.data||null; myPhone=null;
-  if(profile){ var c=await db.from("contacts").select("phone").eq("id",me.id).maybeSingle(); myPhone=(c.data&&c.data.phone)||null; }
+  profile=r.data||null; myPhone=null; myCon={}; myDet={};
+  if(profile){
+    var c=await db.from("contacts").select("*").eq("id",me.id).maybeSingle(); myCon=c.data||{}; myPhone=myCon.phone||null;
+    if(profile.role==="worker"){ var d=await db.from("worker_details").select("*").eq("id",me.id).maybeSingle(); myDet=d.data||{}; }
+  }
 }
 function renderAuth(){
   el("auth").innerHTML=me
@@ -237,7 +274,8 @@ function syncHash(){
 }
 function render(){
   renderAuth();
-  if(me&&!profile) return renderProfileForm();
+  if(me&&!profile){ editing=false; return renderProfileForm(); }
+  if(me&&editing) return renderProfileForm(true);
   if(view==="account"&&!me) view="home";
   syncHash();
   if(view==="account") return renderAccount();
@@ -266,7 +304,7 @@ async function renderHome(){
   await loadJobs(); renderBoard(); loadReviews();
 }
 async function loadJobs(){
-  var r=await db.from("jobs").select("*, firm:profiles(name)").eq("active",true).order("urgent",{ascending:false}).order("created_at",{ascending:false}).limit(200);
+  var r=await db.from("jobs").select("*, firm:profiles(name,verified)").eq("active",true).order("urgent",{ascending:false}).order("created_at",{ascending:false}).limit(200);
   JOBS=r.data||[]; MINE={};
   RT=JOBS.length?await ratingsFor(JOBS.map(function(j){return j.owner;})):{};
   if(me&&profile&&profile.role==="worker"){ var a=await db.from("applications").select("job_id,status").eq("worker_id",me.id); (a.data||[]).forEach(function(x){ MINE[x.job_id]=x.status; }); }
@@ -275,7 +313,9 @@ async function loadJobs(){
 function renderBoard(){
   if(!el("list")) return;
   el("chips").innerHTML='<button class="chip" data-city="all" aria-pressed="'+(fCity==="all")+'">'+esc(t("all_cities"))+'</button>'+
-    BIG.map(function(c){return '<button class="chip" data-city="'+c+'" aria-pressed="'+(fCity===c)+'">'+esc(L(CITY[c]))+'</button>';}).join("");
+    BIG.map(function(c){return '<button class="chip" data-city="'+c+'" aria-pressed="'+(fCity===c)+'">'+esc(L(CITY[c]))+'</button>';}).join("")+
+    (function(){ var rest=Object.keys(CITY).filter(function(c){return BIG.indexOf(c)<0;}).sort(function(a,b){return L(CITY[a]).localeCompare(L(CITY[b]));}), on=fCity!=="all"&&BIG.indexOf(fCity)<0;
+      return '<select id="citySel" class="chip citysel'+(on?" on":"")+'" aria-label="'+esc(t("other_city"))+'"><option value="">'+esc(t("other_city"))+'</option>'+rest.map(function(c){return '<option value="'+c+'"'+(fCity===c?" selected":"")+'>'+esc(L(CITY[c]))+'</option>';}).join("")+'</select>'; })();
   el("stuBtn").setAttribute("aria-pressed",fStu?"true":"false");
   document.querySelectorAll("#tiles .tile").forEach(function(b){ b.setAttribute("aria-pressed",b.getAttribute("data-cat")===fCat?"true":"false"); });
   el("catbar").innerHTML=fCat!=="all"?'<p><span class="tag o">'+esc(L(CAT[fCat]))+'</span><button class="link" data-cat="all">'+esc(t("clear_cat"))+'</button></p>':'';
@@ -290,7 +330,7 @@ function renderBoard(){
     var own=me&&j.owner===me.id, st=MINE[j.id];
     var btn=own?'<span class="tag n">'+esc(t("yours"))+'</span>':st?statTag(st):(profile&&profile.role!=="worker")?'':'<button class="btn" data-act="apply" data-id="'+j.id+'">'+esc(t("apply"))+'</button>';
     return '<div class="card"><div class="row"><div><div class="role">'+esc(L(ROLE[j.job_role])||j.job_role)+'</div>'+
-      '<div class="muted small">'+esc((j.firm&&j.firm.name)||"")+' '+rate(RT[j.owner])+' · '+esc(L(CITY[j.city])||j.city)+' · '+esc(j.when_text)+'</div></div>'+
+      '<div class="muted small">'+esc((j.firm&&j.firm.name)||"")+' '+(j.firm&&j.firm.verified?'<span class="tag">✓ '+esc(t("verified"))+'</span>':'')+rate(RT[j.owner])+' · '+esc(L(CITY[j.city])||j.city)+' · '+esc(j.when_text)+'</div></div>'+
       '<div class="pay">'+esc(Number(j.pay))+' <small>'+esc(L(UNIT[j.unit]))+'</small></div></div>'+
       '<div class="row" style="margin-top:12px"><div><span class="tag o">'+esc(L(TYPE[j.job_type]))+'</span>'+(j.urgent?'<span class="tag bad">'+esc(t("urgent"))+'</span>':'')+(j.student?'<span class="tag">'+esc(t("stu"))+'</span>':'')+'<span class="tag n">'+esc(spots(j.spots))+'</span></div>'+btn+'</div></div>';
   }).join("")+(rows.length>vis.length?'<button class="btn alt" data-act="more" style="width:100%">'+esc(t("more").replace("{n}",rows.length-vis.length))+'</button>':'');
@@ -312,44 +352,97 @@ function go(role){
 
 /* ---------- Hyrja ---------- */
 function openLogin(){
-  el("dlgBody").innerHTML='<h2 style="margin-top:0">'+esc(t("login"))+'</h2><p class="muted">'+esc(t("auth_p"))+'</p>'+
+  el("dlgBody").innerHTML='<h2 style="margin-top:0">'+esc(t("login"))+'</h2><p class="muted">'+esc(t("google_p"))+'</p>'+
+    '<button type="button" class="btn gbtn" data-act="google"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.5 12.2c0-.8-.1-1.500-.2-2.200H12v4.200h5.900a5 5 0 01-2.200 3.300v2.700h3.600c2.100-1.900 3.200-4.800 3.200-8z"/><path fill="#34A853" d="M12 23c3 0 5.500-1 7.300-2.800l-3.600-2.700c-1 .7-2.300 1.100-3.700 1.100-2.900 0-5.300-1.900-6.200-4.600H2.100v2.800A11 11 0 0012 23z"/><path fill="#FBBC05" d="M5.800 14a6.600 6.600 0 010-4.200V7H2.100a11 11 0 000 9.900z"/><path fill="#EA4335" d="M12 5.400c1.600 0 3.100.6 4.200 1.600l3.200-3.200A11 11 0 002.100 7l3.700 2.800C6.700 7.300 9.100 5.400 12 5.400z"/></svg> '+esc(t("google"))+'</button><div id="m0"></div>'+
+    '<details class="more" style="margin-top:16px"><summary class="link" style="padding-left:0">'+esc(t("email_old"))+'</summary>'+
     '<form id="fEmail"><label for="em">'+esc(t("email"))+'</label><input id="em" type="email" required autocomplete="email" placeholder="emri@gmail.com">'+
-    '<label for="pw">'+esc(t("pw"))+'</label><input id="pw" type="password" required minlength="6" autocomplete="current-password">'+
-    '<div id="m1"></div><div class="row" style="margin-top:14px"><button class="btn" type="submit">'+esc(t("cont"))+'</button><button class="link" type="button" data-act="close">'+esc(t("close"))+'</button></div></form>';
+    '<label for="pw">'+esc(t("pw"))+'</label><div class="pwrow"><input id="pw" type="password" required minlength="6" autocomplete="current-password"><button type="button" class="link" data-act="showpw" data-for="pw">'+esc(t("show"))+'</button></div>'+
+    '<p style="margin:8px 0 0"><button type="button" class="link" data-act="forgot" style="padding-left:0">'+esc(t("forgot"))+'</button></p>'+
+    '<div id="m1"></div><button class="btn alt" type="submit" style="margin-top:12px">'+esc(t("cont"))+'</button></form></details>'+
+    '<p style="margin:14px 0 0;text-align:right"><button class="link" type="button" data-act="close">'+esc(t("close"))+'</button></p>';
   el("dlg").showModal();
+}
+async function googleIn(btn){
+  btn.disabled=true; savePending();
+  var r=await db.auth.signInWithOAuth({provider:"google",options:{redirectTo:location.origin+location.pathname}});
+  if(r.error){ btn.disabled=false; msg(el("m0"),errText(r.error)); }
 }
 async function signIn(email,pw,btn){
   btn.disabled=true; manual=true; savePending();
   try{
-    var r=await db.auth.signInWithPassword({email:email,password:pw}), user=r.data&&r.data.user;
-    if(r.error){
-      if(!/invalid login credentials/i.test(r.error.message)){ msg(el("m1"),errText(r.error)); return; }
-      var s2=await db.auth.signUp({email:email,password:pw});
-      if(s2.error){ msg(el("m1"),/already registered/i.test(s2.error.message)?t("e_pw"):errText(s2.error)); return; }
-      if(!s2.data.session){ msg(el("m1"),s2.data.user&&s2.data.user.identities&&!s2.data.user.identities.length?t("e_pw"):t("e_conf")); return; }
-      user=s2.data.user;
-    }
-    me=user; el("dlg").close(); await boot();
+    var r=await db.auth.signInWithPassword({email:email,password:pw});
+    if(r.error){ msg(el("m1"),/invalid login credentials/i.test(r.error.message)?t("e_cred"):errText(r.error)); return; }
+    me=r.data.user; el("dlg").close(); await boot();
   } finally { btn.disabled=false; manual=false; }
+}
+async function forgot(btn){
+  var email=(el("em").value||"").trim();
+  if(!email){ msg(el("m1"),t("forgot_need")); el("em").focus(); return; }
+  btn.disabled=true;
+  var r=await db.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});
+  btn.disabled=false;
+  if(r.error){ msg(el("m1"),errText(r.error)); return; }
+  msg(el("m1"),t("forgot_sent").replace("{e}",email),true);
+}
+function openNewPw(){
+  el("dlgBody").innerHTML='<h2 style="margin-top:0">'+esc(t("newpw_h"))+'</h2><form id="fNewPw"><label for="npw">'+esc(t("newpw"))+'</label><div class="pwrow"><input id="npw" type="password" required minlength="6" autocomplete="new-password"><button type="button" class="link" data-act="showpw" data-for="npw">'+esc(t("show"))+'</button></div>'+
+    '<div id="m6"></div><div class="row" style="margin-top:14px"><button class="btn" type="submit">'+esc(t("save"))+'</button></div></form>';
+  if(!el("dlg").open) el("dlg").showModal();
+}
+async function saveNewPw(btn){
+  btn.disabled=true;
+  var r=await db.auth.updateUser({password:el("npw").value});
+  btn.disabled=false;
+  if(r.error){ msg(el("m6"),errText(r.error)); return; }
+  el("dlgBody").innerHTML='<div class="msg ok">'+esc(t("newpw_ok"))+'</div><button class="btn" data-act="close">'+esc(t("ok"))+'</button>';
 }
 
 /* ---------- Profili ---------- */
-function renderProfileForm(){
-  var r0=pendingApply?"worker":"firm";
-  el("main").innerHTML='<h1>'+esc(t("who_h"))+'</h1><p class="muted">'+esc(t("who_p"))+'</p><form id="fProf" class="card" style="max-width:520px">'+
-    '<label for="pr">'+esc(t("iam"))+'</label><select id="pr">'+opts(ROLENAME,r0)+'</select>'+
-    '<label for="pn" id="pnl">'+esc(L(NAMELBL[r0]))+'</label><input id="pn" required maxlength="60" autocomplete="name">'+
-    '<label for="pc">'+esc(t("city"))+'</label><select id="pc">'+opts(CITY,"pr")+'</select>'+
-    '<label for="ph">'+esc(t("phone"))+'</label><input id="ph" type="tel" required minlength="8" maxlength="20" autocomplete="tel" placeholder="044 123 456">'+
+function roleFields(role){
+  var v=function(x){ return esc(x==null?"":x); };
+  if(role==="worker") return '<p class="muted small" style="margin:16px 0 0">'+esc(t("optional"))+'</p>'+
+    '<label for="fb">'+esc(t("f_birth"))+'</label><input id="fb" type="number" inputmode="numeric" min="1930" max="2015" placeholder="2001" value="'+v(myDet.birth_year)+'">'+
+    '<label>'+esc(t("f_skills"))+'</label><div class="skills">'+Object.keys(CAT).map(function(k){ return '<label><input type="checkbox" name="sk" value="'+k+'"'+((myDet.skills||[]).indexOf(k)>=0?" checked":"")+'> '+esc(L(CAT[k]))+'</label>'; }).join("")+'</div>'+
+    '<label for="fx">'+esc(t("f_exp"))+'</label><input id="fx" maxlength="120" placeholder="'+esc(t("f_exp_ph"))+'" value="'+v(myDet.experience)+'">'+
+    '<label for="fv">'+esc(t("f_avail"))+'</label><input id="fv" maxlength="80" placeholder="'+esc(t("f_avail_ph"))+'" value="'+v(myDet.available)+'">'+
+    '<label class="chk"><input type="checkbox" id="fs"'+(myDet.student?" checked":"")+'> '+esc(t("f_student"))+'</label>';
+  var h='<p class="muted small" style="margin:16px 0 0">'+esc(t("optional"))+'</p>';
+  if(role==="firm") h+='<label for="fn">'+esc(t("f_nui"))+'</label><input id="fn" inputmode="numeric" maxlength="12" value="'+v(profile&&profile.nui)+'">'+
+    '<label for="fc">'+esc(t("f_contact"))+'</label><input id="fc" maxlength="60" value="'+v(myCon.contact_person)+'">';
+  h+='<label for="fa">'+esc(t(role==="firm"?"f_addr":"f_addr_p"))+'</label><input id="fa" maxlength="120" autocomplete="street-address" value="'+v(myCon.address)+'"><p class="muted small" style="margin:6px 0 0">'+esc(t("addr_note"))+'</p>';
+  if(role==="firm") h+='<label for="fo">'+esc(t("f_about"))+'</label><textarea id="fo" maxlength="300">'+v(profile&&profile.about)+'</textarea>';
+  return h;
+}
+function renderProfileForm(edit){
+  var r0=edit?profile.role:(pendingApply?"worker":"firm");
+  el("main").innerHTML='<h1 style="font-size:clamp(28px,5vw,44px)">'+esc(t(edit?"edit_h":"who_h"))+'</h1>'+(edit?'':'<p class="muted">'+esc(t("who_p"))+'</p>')+'<form id="fProf" class="card" style="max-width:560px" data-edit="'+(edit?1:0)+'">'+
+    '<label for="pr">'+esc(t("iam"))+'</label><select id="pr"'+(edit?" disabled":"")+'>'+opts(ROLENAME,r0)+'</select>'+
+    '<label for="pn" id="pnl">'+esc(L(NAMELBL[r0]))+'</label><input id="pn" required maxlength="60" autocomplete="name" value="'+esc(edit?profile.name:"")+'">'+
+    '<label for="pc">'+esc(t("city"))+'</label><select id="pc">'+opts(CITY,edit?(profile.city||"pr"):"pr")+'</select>'+
+    '<label for="ph">'+esc(t("phone"))+'</label><input id="ph" type="tel" required minlength="8" maxlength="20" autocomplete="tel" placeholder="044 123 456" value="'+esc(edit?(myPhone||""):"")+'">'+
     '<p class="muted small" style="margin:6px 0 0">'+esc(t("phone_note"))+'</p>'+
-    '<div id="m2"></div><button class="btn" type="submit" style="margin-top:16px">'+esc(t("save_go"))+'</button></form>';
+    '<div id="rf">'+roleFields(r0)+'</div>'+
+    '<div id="m2"></div><div class="row" style="margin-top:16px;justify-content:flex-start"><button class="btn" type="submit">'+esc(t(edit?"save":"save_go"))+'</button>'+(edit?'<button class="link" type="button" data-act="canceledit">'+esc(t("cancel"))+'</button>':'')+'</div></form>';
 }
 async function saveProfile(btn){
+  var edit=el("fProf").getAttribute("data-edit")==="1", role=edit?profile.role:el("pr").value;
+  var val=function(id){ var n=el(id); return n?(n.value||"").trim()||null:null; };
+  var base={name:el("pn").value.trim(),city:el("pc").value,about:role==="firm"?val("fo"):null,nui:role==="firm"?val("fn"):null};
   btn.disabled=true;
-  var r=await db.from("profiles").insert({id:me.id,role:el("pr").value,name:el("pn").value.trim(),city:el("pc").value}).select().single();
+  var r=edit?await db.from("profiles").update(base).eq("id",me.id).select().single()
+           :await db.from("profiles").insert(Object.assign({id:me.id,role:role},base)).select().single();
   if(r.error){ btn.disabled=false; msg(el("m2"),errText(r.error)); return; }
-  var ph=el("ph").value.trim(), c=await db.from("contacts").upsert({id:me.id,phone:ph});
-  btn.disabled=false; profile=r.data; myPhone=c.error?null:ph;
+  profile=r.data;
+  var ph=el("ph").value.trim(), con={id:me.id,phone:ph,address:role==="worker"?null:val("fa"),contact_person:role==="firm"?val("fc"):null};
+  var c=await db.from("contacts").upsert(con);
+  if(c.error){ c=await db.from("contacts").upsert({id:me.id,phone:ph}); }
+  if(!c.error){ myCon=con; myPhone=ph; }
+  if(role==="worker"){
+    var by=parseInt(val("fb"),10), det={id:me.id,birth_year:(by>=1930&&by<=2015)?by:null,skills:Array.prototype.map.call(document.querySelectorAll('input[name="sk"]:checked'),function(x){return x.value;}),experience:val("fx"),available:val("fv"),student:!!(el("fs")&&el("fs").checked)};
+    var d=await db.from("worker_details").upsert(det); if(!d.error) myDet=det;
+  }
+  btn.disabled=false;
+  if(edit){ editing=false; view="account"; render(); return; }
   if(pendingApply&&profile.role==="worker"){ var id=pendingApply; pendingApply=null; savePending(); view="account"; await apply(id); return; }
   pendingApply=null; savePending(); view=profile.role==="worker"?"home":"account"; render();
 }
@@ -380,12 +473,12 @@ async function arrivalsFor(appIds){ var m={}; appIds=uniq(appIds); if(!appIds.le
   if(r.error) return null;
   (r.data||[]).forEach(function(x){ m[x.application_id]=x.confirmed_at||""; }); return m; }
 async function renderAccount(){
-  el("main").innerHTML='<p class="muted small">'+esc(t("acc"))+' · '+esc(L(ROLENAME[profile.role]))+'</p><h1 style="font-size:clamp(28px,5vw,44px)">'+esc(profile.name)+'</h1><p><button class="link" data-act="home">'+esc(t("back"))+'</button></p><div id="acc"><p class="muted">'+esc(t("loading"))+'</p></div>';
+  el("main").innerHTML='<p class="muted small">'+esc(t("acc"))+' · '+esc(L(ROLENAME[profile.role]))+'</p><h1 style="font-size:clamp(28px,5vw,44px)">'+esc(profile.name)+'</h1><p><button class="link" data-act="home">'+esc(t("back"))+'</button> <button class="link" data-act="editprof">'+esc(t("edit_prof"))+'</button></p><div id="acc"><p class="muted">'+esc(t("loading"))+'</p></div>';
   if(profile.role==="worker") return renderMyApps();
   var r=await db.from("jobs").select("*, applications(id,status,worker_id,worker:profiles(name,city))").eq("owner",me.id).order("created_at",{ascending:false});
   var jobs=r.data||[], wAll=[], wAcc=[], accIds=[];
   jobs.forEach(function(j){ (j.applications||[]).forEach(function(a){ wAll.push(a.worker_id); if(a.status==="accepted"){ wAcc.push(a.worker_id); accIds.push(a.id); } }); });
-  var ph=await phonesFor(wAcc), rt=await ratingsFor(wAll), mine=await myReviews(), arr=await arrivalsFor(accIds), nsN={}, nsMine={};
+  var ph=await phonesFor(wAcc), det=await detailsFor(wAll), rt=await ratingsFor(wAll), mine=await myReviews(), arr=await arrivalsFor(accIds), nsN={}, nsMine={};
   if(uniq(wAll).length){ var ns=await db.from("noshows").select("job_id,worker_id").in("worker_id",uniq(wAll)); (ns.data||[]).forEach(function(x){ nsN[x.worker_id]=(nsN[x.worker_id]||0)+1; nsMine[x.job_id+"|"+x.worker_id]=1; }); }
   if(!el("acc")) return;
   var form='<h2>'+esc(t("post_h"))+'</h2><form id="fJob" class="card" style="max-width:640px">'+
@@ -415,7 +508,7 @@ async function renderAccount(){
             (nsMine[k]?'<span class="tag bad">'+esc(t("noshow_done"))+'</span>':(arr&&arr[a.id]?'':'<button class="btn alt sm" data-act="noshow" data-job="'+j.id+'" data-worker="'+a.worker_id+'">'+esc(t("noshow"))+'</button>'))+'</div>';
         }
         return '<div class="person"><strong>'+esc(nm)+'</strong> '+rate(rt[a.worker_id])+' <span class="muted small">'+esc((a.worker&&L(CITY[a.worker.city]))||"")+'</span><br>'+statTag(a.status)+
-          (nsN[a.worker_id]?'<span class="tag bad">'+esc(t("noshow_n").replace("{n}",nsN[a.worker_id]))+'</span>':'')+acts+'</div>';
+          (nsN[a.worker_id]?'<span class="tag bad">'+esc(t("noshow_n").replace("{n}",nsN[a.worker_id]))+'</span>':'')+detLine(det[a.worker_id])+acts+'</div>';
       }).join("")+'</div>';
   }).join("");
   el("acc").innerHTML=phoneBox()+form+'<h2 style="margin-top:28px">'+esc(t("mine_h"))+'</h2>'+list;
@@ -465,7 +558,7 @@ async function sendReview(f,btn){
 
 /* ---------- Ndihma ---------- */
 var HELP=[
- {k:"reg",kw:["regjistr","hyj","hyr","llogari","sign","register","account","login"],q:["Si regjistrohem?","How do I register?"],a:["Shtyp \"Hyr ose regjistrohu\" lart. Shkruaj email-in dhe një fjalëkalim me të paktën 6 shkronja. Herën e parë hapet llogaria, pastaj zgjedh a je firmë, punëtor apo person privat.","Tap \"Sign in or register\" at the top. Enter your email and a password of at least 6 characters. The first time creates your account, then you choose firm, worker or private person."]},
+ {k:"reg",kw:["regjistr","hyj","hyr","llogari","sign","register","account","login"],q:["Si regjistrohem?","How do I register?"],a:["Shtyp \"Hyr ose regjistrohu\" lart, pastaj \"Vazhdo me Google\". Zgjidh llogarinë tënde të Google. Herën e parë zgjedh a je firmë, punëtor apo person privat dhe plotëson profilin.","Tap \"Sign in or register\" at the top, then \"Continue with Google\". Choose your Google account. The first time you choose firm, worker or private person and fill in your profile."]},
  {k:"post",kw:["posto","shpall","pune te re","post","publish"],q:["Si postoj një punë?","How do I post a job?"],a:["Hyr si firmë ose person privat dhe shtyp emrin tënd lart. Te \"Posto një punë\" zgjidh punën, kur, pagën dhe qytetin, pastaj shtyp \"Posto\".","Sign in as a firm or private person and tap your name at the top. Under \"Post a job\" choose the job, when, pay and city, then tap \"Post\"."]},
  {k:"apply",kw:["apliko","aplikoj","aplikim","apply","kerkoj pune"],q:["Si aplikoj për punë?","How do I apply?"],a:["Te \"Punët e hapura\" shtyp \"Apliko\" te puna që të pëlqen. Nëse nuk ke llogari, hapet në atë çast. Statusin e sheh te emri yt lart, te \"Aplikimet e mia\".","Under \"Open jobs\" tap \"Apply\" on the job you like. If you have no account, it is created on the spot. See the status under your name, in \"My applications\"."]},
  {k:"phone",kw:["telefon","numr","kontakt","phone","contact","number"],q:["Kur e shoh telefonin?","When do I see the phone number?"],a:["Vetëm pasi firma ta pranojë aplikimin. Atëherë firma sheh numrin e punëtorit dhe punëtori numrin e firmës. Para kësaj askush nuk e sheh.","Only after the firm accepts the application. Then the firm sees the worker's number and the worker sees the firm's. Before that nobody sees it."]},
@@ -475,7 +568,7 @@ var HELP=[
  {k:"price",kw:["kushton","cmim","çmim","falas","tarif","price","cost","free"],q:["Sa kushton?","How much does it cost?"],a:["Për punëtorët është pa pagesë. Personat privatë kanë muajin e parë pa pagesë, dhe çmimi pas tij njoftohet më vonë. Firmat kanë muajin e parë falas, pastaj 3 € për postim ose 19 € në muaj. Gjatë fazës së testimit postimi është falas për të gjithë.","No charge for workers. Private persons get the first month free, and the price after that will be announced later. Firms get the first month free, then €3 per post or €19 per month. During the test phase posting is free for everyone."]},
  {k:"pay",kw:["pagu","page","paga","rrog","para","paid","salary","money"],q:["Si paguhem për punën?","How do I get paid?"],a:["Pagën e merr drejtpërdrejt nga firma, me para në dorë ose me bankë, siç jeni marrë vesh. Eja Jobs nuk e prek pagën. Mos i jep askujt para përpara punës.","You are paid directly by the firm, in cash or by bank, as agreed. Eja Jobs does not touch the pay. Never pay anyone money before the job."]},
  {k:"role",kw:["rol","ndrysho","ndërro","nderro","role","switch","change"],q:["A mund ta ndryshoj rolin?","Can I change my role?"],a:["Për momentin jo. Një llogari është ose punëtor, ose firmë, ose person privat. Për një rol tjetër përdor një email tjetër.","Not at the moment. An account is a worker, a firm or a private person. For another role use a different email."]},
- {k:"pw",kw:["fjalekalim","fjalëkalim","harrova","password","forgot"],q:["Harrova fjalëkalimin","I forgot my password"],a:["Rivendosja e fjalëkalimit ende nuk është gati në këtë version testimi. Na shkruaj te @eja.jobs në Instagram, TikTok ose Facebook dhe të ndihmojmë.","Password reset is not ready in this test version. Message us at @eja.jobs on Instagram, TikTok or Facebook and we will help."]}
+ {k:"pw",kw:["fjalekalim","fjalëkalim","harrova","password","forgot"],q:["Harrova fjalëkalimin","I forgot my password"],a:["Shtyp \"Hyr ose regjistrohu\", shkruaj email-in dhe shtyp \"Harrova fjalëkalimin\". Të vjen një email me link. Shtype dhe vendos një fjalëkalim të ri.","Tap \"Sign in or register\", enter your email and tap \"Forgot password\". You get an email with a link. Tap it and set a new password."]}
 ];
 var HT={title:["Ndihmë","Help"],hello:["Përshëndetje! Zgjidh një pyetje më poshtë ose shkruaje vetë.","Hi! Pick a question below or type your own."],ph:["Shkruaj pyetjen…","Type your question…"],send:["Dërgo","Send"],none:["Nuk e gjeta përgjigjen për këtë. Provo një nga pyetjet më poshtë, ose na shkruaj te @eja.jobs.","I couldn't find an answer to that. Try one of the questions below, or message us at @eja.jobs."]};
 function ht(k){ return HT[k][lang==="en"?1:0]; }
@@ -497,7 +590,8 @@ function helpAnswer(key,typed){
 /* ---------- Ngjarjet ---------- */
 document.addEventListener("submit",function(e){
   e.preventDefault(); var f=e.target, b=f.querySelector('button[type="submit"]');
-  if(f.id==="fEmail") signIn(el("em").value.trim(),el("pw").value,b);
+  if(f.id==="fNewPw") saveNewPw(b);
+  else if(f.id==="fEmail") signIn(el("em").value.trim(),el("pw").value,b);
   else if(f.id==="fProf") saveProfile(b);
   else if(f.id==="fJob") postJob(b);
   else if(f.id==="fPhone") savePhone(b);
@@ -505,7 +599,7 @@ document.addEventListener("submit",function(e){
   else if(f.id==="fHelp"){ var hv=el("hIn").value.trim(); if(hv){ el("hIn").value=""; helpAnswer(null,hv); } }
 });
 document.addEventListener("input",function(e){ if(e.target.id==="q"){ fQ=e.target.value; showAll=false; renderBoard(); } });
-document.addEventListener("change",function(e){ if(e.target.id==="pr"&&el("pnl")) el("pnl").textContent=L(NAMELBL[e.target.value]); });
+document.addEventListener("change",function(e){ if(e.target.id==="pr"&&el("rf")) el("rf").innerHTML=roleFields(e.target.value); if(e.target.id==="citySel"){ fCity=e.target.value||"all"; showAll=false; renderBoard(); return; } if(e.target.id==="pr"&&el("pnl")) el("pnl").textContent=L(NAMELBL[e.target.value]); });
 document.addEventListener("click",async function(e){
   var lb=e.target.closest(".lang button"); if(lb){ lang=lb.getAttribute("data-lang"); try{localStorage.setItem("eja-lang",lang);}catch(x){} render(); return; }
   var c=e.target.closest("[data-city]"); if(c){ fCity=c.getAttribute("data-city"); showAll=false; renderBoard(); return; }
@@ -517,6 +611,11 @@ document.addEventListener("click",async function(e){
   var st=e.target.closest("[data-star]"); if(st){ var v=parseInt(st.getAttribute("data-star"),10); el("stars").setAttribute("data-v",v); el("stars").querySelectorAll("button").forEach(function(x,i){ x.setAttribute("aria-pressed",i<v?"true":"false"); }); return; }
   var a=e.target.closest("[data-act]"); if(!a) return;
   var k=a.getAttribute("data-act"), id=a.getAttribute("data-id");
+  if(k==="showpw"){ var pi=el(a.getAttribute("data-for")), sh=pi.type==="password"; pi.type=sh?"text":"password"; a.textContent=t(sh?"hide":"show"); return; }
+  if(k==="forgot"){ forgot(a); return; }
+  if(k==="google"){ googleIn(a); return; }
+  if(k==="editprof"){ editing=true; render(); window.scrollTo(0,0); return; }
+  if(k==="canceledit"){ editing=false; render(); return; }
   if(k==="help") openHelp();
   else if(k==="helpclose") el("helpDlg").close();
   else if(k==="login") openLogin();
