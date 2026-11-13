@@ -11,7 +11,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.5}
 .wrap{max-width:1080px;margin:0 auto;padding:0 16px 96px}
 header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;margin-bottom:18px}
-header .right{display:flex;align-items:center;gap:6px;min-width:0}
+header .right{display:flex;align-items:center;gap:14px;min-width:0}
 .logo{display:block;line-height:0}.logo svg{height:30px;width:auto}
 .lg-ink{fill:var(--ink)}.lg-gold{fill:var(--signal)}
 .lang{display:flex;border:1.5px solid var(--line);border-radius:999px;padding:2px}
@@ -27,7 +27,13 @@ p{margin:0 0 12px}.muted{color:var(--muted)}.small{font-size:14px}
 .btn.sm{padding:8px 12px;min-height:38px;font-size:14px}
 .btn.danger{background:transparent;color:var(--bad);border:1.5px solid var(--bad)}
 .btn:disabled{opacity:.55;cursor:default}
-.who{max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.who{max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.umenu{position:relative}.ubtn{display:inline-flex;align-items:center;gap:6px;padding-left:12px;padding-right:10px}
+.udrop{position:absolute;right:0;top:calc(100% + 8px);min-width:200px;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:6px;box-shadow:0 12px 30px rgba(0,0,0,.18);z-index:20;display:flex;flex-direction:column}
+.udrop[hidden]{display:none}
+.udrop button{font:600 16px var(--fb);text-align:left;background:none;border:0;color:var(--ink);padding:12px 14px;border-radius:10px;cursor:pointer}
+.udrop button:hover,.udrop button:focus-visible{background:var(--bg)}
+.udrop button:last-child{border-top:1px solid var(--line);border-radius:0 0 10px 10px;margin-top:4px;color:var(--bad)}
 .link{background:none;border:0;color:var(--ink);text-decoration:underline;font:600 15px var(--fb);cursor:pointer;padding:6px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 10px}.stats div{min-width:0}.stats b{display:block;font:800 26px var(--fd);line-height:1.1}.stats span{font-size:13px;color:var(--muted)}
 .link.rep{font-weight:500;font-size:13px;color:var(--muted);padding:4px}
@@ -173,14 +179,14 @@ var T={
  rr_fake:["Shpallje e rreme ose mashtrim","Fake post or scam"],rr_pay:["Kërkon para nga punëtori","Asks the worker for money"],rr_bad:["Fyese ose e papërshtatshme","Offensive or inappropriate"],rr_danger:["Punë e rrezikshme ose e paligjshme","Dangerous or illegal work"],rr_other:["Tjetër","Other"],
  adm_h:["Raportimet","Reports"],adm_none:["Nuk ka raportime të hapura.","No open reports."],adm_n:["{n} raportime","{n} reports"],adm_1:["1 raportim","1 report"],st_h:["Numrat e platformës","Platform numbers"],st_users:["Përdorues gjithsej","Users in total"],st_firms:["Firma","Firms"],st_workers:["Punëtorë","Workers"],st_privates:["Persona privatë","Private persons"],st_week:["Të rinj këtë javë","New this week"],st_jobs:["Shpallje aktive","Active posts"],st_apps:["Aplikime","Applications"],st_accepted:["Aplikime të pranuara","Accepted applications"],st_reviews:["Vlerësime","Reviews"],adm_hide:["Hiqe shpalljen","Remove post"],adm_skip:["Injoro","Dismiss"],
  delacc:["Fshi llogarinë","Delete account"],delacc_h:["Ta fshij llogarinë?","Delete your account?"],delacc_p:["Fshihen përgjithmonë profili, numri i telefonit, shpalljet, aplikimet dhe vlerësimet e tua. Kjo nuk kthehet më.","Your profile, phone number, posts, applications and reviews are deleted for good. This cannot be undone."],delacc_yes:["Po, fshije përgjithmonë","Yes, delete for good"],delacc_ok:["Llogaria u fshi.","Your account was deleted."],
- minor_no:["Kjo punë është vetëm për persona mbi 18 vjeç.","This job is only for people over 18."],minor_note:["Je nën 18 vjeç, prandaj punët e rënda (ndërtim, ngarkim, bartje, dërgesa, kujdes për persona) nuk të shfaqen.","You are under 18, so heavy jobs (construction, loading, moving, delivery, care work) are not shown."],age_first:["Para se të aplikosh, shkruaj vitin e lindjes te profili.","Before applying, add your year of birth to your profile."],f_birth_hint:["Duhet të kesh së paku 15 vjeç. Nën 18 vjeç lejohen vetëm punë të lehta dhe jo të rrezikshme.","You must be at least 15. Under 18, only light, non-hazardous work is allowed."],age_min:["Për t'u regjistruar si punëtor duhet të kesh së paku 15 vjeç.","You must be at least 15 to register as a worker."],age_need:["Shkruaj vitin e lindjes, p.sh. 2001.","Enter your year of birth, e.g. 2001."],privacy:["Politika e privatësisë","Privacy policy"],f_skills:["Çfarë punësh bën","What work you do"],f_exp:["Përvoja","Experience"],f_exp_ph:["P.sh. 2 vjet kamarier","E.g. 2 years as a waiter"],f_student:["Jam student/e","I am a student"],f_avail:["Kur je i lirë","When you are free"],f_avail_ph:["P.sh. fundjavë, pas orës 16","E.g. weekends, after 4 pm"],
+ minor_no:["Kjo punë është vetëm për persona mbi 18 vjeç.","This job is only for people over 18."],minor_note:["Je nën 18 vjeç, prandaj punët e rënda (ndërtim, ngarkim, bartje, dërgesa, kujdes për persona) nuk të shfaqen.","You are under 18, so heavy jobs (construction, loading, moving, delivery, care work) are not shown."],age_first:["Para se të aplikosh, shkruaj vitin e lindjes te profili.","Before applying, add your year of birth to your profile."],f_birth_hint:["Duhet të kesh së paku 15 vjeç. Nën 18 vjeç lejohen vetëm punë të lehta dhe jo të rrezikshme.","You must be at least 15. Under 18, only light, non-hazardous work is allowed."],age_min:["Për t'u regjistruar si punëtor duhet të kesh së paku 15 vjeç.","You must be at least 15 to register as a worker."],age_need:["Shkruaj vitin e lindjes, p.sh. 2001.","Enter your year of birth, e.g. 2001."],privacy:["Politika e privatësisë","Privacy policy"],f_skills:["Çfarë punësh bën","What work you do"],f_exp:["Përvoja","Experience"],f_exp_ph:["P.sh. 2 vjet kamarier","E.g. 2 years as a waiter"],f_student:["Jam student/e aktualisht","I am currently a student"],f_avail:["Kur je i lirë","When you are free"],f_avail_ph:["P.sh. fundjavë, pas orës 16","E.g. weekends, after 4 pm"],
  f_nui:["Numri i biznesit (NUI)","Business number (NUI)"],f_addr:["Adresa","Address"],f_addr_p:["Lagjja ose adresa","Neighbourhood or address"],f_contact:["Personi kontaktues","Contact person"],f_about:["Përshkrim i shkurtër","Short description"],
  addr_note:["Adresën e sheh vetëm pala tjetër, pasi aplikimi të pranohet.","Only the other party sees the address, after the application is accepted."],
  years:["vjeç","years old"],student:["Student/e","Student"],verified:["E verifikuar","Verified"],
  who_h:["Kush je ti?","Who are you?"],who_p:["Vetëm kjo, dhe je gati.","Just this, and you're set."],iam:["Unë jam","I am"],city:["Qyteti","City"],phone:["Numri i telefonit","Phone number"],
  phone_note:["Numrin e sheh vetëm pala tjetër, dhe vetëm pasi aplikimi të pranohet.","Only the other party sees your number, and only after the application is accepted."],save_go:["Ruaj dhe vazhdo","Save and continue"],save:["Ruaj","Save"],
  acc:["Llogaria","Account"],back:["Kthehu te punët","Back to jobs"],your_phone:["Telefoni yt","Your phone"],add_phone:["Shto numrin e telefonit","Add your phone number"],
- post_h:["Posto një punë","Post a job"],what:["Çfarë pune","What job"],when:["Kur","When"],when_ph:["E shtunë · 18:00–24:00","Saturday · 18:00–24:00"],pay:["Paga","Pay"],unit:["Njësia","Unit"],people:["Sa persona","How many people"],type:["Lloji","Type"],
+ post_h:["Posto një punë","Post a job"],what:["Çfarë pune","What job"],when:["Kur","When"],date:["Data","Date"],date_hint:["Për punë javore ose mujore zgjidh ditën e fillimit.","For weekly or monthly work pick the start day."],t_from:["Nga ora","From"],t_to:["Deri në orën","Until"],date_bad:["Zgjidh një datë nga sot e tutje.","Pick a date from today onward."],place:["Fshati ose lagjja","Village or district"],place_ph:["P.sh. Kijevë ose Lagjja Dardania","E.g. Kijevë or Dardania district"],place_hint:["Shihet nga të gjithë, bashkë me qytetin.","Visible to everyone, together with the city."],exact_f:["Lokacioni i saktë (sipas dëshirës)","Exact location (optional)"],exact_ph:["P.sh. Rruga e Shkollës nr. 12, kati 2","E.g. School Street 12, 2nd floor"],exact_hint:["Këtë e sheh vetëm punëtori që e pranon.","Only the worker you accept sees this."],exact:["Lokacioni i saktë","Exact location"],exact_own:["Lokacioni i saktë (e shohin vetëm të pranuarit)","Exact location (only accepted workers see it)"],my_acc:["Llogaria ime","My account"],menu:["Menyja e llogarisë","Account menu"],f_edu:["Shkollimi i kryer","Education completed"],f_edu_none:["Zgjidh","Choose"],f_edu_field:["Drejtimi ose shkolla","Field or school"],f_edu_ph:["P.sh. Ekonomik, Universiteti i Prishtinës","E.g. Economics, University of Prishtina"],f_langs:["Gjuhët","Languages"],f_abil:["Aftësitë e punës","Work skills"],f_other:["Aftësi të tjera","Other skills"],f_other_ph:["P.sh. saldues, barist me certifikatë","E.g. welder, certified barista"],when_ph:["E shtunë · 18:00–24:00","Saturday · 18:00–24:00"],pay:["Paga","Pay"],unit:["Njësia","Unit"],people:["Sa persona","How many people"],type:["Lloji","Type"],
  for_stu:["E përshtatshme për studentë","Suitable for students"],post:["Posto","Post"],mine_h:["Shpalljet e mia","My postings"],none_posted:["Ende nuk ke postuar asnjë punë.","You haven't posted any jobs yet."],
  del:["Fshij","Delete"],del2:["Shtyp prapë për ta fshirë","Tap again to delete"],applicants:["Aplikues","Applicants"],accept:["Prano","Accept"],reject:["Refuzo","Decline"],worker:["Punëtor","Worker"],firm:["Firma","Firm"],
  tel:["Telefoni","Phone"],no_tel:["Ende nuk ka shtuar numër telefoni.","No phone number added yet."],review:["Vlerëso","Review"],review_firm:["Vlerëso firmën","Review the firm"],reviewed:["Vlerësuar","Reviewed"],
@@ -222,14 +228,17 @@ async function phonesFor(ids){ var m={}; ids=uniq(ids); if(!ids.length) return m
 async function detailsFor(ids){ var m={}; ids=uniq(ids); if(!ids.length) return m;
   var r=await db.from("worker_details").select("*").in("id",ids);
   (r.data||[]).forEach(function(x){ m[x.id]=x; }); return m; }
-function detLine(d){ if(!d) return ""; var a=[];
+function detLine(d){ if(!d) return ""; var a=[], rows=[];
   if(d.birth_year) a.push((new Date().getFullYear()-d.birth_year)+" "+t("years"));
   if(d.student) a.push(t("student"));
-  if(d.skills&&d.skills.length) a.push(d.skills.map(function(k){return L(CAT[k]);}).filter(Boolean).join(", "));
   var h=a.length?'<p class="small muted" style="margin:6px 0 0">'+esc(a.join(" · "))+'</p>':'';
-  if(d.experience) h+='<p class="small" style="margin:4px 0 0">'+esc(d.experience)+'</p>';
-  if(d.available) h+='<p class="small muted" style="margin:4px 0 0">'+esc(t("f_avail"))+': '+esc(d.available)+'</p>';
-  return h; }
+  var edu=[L(EDU[d.edu_level]),d.edu_field].filter(Boolean).join(", "), ab=[names(ABIL,d.abilities),d.other_skills].filter(Boolean).join(", ");
+  if(edu) rows.push([t("f_edu"),edu]);
+  if(d.skills&&d.skills.length) rows.push([t("f_skills"),names(CAT,d.skills)]);
+  if(d.experience) rows.push([t("f_exp"),d.experience]);
+  if(d.languages&&d.languages.length) rows.push([t("f_langs"),names(LANGS,d.languages)]);
+  if(ab) rows.push([t("f_abil"),ab]);
+  return h+rows.map(function(r){ return '<p class="small" style="margin:4px 0 0"><span class="muted">'+esc(r[0])+':</span> '+esc(r[1])+'</p>'; }).join(""); }
 function phoneLine(c){ c=c||{}; var ph=c.phone;
   var h=ph?'<p style="margin:10px 0 0">'+esc(t("tel"))+': <a href="tel:'+esc(cleanPhone(ph))+'"><strong>'+esc(ph)+'</strong></a></p>':'<p class="muted small" style="margin:10px 0 0">'+esc(t("no_tel"))+'</p>';
   if(c.contact_person) h+='<p class="small" style="margin:4px 0 0">'+esc(t("f_contact"))+': '+esc(c.contact_person)+'</p>';
@@ -273,7 +282,9 @@ async function loadProfile(){
 }
 function renderAuth(){
   el("auth").innerHTML=me
-    ? (profile?'<button class="btn alt sm who" data-act="account">'+esc(profile.name)+'</button>':'')+'<button class="link" data-act="logout">'+esc(t("logout"))+'</button>'
+    ? (profile?'<div class="umenu"><button class="btn alt sm ubtn" data-act="umenu" aria-haspopup="true" aria-expanded="false" aria-label="'+esc(t("menu"))+'"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="who">'+esc(profile.name)+'</span><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'+
+        '<div class="udrop" id="udrop" hidden><button data-act="account">'+esc(t("my_acc"))+'</button><button data-act="editprof">'+esc(t("edit_prof"))+'</button><button data-act="logout">'+esc(t("logout"))+'</button></div></div>'
+      :'<button class="link" data-act="logout">'+esc(t("logout"))+'</button>')
     : '<button class="btn sm" data-act="login">'+esc(t("login"))+'</button>';
   document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed",b.getAttribute("data-lang")===lang?"true":"false"); });
   document.documentElement.lang=lang; el("foot").innerHTML=esc(t("foot"))+' · <a href="kushtet.html">'+esc(t("terms"))+'</a> · <a href="privatesia.html">'+esc(t("privacy"))+'</a>';
@@ -299,7 +310,7 @@ window.addEventListener("hashchange",onRoute); window.addEventListener("popstate
 async function renderHome(){
   var big=function(go,ill,a,b){ return '<button type="button" class="big" data-go="'+go+'">'+illus(ill)+'<span><b>'+esc(t(a))+'</b><small>'+esc(t(b))+'</small></span></button>'; };
   el("main").innerHTML=
-   '<section class="hero"><div><span class="promo">'+esc(t("promo"))+'</span><h1>'+esc(t("hero_h"))+'</h1><p>'+esc(t("hero_p"))+'</p><div class="checks"><span>✓ '+esc(t("c1"))+'</span><span>✓ '+esc(t("c2"))+'</span></div></div>'+
+   '<section class="hero"><div><span class="promo">'+esc(t("promo"))+'</span><h1>'+esc(t("hero_h"))+'</h1><div class="checks"><span>✓ '+esc(t("c1"))+'</span><span>✓ '+esc(t("c2"))+'</span></div></div>'+
    '<div><p class="ask">'+esc(t("ask"))+'</p><div class="bigs">'+big("firm","firm","b_firm","b_firm_d")+big("worker","worker","b_worker","b_worker_d")+big("private","home","b_priv","b_priv_d")+'</div></div></section>'+
    '<section><button type="button" class="stupill" id="stuBtn" data-stu="1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.500V16c3 2.500 9 2.500 12 0v-4.500"/><path d="M22 9v6"/></svg> '+esc(t("stu"))+'</button><div class="tiles" id="tiles"></div></section>'+
    '<section id="board"><h2>'+esc(t("board_h"))+'</h2><div class="chips" id="chips"></div><input id="q" type="search" placeholder="'+esc(t("search"))+'" aria-label="'+esc(t("search"))+'" value="'+esc(fQ)+'" style="margin-bottom:12px"><div id="catbar"></div><div id="list"><p class="muted">'+esc(t("loading"))+'</p></div></section>'+
@@ -330,10 +341,10 @@ function renderBoard(){
   el("stuBtn").setAttribute("aria-pressed",fStu?"true":"false");
   document.querySelectorAll("#tiles .tile").forEach(function(b){ b.setAttribute("aria-pressed",b.getAttribute("data-cat")===fCat?"true":"false"); });
   el("catbar").innerHTML=fCat!=="all"?'<p><span class="tag o">'+esc(L(CAT[fCat]))+'</span><button class="link" data-cat="all">'+esc(t("clear_cat"))+'</button></p>':'';
-  var q=fQ.trim().toLowerCase(), minor=isMinor(), mnote=minor?'<p class="muted small" style="margin:0 0 12px">'+esc(t("minor_note"))+'</p>':'';
+  var q=fQ.trim().toLowerCase(), td=today(), minor=isMinor(), mnote=minor?'<p class="muted small" style="margin:0 0 12px">'+esc(t("minor_note"))+'</p>':'';
   var rows=JOBS.filter(function(j){
-    return !(minor&&ADULT.indexOf(j.job_role)>=0)&&(fCity==="all"||j.city===fCity)&&(fCat==="all"||ROLECAT[j.job_role]===fCat)&&(!fStu||j.student)&&
-      (!q||(L(ROLE[j.job_role])+" "+((j.firm&&j.firm.name)||"")).toLowerCase().indexOf(q)>=0);
+    return !(minor&&ADULT.indexOf(j.job_role)>=0)&&!(j.work_date&&j.job_type==="d"&&j.work_date<td)&&(fCity==="all"||j.city===fCity)&&(fCat==="all"||ROLECAT[j.job_role]===fCat)&&(!fStu||j.student)&&
+      (!q||(L(ROLE[j.job_role])+" "+((j.firm&&j.firm.name)||"")+" "+(j.place||"")).toLowerCase().indexOf(q)>=0);
   });
   if(!rows.length){ el("list").innerHTML=mnote+'<div class="card"><p class="role">'+esc(t("empty_h"))+'</p><p class="muted" style="margin:0">'+esc(t("empty_p"))+'</p></div>'; return; }
   var LIM=8, vis=showAll?rows:rows.slice(0,LIM);
@@ -341,7 +352,7 @@ function renderBoard(){
     var own=me&&j.owner===me.id, st=MINE[j.id];
     var btn=own?'<span class="tag n">'+esc(t("yours"))+'</span>':st?statTag(st):(profile&&profile.role!=="worker")?'':'<button class="btn" data-act="apply" data-id="'+j.id+'">'+esc(t("apply"))+'</button>';
     return '<div class="card"><div class="row"><div><div class="role">'+esc(L(ROLE[j.job_role])||j.job_role)+'</div>'+
-      '<div class="muted small">'+esc((j.firm&&j.firm.name)||"")+' '+(j.firm&&j.firm.verified?'<span class="tag">✓ '+esc(t("verified"))+'</span>':'')+rate(RT[j.owner])+' · '+esc(L(CITY[j.city])||j.city)+' · '+esc(j.when_text)+'</div></div>'+
+      '<div class="muted small">'+esc((j.firm&&j.firm.name)||"")+' '+(j.firm&&j.firm.verified?'<span class="tag">✓ '+esc(t("verified"))+'</span>':'')+rate(RT[j.owner])+' · '+esc(fmtPlace(j))+' · '+esc(fmtWhen(j))+'</div></div>'+
       '<div class="pay">'+esc(Number(j.pay))+' <small>'+esc(L(UNIT[j.unit]))+'</small></div></div>'+
       '<div class="row" style="margin-top:12px"><div><span class="tag o">'+esc(L(TYPE[j.job_type]))+'</span>'+(j.urgent?'<span class="tag bad">'+esc(t("urgent"))+'</span>':'')+(j.student?'<span class="tag">'+esc(t("stu"))+'</span>':'')+'<span class="tag n">'+esc(spots(j.spots))+'</span></div>'+btn+'</div>'+
       (own?'':'<p style="margin:8px 0 0;text-align:right"><button class="link rep" data-act="report" data-id="'+j.id+'">'+esc(t("report"))+'</button></p>')+'</div>';
@@ -410,6 +421,20 @@ async function saveNewPw(btn){
 }
 
 /* ---------- Profili ---------- */
+var DAYS={sq:["E diel","E hënë","E martë","E mërkurë","E enjte","E premte","E shtunë"],en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]};
+var LANGS={sq:{sq:"Shqip",en:"Albanian"},en:{sq:"Anglisht",en:"English"},de:{sq:"Gjermanisht",en:"German"},sr:{sq:"Serbisht",en:"Serbian"},tr:{sq:"Turqisht",en:"Turkish"},it:{sq:"Italisht",en:"Italian"},fr:{sq:"Frëngjisht",en:"French"}};
+var ABIL={license:{sq:"Patentë shoferi (B)",en:"Driving licence (B)"},car:{sq:"Kam veturë",en:"I have a car"},computer:{sq:"Punë me kompjuter",en:"Computer work"},cashier:{sq:"Punë me arkë",en:"Cash register"},tools:{sq:"Vegla dhe makineri",en:"Tools and machinery"},heavy:{sq:"Punë fizike e rëndë",en:"Heavy physical work"},clients:{sq:"Përvojë me klientë",en:"Customer experience"}};
+var EDU={primary:{sq:"Shkollë fillore",en:"Primary school"},secondary:{sq:"Shkollë e mesme",en:"Secondary school"},vocational:{sq:"Shkollë e mesme profesionale",en:"Vocational school"},bachelor:{sq:"Bachelor",en:"Bachelor"},master:{sq:"Master",en:"Master"}};
+function today(){ var d=new Date(); return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+function whenStr(d,a,b,lg){ var p=String(d).split("-"), dt=new Date(+p[0],+p[1]-1,+p[2]); return DAYS[lg==="en"?"en":"sq"][dt.getDay()]+", "+p[2]+"."+p[1]+"."+p[0]+(a?" · "+a+(b?"–"+b:""):""); }
+function fmtWhen(j){ j=j||{}; return j.work_date?whenStr(j.work_date,String(j.time_from||"").slice(0,5),String(j.time_to||"").slice(0,5),lang):(j.when_text||""); }
+function fmtPlace(j){ j=j||{}; return (L(CITY[j.city])||j.city||"")+(j.place?", "+j.place:""); }
+function names(map,arr){ return (arr||[]).map(function(k){ return L(map[k]); }).filter(Boolean).join(", "); }
+function boxes(map,name,sel){ return '<div class="skills">'+Object.keys(map).map(function(k){ return '<label><input type="checkbox" name="'+name+'" value="'+k+'"'+((sel||[]).indexOf(k)>=0?" checked":"")+'> '+esc(L(map[k]))+'</label>'; }).join("")+'</div>'; }
+function picked(name){ return Array.prototype.map.call(document.querySelectorAll('input[name="'+name+'"]:checked'),function(x){ return x.value; }); }
+async function locsFor(ids){ var m={}; ids=uniq(ids); if(!ids.length) return m;
+  var r=await db.from("job_locations").select("job_id,exact").in("job_id",ids); (r.data||[]).forEach(function(x){ m[x.job_id]=x.exact; }); return m; }
+function locLine(x,own){ return x?'<p class="small" style="margin:8px 0 0"><span class="muted">'+esc(t(own?"exact_own":"exact"))+':</span> '+esc(x)+'</p>':''; }
 function maxBirth(){ return new Date().getFullYear()-15; }
 var ADULT=["helper","mason","loader","moving","driver","care"], isAdmin=false, notice="";
 function isMinor(){ return !!(profile&&profile.role==="worker"&&myDet.birth_year&&(new Date().getFullYear()-myDet.birth_year)<18); }
@@ -418,10 +443,14 @@ function roleFields(role){
   if(role==="worker") return '<label for="fb">'+esc(t("f_birth"))+'</label><input id="fb" type="number" inputmode="numeric" required min="1930" max="'+maxBirth()+'" placeholder="2001" value="'+v(myDet.birth_year)+'">'+
     '<p class="muted small" style="margin:6px 0 0">'+esc(t("f_birth_hint"))+'</p>'+
     '<p class="muted small" style="margin:16px 0 0">'+esc(t("optional"))+'</p>'+
-    '<label>'+esc(t("f_skills"))+'</label><div class="skills">'+Object.keys(CAT).map(function(k){ return '<label><input type="checkbox" name="sk" value="'+k+'"'+((myDet.skills||[]).indexOf(k)>=0?" checked":"")+'> '+esc(L(CAT[k]))+'</label>'; }).join("")+'</div>'+
+    '<label for="fe">'+esc(t("f_edu"))+'</label><select id="fe"><option value="">'+esc(t("f_edu_none"))+'</option>'+opts(EDU,myDet.edu_level||"")+'</select>'+
+    '<label for="ff">'+esc(t("f_edu_field"))+'</label><input id="ff" maxlength="100" placeholder="'+esc(t("f_edu_ph"))+'" value="'+v(myDet.edu_field)+'">'+
+    '<label class="chk"><input type="checkbox" id="fs"'+(myDet.student?" checked":"")+'> '+esc(t("f_student"))+'</label>'+
+    '<label>'+esc(t("f_skills"))+'</label>'+boxes(CAT,"sk",myDet.skills)+
     '<label for="fx">'+esc(t("f_exp"))+'</label><input id="fx" maxlength="120" placeholder="'+esc(t("f_exp_ph"))+'" value="'+v(myDet.experience)+'">'+
-    '<label for="fv">'+esc(t("f_avail"))+'</label><input id="fv" maxlength="80" placeholder="'+esc(t("f_avail_ph"))+'" value="'+v(myDet.available)+'">'+
-    '<label class="chk"><input type="checkbox" id="fs"'+(myDet.student?" checked":"")+'> '+esc(t("f_student"))+'</label>';
+    '<label>'+esc(t("f_langs"))+'</label>'+boxes(LANGS,"lg",myDet.languages)+
+    '<label>'+esc(t("f_abil"))+'</label>'+boxes(ABIL,"ab",myDet.abilities)+
+    '<label for="fo2">'+esc(t("f_other"))+'</label><input id="fo2" maxlength="120" placeholder="'+esc(t("f_other_ph"))+'" value="'+v(myDet.other_skills)+'">';
   var h='<p class="muted small" style="margin:16px 0 0">'+esc(t("optional"))+'</p>';
   if(role==="firm") h+='<label for="fn">'+esc(t("f_nui"))+'</label><input id="fn" inputmode="numeric" maxlength="12" value="'+v(profile&&profile.nui)+'">'+
     '<label for="fc">'+esc(t("f_contact"))+'</label><input id="fc" maxlength="60" value="'+v(myCon.contact_person)+'">';
@@ -458,7 +487,7 @@ async function saveProfile(btn){
   if(c.error){ c=await db.from("contacts").upsert({id:me.id,phone:ph}); }
   if(!c.error){ myCon=con; myPhone=ph; }
   if(role==="worker"){
-    var det={id:me.id,birth_year:by,skills:Array.prototype.map.call(document.querySelectorAll('input[name="sk"]:checked'),function(x){return x.value;}),experience:val("fx"),available:val("fv"),student:!!(el("fs")&&el("fs").checked)};
+    var det={id:me.id,birth_year:by,skills:picked("sk"),experience:val("fx"),student:!!(el("fs")&&el("fs").checked),edu_level:val("fe"),edu_field:val("ff"),languages:picked("lg"),abilities:picked("ab"),other_skills:val("fo2")};
     var d=await db.from("worker_details").upsert(det); if(d.error){ btn.disabled=false; msg(el("m2"),errText(d.error)); return; } myDet=det;
   }
   btn.disabled=false;
@@ -502,14 +531,20 @@ async function renderAccount(){
   var r=await db.from("jobs").select("*, applications(id,status,worker_id,worker:profiles(name,city))").eq("owner",me.id).order("created_at",{ascending:false});
   var jobs=r.data||[], wAll=[], wAcc=[], accIds=[];
   jobs.forEach(function(j){ (j.applications||[]).forEach(function(a){ wAll.push(a.worker_id); if(a.status==="accepted"){ wAcc.push(a.worker_id); accIds.push(a.id); } }); });
-  var ph=await phonesFor(wAcc), det=await detailsFor(wAll), rt=await ratingsFor(wAll), mine=await myReviews(), arr=await arrivalsFor(accIds), nsN={}, nsMine={};
+  var ph=await phonesFor(wAcc), det=await detailsFor(wAll), rt=await ratingsFor(wAll), mine=await myReviews(), arr=await arrivalsFor(accIds), loc=await locsFor(jobs.map(function(j){ return j.id; })), nsN={}, nsMine={};
   if(uniq(wAll).length){ var ns=await db.from("noshows").select("job_id,worker_id").in("worker_id",uniq(wAll)); (ns.data||[]).forEach(function(x){ nsN[x.worker_id]=(nsN[x.worker_id]||0)+1; nsMine[x.job_id+"|"+x.worker_id]=1; }); }
   if(!el("acc")) return;
   var form='<h2>'+esc(t("post_h"))+'</h2><form id="fJob" class="card" style="max-width:640px">'+
     '<label for="jr">'+esc(t("what"))+'</label><select id="jr">'+opts(ROLE,profile.role==="private"?"hclean":"waiter")+'</select>'+
-    '<label for="jw">'+esc(t("when"))+'</label><input id="jw" required maxlength="80" placeholder="'+esc(t("when_ph"))+'">'+
+    '<label for="jd">'+esc(t("date"))+'</label><input id="jd" type="date" required min="'+today()+'" value="'+today()+'">'+
+    '<p class="muted small" style="margin:6px 0 0">'+esc(t("date_hint"))+'</p>'+
+    '<div class="two"><div><label for="jf">'+esc(t("t_from"))+'</label><input id="jf" type="time" required value="08:00"></div><div><label for="jo">'+esc(t("t_to"))+'</label><input id="jo" type="time" value="16:00"></div></div>'+
     '<div class="two"><div><label for="jp">'+esc(t("pay"))+'</label><input id="jp" type="number" min="0" step="0.5" required value="7"></div><div><label for="ju">'+esc(t("unit"))+'</label><select id="ju">'+opts(UNIT,"h")+'</select></div></div>'+
     '<div class="two"><div><label for="jc">'+esc(t("city"))+'</label><select id="jc">'+opts(CITY,profile.city||"pr")+'</select></div><div><label for="js">'+esc(t("people"))+'</label><input id="js" type="number" min="1" max="50" required value="1"></div></div>'+
+    '<label for="jl">'+esc(t("place"))+'</label><input id="jl" required maxlength="60" placeholder="'+esc(t("place_ph"))+'">'+
+    '<p class="muted small" style="margin:6px 0 0">'+esc(t("place_hint"))+'</p>'+
+    '<label for="jx">'+esc(t("exact_f"))+'</label><input id="jx" maxlength="160" placeholder="'+esc(t("exact_ph"))+'">'+
+    '<p class="muted small" style="margin:6px 0 0">'+esc(t("exact_hint"))+'</p>'+
     '<label for="jt">'+esc(t("type"))+'</label><select id="jt">'+opts(TYPE,"d")+'</select>'+
     '<label class="chk"><input type="checkbox" id="jst"> '+esc(t("for_stu"))+'</label>'+
     '<label class="chk"><input type="checkbox" id="jug"> '+esc(t("urgent"))+'</label>'+
@@ -519,8 +554,8 @@ async function renderAccount(){
   else if(!jobs.length) list='<p class="muted">'+esc(t("none_posted"))+'</p>';
   else list=jobs.map(function(j){
     var ap=j.applications||[];
-    return '<div class="card"><div class="row"><div><div class="role">'+esc(L(ROLE[j.job_role])||j.job_role)+'</div><div class="muted small">'+esc(L(CITY[j.city])||j.city)+' · '+esc(j.when_text)+' · '+esc(Number(j.pay))+' '+esc(L(UNIT[j.unit]))+'</div></div>'+
-      '<button class="btn danger sm" data-act="deljob" data-id="'+j.id+'">'+esc(t("del"))+'</button></div>'+
+    return '<div class="card"><div class="row"><div><div class="role">'+esc(L(ROLE[j.job_role])||j.job_role)+'</div><div class="muted small">'+esc(fmtPlace(j))+' · '+esc(fmtWhen(j))+' · '+esc(Number(j.pay))+' '+esc(L(UNIT[j.unit]))+'</div></div>'+
+      '<button class="btn danger sm" data-act="deljob" data-id="'+j.id+'">'+esc(t("del"))+'</button></div>'+locLine(loc[j.id],true)+
       '<p class="small muted" style="margin:10px 0 0">'+esc(t("applicants"))+': '+ap.length+'</p>'+
       ap.map(function(a){
         var nm=(a.worker&&a.worker.name)||t("worker"), k=j.id+"|"+a.worker_id, acts="";
@@ -539,10 +574,10 @@ async function renderAccount(){
   adminBox();
 }
 async function renderMyApps(){
-  var r=await db.from("applications").select("id,status,job:jobs(id,owner,job_role,city,when_text,pay,unit,firm:profiles(name))").eq("worker_id",me.id).order("created_at",{ascending:false});
-  var apps=r.data||[], own=[], accIds=[];
-  apps.forEach(function(a){ if(a.status==="accepted"&&a.job){ own.push(a.job.owner); accIds.push(a.id); } });
-  var ph=await phonesFor(own), mine=await myReviews(), codes={}, arr=await arrivalsFor(accIds)||{};
+  var r=await db.from("applications").select("id,status,job:jobs(*, firm:profiles(name))").eq("worker_id",me.id).order("created_at",{ascending:false});
+  var apps=r.data||[], own=[], accIds=[], accJobs=[];
+  apps.forEach(function(a){ if(a.status==="accepted"&&a.job){ own.push(a.job.owner); accIds.push(a.id); accJobs.push(a.job.id); } });
+  var loc=await locsFor(accJobs), ph=await phonesFor(own), mine=await myReviews(), codes={}, arr=await arrivalsFor(accIds)||{};
   for(var i=0;i<accIds.length;i++){ var c=await db.rpc("my_arrival_code",{app:accIds[i]}); if(!c.error&&c.data) codes[accIds[i]]=c.data; }
   var nsr=await db.from("noshows").select("id").eq("worker_id",me.id), nsc=(nsr.data||[]).length;
   if(!el("acc")) return;
@@ -553,9 +588,9 @@ async function renderMyApps(){
     if(a.status==="pending") acts='<button class="link" data-act="withdraw" data-id="'+a.id+'">'+esc(t("withdraw"))+'</button>';
     if(a.status==="accepted"){
       var att=arr[a.id]?'<p style="margin:10px 0 0"><span class="tag">✓ '+esc(t("arrived"))+'</span></p>':(codes[a.id]?'<p class="muted small" style="margin:12px 0 0">'+esc(t("code"))+'</p><span class="code">'+esc(codes[a.id])+'</span><p class="muted small" style="margin:6px 0 0">'+esc(t("code_hint"))+'</p>':'');
-      acts=phoneLine(ph[j.owner])+att+'<div style="margin-top:10px">'+(mine[j.id+"|"+j.owner]?'<span class="tag">'+esc(t("reviewed"))+'</span>':'<button class="btn sm" data-act="review" data-job="'+j.id+'" data-target="'+j.owner+'" data-name="'+esc(fn)+'">'+esc(t("review_firm"))+'</button>')+'</div>';
+      acts=phoneLine(ph[j.owner])+locLine(loc[j.id])+att+'<div style="margin-top:10px">'+(mine[j.id+"|"+j.owner]?'<span class="tag">'+esc(t("reviewed"))+'</span>':'<button class="btn sm" data-act="review" data-job="'+j.id+'" data-target="'+j.owner+'" data-name="'+esc(fn)+'">'+esc(t("review_firm"))+'</button>')+'</div>';
     }
-    return '<div class="card"><div class="row"><div><div class="role">'+esc(L(ROLE[j.job_role])||j.job_role||"")+'</div><div class="muted small">'+esc(fn)+' · '+esc(L(CITY[j.city]))+' · '+esc(j.when_text||"")+' · '+esc(Number(j.pay))+' '+esc(L(UNIT[j.unit]))+'</div></div>'+statTag(a.status)+'</div>'+acts+'</div>'; }).join("");
+    return '<div class="card"><div class="row"><div><div class="role">'+esc(L(ROLE[j.job_role])||j.job_role||"")+'</div><div class="muted small">'+esc(fn)+' · '+esc(fmtPlace(j))+' · '+esc(fmtWhen(j))+' · '+esc(Number(j.pay))+' '+esc(L(UNIT[j.unit]))+'</div></div>'+statTag(a.status)+'</div>'+acts+'</div>'; }).join("");
   el("acc").innerHTML=h+accFoot();
   adminBox();
 }
@@ -597,8 +632,11 @@ async function deleteAccount(btn){
   el("dlgBody").innerHTML='<div class="msg ok">'+esc(t("delacc_ok"))+'</div><button class="btn" data-act="close">'+esc(t("ok"))+'</button>';
 }
 async function postJob(btn){
+  var jd=el("jd").value, jf=el("jf").value, jo=el("jo").value||null, jx=el("jx").value.trim();
+  if(!jd||jd<today()){ msg(el("m3"),t("date_bad")); return; }
   btn.disabled=true;
-  var r=await db.from("jobs").insert({owner:me.id,job_role:el("jr").value,city:el("jc").value,job_type:el("jt").value,when_text:el("jw").value.trim(),pay:parseFloat(el("jp").value)||0,unit:el("ju").value,spots:parseInt(el("js").value,10)||1,student:el("jst").checked,urgent:el("jug").checked});
+  var r=await db.from("jobs").insert({owner:me.id,job_role:el("jr").value,city:el("jc").value,job_type:el("jt").value,when_text:whenStr(jd,jf,jo,"sq"),work_date:jd,time_from:jf,time_to:jo,place:el("jl").value.trim(),pay:parseFloat(el("jp").value)||0,unit:el("ju").value,spots:parseInt(el("js").value,10)||1,student:el("jst").checked,urgent:el("jug").checked}).select("id").single();
+  if(!r.error&&jx&&r.data){ var lr=await db.from("job_locations").insert({job_id:r.data.id,exact:jx}); if(lr.error){ btn.disabled=false; await renderAccount(); alertBox(errText(lr.error)); return; } }
   btn.disabled=false;
   if(r.error){ msg(el("m3"),errText(r.error)); return; }
   renderAccount();
@@ -673,12 +711,15 @@ document.addEventListener("click",async function(e){
   var g=e.target.closest("[data-go]"); if(g){ go(g.getAttribute("data-go")); return; }
   if(e.target.closest("#home")){ e.preventDefault(); view="home"; render(); window.scrollTo(0,0); return; }
   var st=e.target.closest("[data-star]"); if(st){ var v=parseInt(st.getAttribute("data-star"),10); el("stars").setAttribute("data-v",v); el("stars").querySelectorAll("button").forEach(function(x,i){ x.setAttribute("aria-pressed",i<v?"true":"false"); }); return; }
-  var a=e.target.closest("[data-act]"); if(!a) return;
+  var a=e.target.closest("[data-act]"), ud=el("udrop");
+  if(a&&a.getAttribute("data-act")==="umenu"){ ud.hidden=!ud.hidden; a.setAttribute("aria-expanded",ud.hidden?"false":"true"); return; }
+  if(ud&&!ud.hidden){ ud.hidden=true; var ub=document.querySelector(".ubtn"); if(ub) ub.setAttribute("aria-expanded","false"); }
+  if(!a) return;
   var k=a.getAttribute("data-act"), id=a.getAttribute("data-id");
   if(k==="showpw"){ var pi=el(a.getAttribute("data-for")), sh=pi.type==="password"; pi.type=sh?"text":"password"; a.textContent=t(sh?"hide":"show"); return; }
   if(k==="forgot"){ forgot(a); return; }
   if(k==="google"){ googleIn(a); return; }
-  if(k==="editprof"){ editing=true; render(); window.scrollTo(0,0); return; }
+  if(k==="editprof"){ if(!profile) return; editing=true; render(); window.scrollTo(0,0); return; }
   if(k==="report"){ openReport(id); return; }
   if(k==="delacc"){ openDelete(); return; }
   if(k==="delacc2"){ deleteAccount(a); return; }
