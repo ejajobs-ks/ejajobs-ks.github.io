@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="sq"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="sq"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">
 <title>Eja Jobs</title>
 <meta name="description" content="Punë ditore, javore dhe mujore në Kosovë. Firmat postojnë, punëtorët aplikojnë.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
-:root{--bg:#F6F3EA;--surface:#FFF;--ink:#0B2A21;--muted:#4F645B;--line:#DDD8C8;--brand:#0B3B2D;--brand2:#082A20;--on-brand:#F6F3EA;--signal:#F28C28;--signal-ink:#2A1500;--gold:#B8620C;--ok:#0E7A4D;--ok-bg:#DCF2E6;--bad:#B3261E;--bad-bg:#FBE0DC;--fd:Poppins,system-ui,sans-serif;--fb:"Instrument Sans",system-ui,sans-serif}
+:root{color-scheme:light dark;--bg:#F6F3EA;--surface:#FFF;--ink:#0B2A21;--muted:#4F645B;--line:#DDD8C8;--brand:#0B3B2D;--brand2:#082A20;--on-brand:#F6F3EA;--signal:#F28C28;--signal-ink:#2A1500;--gold:#B8620C;--ok:#0E7A4D;--ok-bg:#DCF2E6;--bad:#B3261E;--bad-bg:#FBE0DC;--fd:Poppins,system-ui,sans-serif;--fb:"Instrument Sans",system-ui,sans-serif}
 @media (prefers-color-scheme:dark){:root{--bg:#07201A;--surface:#0F2A22;--ink:#F6F3EA;--muted:#B5C7BE;--line:#23423A;--gold:#FFB45E;--ok-bg:#12382B;--ok:#6FD3A4;--bad-bg:#40201C;--bad:#FF9D94;color-scheme:dark}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -165,7 +165,7 @@ var T={
  google:["Vazhdo me Google","Continue with Google"],google_p:["Hyr me llogarinë tënde të Google. Pa fjalëkalim të ri.","Sign in with your Google account. No new password."],
  email_old:["Kam llogari me email dhe fjalëkalim","I have an account with email and password"],e_cred:["Email-i ose fjalëkalimi nuk është i saktë. Për llogari të re përdor Google.","Wrong email or password. For a new account use Google."],
  edit_prof:["Ndrysho profilin","Edit profile"],edit_h:["Profili yt","Your profile"],cancel:["Anulo","Cancel"],optional:["Këto janë opsionale, por ndihmojnë që të zgjedhin ty.","These are optional, but they help others choose you."],
- f_birth:["Viti i lindjes","Year of birth"],f_skills:["Çfarë punësh bën","What work you do"],f_exp:["Përvoja","Experience"],f_exp_ph:["P.sh. 2 vjet kamarier","E.g. 2 years as a waiter"],f_student:["Jam student/e","I am a student"],f_avail:["Kur je i lirë","When you are free"],f_avail_ph:["P.sh. fundjavë, pas orës 16","E.g. weekends, after 4 pm"],
+ f_birth:["Viti i lindjes","Year of birth"],f_birth_hint:["Duhet të kesh së paku 15 vjeç. Nën 18 vjeç lejohen vetëm punë të lehta dhe jo të rrezikshme.","You must be at least 15. Under 18, only light, non-hazardous work is allowed."],age_min:["Për t'u regjistruar si punëtor duhet të kesh së paku 15 vjeç.","You must be at least 15 to register as a worker."],age_need:["Shkruaj vitin e lindjes, p.sh. 2001.","Enter your year of birth, e.g. 2001."],privacy:["Politika e privatësisë","Privacy policy"],f_skills:["Çfarë punësh bën","What work you do"],f_exp:["Përvoja","Experience"],f_exp_ph:["P.sh. 2 vjet kamarier","E.g. 2 years as a waiter"],f_student:["Jam student/e","I am a student"],f_avail:["Kur je i lirë","When you are free"],f_avail_ph:["P.sh. fundjavë, pas orës 16","E.g. weekends, after 4 pm"],
  f_nui:["Numri i biznesit (NUI)","Business number (NUI)"],f_addr:["Adresa","Address"],f_addr_p:["Lagjja ose adresa","Neighbourhood or address"],f_contact:["Personi kontaktues","Contact person"],f_about:["Përshkrim i shkurtër","Short description"],
  addr_note:["Adresën e sheh vetëm pala tjetër, pasi aplikimi të pranohet.","Only the other party sees the address, after the application is accepted."],
  years:["vjeç","years old"],student:["Student/e","Student"],verified:["E verifikuar","Verified"],
@@ -265,7 +265,7 @@ function renderAuth(){
     ? (profile?'<button class="btn alt sm who" data-act="account">'+esc(profile.name)+'</button>':'')+'<button class="link" data-act="logout">'+esc(t("logout"))+'</button>'
     : '<button class="btn sm" data-act="login">'+esc(t("login"))+'</button>';
   document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed",b.getAttribute("data-lang")===lang?"true":"false"); });
-  document.documentElement.lang=lang; el("foot").textContent=t("foot");
+  document.documentElement.lang=lang; el("foot").innerHTML=esc(t("foot"))+' · <a href="privatesia.html">'+esc(t("privacy"))+'</a>';
 }
 function syncHash(){
   var want=(view==="account"&&me&&profile)?"#llogaria":"";
@@ -398,10 +398,12 @@ async function saveNewPw(btn){
 }
 
 /* ---------- Profili ---------- */
+function maxBirth(){ return new Date().getFullYear()-15; }
 function roleFields(role){
   var v=function(x){ return esc(x==null?"":x); };
-  if(role==="worker") return '<p class="muted small" style="margin:16px 0 0">'+esc(t("optional"))+'</p>'+
-    '<label for="fb">'+esc(t("f_birth"))+'</label><input id="fb" type="number" inputmode="numeric" min="1930" max="2015" placeholder="2001" value="'+v(myDet.birth_year)+'">'+
+  if(role==="worker") return '<label for="fb">'+esc(t("f_birth"))+'</label><input id="fb" type="number" inputmode="numeric" required min="1930" max="'+maxBirth()+'" placeholder="2001" value="'+v(myDet.birth_year)+'">'+
+    '<p class="muted small" style="margin:6px 0 0">'+esc(t("f_birth_hint"))+'</p>'+
+    '<p class="muted small" style="margin:16px 0 0">'+esc(t("optional"))+'</p>'+
     '<label>'+esc(t("f_skills"))+'</label><div class="skills">'+Object.keys(CAT).map(function(k){ return '<label><input type="checkbox" name="sk" value="'+k+'"'+((myDet.skills||[]).indexOf(k)>=0?" checked":"")+'> '+esc(L(CAT[k]))+'</label>'; }).join("")+'</div>'+
     '<label for="fx">'+esc(t("f_exp"))+'</label><input id="fx" maxlength="120" placeholder="'+esc(t("f_exp_ph"))+'" value="'+v(myDet.experience)+'">'+
     '<label for="fv">'+esc(t("f_avail"))+'</label><input id="fv" maxlength="80" placeholder="'+esc(t("f_avail_ph"))+'" value="'+v(myDet.available)+'">'+
@@ -428,6 +430,8 @@ async function saveProfile(btn){
   var edit=el("fProf").getAttribute("data-edit")==="1", role=edit?profile.role:el("pr").value;
   var val=function(id){ var n=el(id); return n?(n.value||"").trim()||null:null; };
   var base={name:el("pn").value.trim(),city:el("pc").value,about:role==="firm"?val("fo"):null,nui:role==="firm"?val("fn"):null};
+  var by=role==="worker"?parseInt(val("fb"),10):null;
+  if(role==="worker"&&!(by>=1930&&by<=maxBirth())){ msg(el("m2"),t(by>maxBirth()?"age_min":"age_need")); if(el("fb")) el("fb").focus(); return; }
   btn.disabled=true;
   var r=edit?await db.from("profiles").update(base).eq("id",me.id).select().single()
            :await db.from("profiles").insert(Object.assign({id:me.id,role:role},base)).select().single();
@@ -438,7 +442,7 @@ async function saveProfile(btn){
   if(c.error){ c=await db.from("contacts").upsert({id:me.id,phone:ph}); }
   if(!c.error){ myCon=con; myPhone=ph; }
   if(role==="worker"){
-    var by=parseInt(val("fb"),10), det={id:me.id,birth_year:(by>=1930&&by<=2015)?by:null,skills:Array.prototype.map.call(document.querySelectorAll('input[name="sk"]:checked'),function(x){return x.value;}),experience:val("fx"),available:val("fv"),student:!!(el("fs")&&el("fs").checked)};
+    var det={id:me.id,birth_year:by,skills:Array.prototype.map.call(document.querySelectorAll('input[name="sk"]:checked'),function(x){return x.value;}),experience:val("fx"),available:val("fv"),student:!!(el("fs")&&el("fs").checked)};
     var d=await db.from("worker_details").upsert(det); if(!d.error) myDet=det;
   }
   btn.disabled=false;
