@@ -138,6 +138,9 @@ details.more>summary{list-style:none;cursor:pointer}details.more>summary::-webki
 .skills{display:flex;flex-wrap:wrap;gap:6px}.skills label{margin:0;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;color:var(--ink);font-weight:600;cursor:pointer}.skills input{width:18px;height:18px}
 textarea{width:100%;font:500 17px var(--fb);padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);min-height:84px}
 .job[data-job]{cursor:pointer}
+.hero h1.hh{margin:0 0 8px;text-transform:uppercase;font-size:clamp(22px,6.2vw,38px);line-height:1.12;letter-spacing:-.01em}.hh .hl{display:inline;white-space:nowrap;background:linear-gradient(transparent 62%,rgba(247,135,31,.55) 62%,rgba(247,135,31,.55) 92%,transparent 92%)}
+.hero .lead{color:#D5E2DA;font-size:15px;line-height:1.45;margin:0 0 6px;max-width:34em}
+.hero .checks{font-size:13px;gap:2px 12px}
 .hroles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:10px}
 .hrole{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;background:#fff;color:#0B2A21;border:0;border-radius:12px;padding:8px 4px;cursor:pointer;font:inherit;--ic:#0B3B2D;text-align:center}
 .hrole .ri{display:grid;place-items:center}.hrole .ri svg{width:20px;height:20px}
@@ -310,7 +313,7 @@ var T={
  call:["Thirr","Call"],wa_msg:["Përshëndetje, jam {n} nga Eja Jobs, për punën {j}.","Hello, this is {n} from Eja Jobs, about the job {j}."],
  nav_home:["Kryefaqja","Home"],nav_notif:["Njoftimet","Alerts"],nav_acc:["Llogaria","Account"],nav_help:["Ndihmë","Help"],nav_login:["Hyr","Sign in"],nav_post:["Posto","Post"],
  stu_s:["Studentë","Students"],w_today:["Sot","Today"],w_tom:["Nesër","Tomorrow"],w_week:["Këtë javë","This week"],w_urg:["Urgjente","Urgent"],
- hero2_h:["Gjej punë ose punëtorë në gjithë Kosovën.","Find work or workers anywhere in Kosovo."],hs_what:["Çfarë pune?","What job?"],hs_ph:["Kamarier, pastrim, ndërtim…","Waiter, cleaning, construction…"],hs_where:["Ku","Where"],hs_go:["Kërko","Search"],
+ hero3_h:["Punëtorë|me ditë,|me javë,|me muaj.","Workers|by the day,|the week,|the month."],hero3_p:["Posto punën, gjej punëtorin, në gjithë Kosovën.","Post the job, find the worker, anywhere in Kosovo."],hs_what:["Çfarë pune?","What job?"],hs_ph:["Kamarier, pastrim, ndërtim…","Waiter, cleaning, construction…"],hs_where:["Ku","Where"],hs_go:["Kërko","Search"],
  hr_firm:["Dua punëtorë","I need workers"],hr_worker:["Kërkoj punë","I want work"],hr_priv:["Punë në shtëpi","Work at home"],
  ft_w:["Për punëtorët","For workers"],ft_e:["Për punëdhënësit","For employers"],ft_find:["Kërko punë","Find work"],ft_how:["Si funksionon","How it works"],ft_faq:["Pyetjet e shpeshta","FAQ"],ft_post:["Posto punë","Post a job"],foot_pay:["Pagesa për punën bëhet drejtpërdrejt mes palëve.","Payment for work goes directly between the parties."],
  clear_f:["Hiq kërkimin","Clear search"],
@@ -591,7 +594,7 @@ function toBoard(){ var b=el("board"); if(b) b.scrollIntoView({block:"start"}); 
 async function renderHome(){
   var role=function(go,ill,sub){ return '<button type="button" class="hrole" data-go="'+go+'"><span class="ri">'+illus(ill,true)+'</span><span class="rt"><b>'+esc(L(ROLENAME[go]))+'</b><small>'+esc(t(sub))+'</small></span></button>'; };
   el("main").innerHTML=
-   '<section class="hero"><div><h1>'+esc(t("hero2_h"))+'</h1><div class="checks"><span>✓ '+esc(t("c1"))+'</span><span>✓ '+esc(t("c2"))+'</span></div></div>'+
+   '<section class="hero"><div><h1 class="hh">'+t("hero3_h").split("|").map(function(x,i){ return i?'<span class="hl">'+esc(x)+'</span>':esc(x)+'<br>'; }).join(" ")+'</h1><p class="lead">'+esc(t("hero3_p"))+'</p><div class="checks"><span>✓ '+esc(t("c1"))+'</span><span>✓ '+esc(t("c2"))+'</span></div></div>'+
    '<div><form id="fHero" class="hsearch" role="search">'+
      '<label class="hf">'+SRCH+'<span><small>'+esc(t("hs_what"))+'</small><input id="hq" type="search" placeholder="'+esc(t("hs_ph"))+'" value="'+esc(fQ)+'"></span></label>'+
      '<label class="hf">'+PIN.replace(/width="15" height="15"/,'width="20" height="20"')+'<span><small>'+esc(t("hs_where"))+'</small><select id="hc">'+cityOpts()+'</select></span></label>'+
