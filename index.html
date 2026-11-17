@@ -136,6 +136,23 @@ details.more>summary{list-style:none;cursor:pointer}details.more>summary::-webki
 .skills{display:flex;flex-wrap:wrap;gap:6px}.skills label{margin:0;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;color:var(--ink);font-weight:600;cursor:pointer}.skills input{width:18px;height:18px}
 textarea{width:100%;font:500 17px var(--fb);padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);min-height:84px}
 .job[data-job]{cursor:pointer}
+/* Shiriti poshtë (vetëm në telefon) */
+.bnav{display:none}
+@media (max-width:767px){
+ .bnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:7;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 20px -12px rgba(0,0,0,.35);padding:6px max(6px,env(safe-area-inset-right,0px)) max(6px,env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-left,0px));justify-content:space-around;align-items:flex-end}
+ .bnav button{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;color:var(--muted);font:600 12px/1.2 var(--fb);padding:6px 2px;cursor:pointer;position:relative;border-radius:12px}
+ .bnav button svg{width:24px;height:24px}
+ .bnav button[aria-current="page"]{color:var(--ink)}
+ .bnav button[aria-current="page"] svg{color:var(--signal)}
+ .bnav .post span.pl{width:48px;height:48px;border-radius:50%;background:var(--signal);color:var(--signal-ink);display:grid;place-items:center;margin-top:-22px;box-shadow:0 8px 18px -8px rgba(0,0,0,.45);border:3px solid var(--surface)}
+ .bnav .post span.pl svg{width:26px;height:26px;color:var(--signal-ink)}
+ .bnav .post{color:var(--ink)}
+ .bnav .nb{position:absolute;top:0;left:calc(50% + 4px);min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--bad);color:#fff;font:700 11px/18px var(--fb);text-align:center}
+ .helpbtn,#auth .bell,#auth .umenu,#auth > .btn{display:none!important}
+ .wrap{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
+ #fJob{scroll-margin-top:80px}
+ .accnav [data-act="home"]{display:none}
+}
 .cbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .cbtn{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:8px 14px;border-radius:12px;font:700 14px var(--fb);text-decoration:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
 .cbtn.wa{background:#25D366;border-color:#25D366;color:#073B1F}
@@ -179,6 +196,7 @@ textarea{width:100%;font:500 17px var(--fb);padding:12px 14px;border-radius:12px
 <header><a href="#" id="home" class="logo" aria-label="Eja Jobs"><svg viewBox="0 0 152 109" height="38" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eja Jobs"><path class="lg-ink" d="M58.5 58.345186288976535H19.8Q20.200000000000003 63.54518628897653 23.150000000000002 66.29518628897654Q26.1 69.04518628897654 30.400000000000002 69.04518628897654Q36.800000000000004 69.04518628897654 39.300000000000004 63.64518628897653H57.5Q56.1 69.14518628897653 52.45 73.54518628897654Q48.800000000000004 77.94518628897653 43.300000000000004 80.44518628897653Q37.800000000000004 82.94518628897653 31.0 82.94518628897653Q22.8 82.94518628897653 16.4 79.44518628897653Q10.0 75.94518628897653 6.4 69.44518628897653Q2.8000000000000003 62.94518628897653 2.8000000000000003 54.24518628897653Q2.8000000000000003 45.54518628897653 6.3500000000000005 39.04518628897653Q9.9 32.54518628897653 16.3 29.04518628897653Q22.700000000000003 25.54518628897653 31.0 25.54518628897653Q39.1 25.54518628897653 45.400000000000006 28.94518628897653Q51.7 32.34518628897653 55.25 38.64518628897653Q58.800000000000004 44.94518628897653 58.800000000000004 53.345186288976535Q58.800000000000004 55.74518628897653 58.5 58.345186288976535ZM41.300000000000004 48.84518628897653Q41.300000000000004 44.44518628897653 38.300000000000004 41.84518628897653Q35.300000000000004 39.24518628897653 30.8 39.24518628897653Q26.5 39.24518628897653 23.55 41.74518628897653Q20.6 44.245186288976534 19.900000000000002 48.84518628897653Z M82.9 89.34518628897654Q82.9 99.64518628897653 77.7 104.19518628897653Q72.5 108.74518628897653 63.2 108.74518628897653H56.5V94.24518628897653H60.6Q63.4 94.24518628897653 64.6 93.14518628897653Q65.8 92.04518628897654 65.8 89.54518628897654V26.345186288976528H82.9Z M114.4 25.54518628897653Q120.30000000000001 25.54518628897653 124.75 27.94518628897653Q129.2 30.345186288976528 131.6 34.24518628897653V26.345186288976528H148.7V82.14518628897653H131.6V74.24518628897653Q129.1 78.14518628897653 124.65 80.54518628897654Q120.2 82.94518628897653 114.3 82.94518628897653Q107.5 82.94518628897653 101.9 79.39518628897653Q96.3 75.84518628897654 93.05 69.29518628897654Q89.8 62.74518628897653 89.8 54.14518628897653Q89.8 45.54518628897653 93.05 39.04518628897653Q96.3 32.54518628897653 101.9 29.04518628897653Q107.5 25.54518628897653 114.4 25.54518628897653ZM119.4 40.44518628897653Q114.3 40.44518628897653 110.75 44.095186288976535Q107.2 47.745186288976534 107.2 54.14518628897653Q107.2 60.54518628897653 110.75 64.29518628897654Q114.3 68.04518628897654 119.4 68.04518628897654Q124.5 68.04518628897654 128.05 64.34518628897654Q131.6 60.64518628897653 131.6 54.24518628897653Q131.6 47.84518628897653 128.05 44.14518628897653Q124.5 40.44518628897653 119.4 40.44518628897653Z"/><circle class="lg-gold" cx="74.3" cy="10.7" r="10.7"/></svg></a><div class="right"><div id="auth"></div><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="sq">SQ</button><button type="button" data-lang="en">EN</button></div></div></header>
 <main id="main"><p class="muted">Duke u ngarkuar…</p></main>
 <footer id="foot"></footer>
+<nav class="bnav" id="bnav" aria-label="Menyja"></nav>
 </div>
 <button type="button" class="helpbtn" id="helpBtn" data-act="help" aria-describedby="helpLbl"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 01-8 8H7l-4 3V12a8 8 0 018-8h2a8 8 0 018 8z"/><path d="M8.500 11.500h7M8.500 15h4"/></svg><span id="helpLbl">Ndihmë</span></button>
 <dialog id="helpDlg"><div class="hwrap"><div class="hhead"><strong id="hTitle"></strong><button class="link" type="button" data-act="helpclose" id="hClose"></button></div><div class="htabs" role="tablist" id="hTabs"></div><div class="hpane" id="hPane"></div><div id="hChat" hidden><div class="hlog" id="hLog" aria-live="polite"></div><div class="hq" id="hQ"></div><form id="fHelp"><input id="hIn" maxlength="120" autocomplete="off"><button class="btn sm" type="submit" id="hSend"></button></form></div></div></dialog>
@@ -263,6 +281,7 @@ var T={
  terms_txt:["E kuptoj dhe pranoj që Eja Jobs shërben vetëm si platformë digjitale ndërmjetësimi për lidhjen e palëve. Eja Jobs nuk është punëdhënës dhe nuk mban asnjë përgjegjësi punëdhënëse, ligjore, tatimore apo të sigurisë në punë për marrëveshjet, pagesat dhe shërbimet e realizuara drejtpërdrejt mes përdoruesve.","I understand and accept that Eja Jobs serves only as a digital intermediation platform that connects the parties. Eja Jobs is not an employer and bears no employment, legal, tax or workplace-safety responsibility for agreements, payments and services made directly between users."],
  terms_need:["Për të vazhduar, shëno kutinë e pranimit.","To continue, tick the acceptance box."],terms_h:["Para se të vazhdosh","Before you continue"],terms_p:["Kemi shtuar një pikë të re te Kushtet e përdorimit. Lexoje dhe pranoje për ta përdorur llogarinë.","We added a new point to the Terms of use. Read and accept it to use your account."],terms_ok:["Pranoj dhe vazhdoj","I accept and continue"],
  call:["Thirr","Call"],wa_msg:["Përshëndetje, jam {n} nga Eja Jobs, për punën {j}.","Hello, this is {n} from Eja Jobs, about the job {j}."],
+ nav_home:["Kryefaqja","Home"],nav_notif:["Njoftimet","Alerts"],nav_acc:["Llogaria","Account"],nav_help:["Ndihmë","Help"],nav_login:["Hyr","Sign in"],nav_post:["Posto","Post"],
  need_role:["Kjo llogari është {r}. Për këtë veprim duhet llogari tjetër.","This account is a {r}. This action needs a different account."]
 };
 var lang="sq"; try{ lang=localStorage.getItem("eja-lang")==="en"?"en":"sq"; }catch(e){}
@@ -386,7 +405,7 @@ function renderAuth(){
       :'<button class="link" data-act="logout">'+esc(t("logout"))+'</button>')
     : '<button class="btn sm" data-act="login">'+esc(t("login"))+'</button>';
   document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed",b.getAttribute("data-lang")===lang?"true":"false"); });
-  document.documentElement.lang=lang; el("helpLbl").textContent=ht("title"); setTitle(); el("foot").innerHTML=esc(t("foot"))+' · <a href="kushtet.html">'+esc(t("terms"))+'</a> · <a href="privatesia.html">'+esc(t("privacy"))+'</a>';
+  renderNav(); document.documentElement.lang=lang; el("helpLbl").textContent=ht("title"); setTitle(); el("foot").innerHTML=esc(t("foot"))+' · <a href="kushtet.html">'+esc(t("terms"))+'</a> · <a href="privatesia.html">'+esc(t("privacy"))+'</a>';
 }
 function syncHash(){
   var want=(view==="account"&&me&&profile)?"#llogaria":"";
@@ -421,6 +440,34 @@ async function acceptTerms(btn){
   btn.disabled=true; var r=await db.rpc("accept_terms"); btn.disabled=false;
   if(r.error){ msg(el("m7"),errText(r.error)); return; }
   TERMS_OK=true; render(); toTop();
+}
+
+/* ---------- Shiriti poshtë në telefon ---------- */
+var NV={home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.500L12 3l9 7.500"/><path d="M5 9.500V20h5v-6h4v6h5V9.500"/></svg>',
+  user:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.400 3.600-7 8-7s8 2.600 8 7"/></svg>',
+  help:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.500"/><path d="M9.300 9.200a2.800 2.800 0 015.400 1c0 1.900-2.700 2.400-2.700 4"/><path d="M12 17.600h.01"/></svg>',
+  plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.600" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
+  login:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><path d="M10 17l5-5-5-5M15 12H3"/></svg>',
+  out:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>'};
+function renderNav(){
+  var n=el("bnav"); if(!n) return;
+  var b=function(act,ic,lbl,cur,extra){ return '<button type="button" data-act="'+act+'"'+(cur?' aria-current="page"':'')+'>'+ic+'<span>'+esc(lbl)+'</span>'+(extra||'')+'</button>'; };
+  var onHome=view!=="account"&&!editing, onAcc=view==="account"&&!editing;
+  var h;
+  if(!me) h=b("home",NV.home,t("nav_home"),onHome)+b("help",NV.help,t("nav_help"))+b("login",NV.login,t("nav_login"));
+  else if(!profile||!TERMS_OK) h=b("help",NV.help,t("nav_help"))+b("logout",NV.out,t("logout"));
+  else {
+    var u=unreadN();
+    h=b("home",NV.home,t("nav_home"),onHome)+(NT_OK?b("notif",BELL,t("nav_notif"),false,u?'<span class="nb" aria-hidden="true">'+(u>9?"9+":u)+'</span>':''):'')+
+      (profile.role!=="worker"?'<button type="button" class="post" data-act="navpost"><span class="pl">'+NV.plus+'</span><span>'+esc(t("nav_post"))+'</span></button>':'')+
+      b("account",NV.user,t("nav_acc"),onAcc)+b("help",NV.help,t("nav_help"));
+  }
+  n.innerHTML=h;
+}
+async function goPost(){
+  if(el("jobDlg").open) el("jobDlg").close();
+  editing=false; view="account"; await render();
+  var f=el("fJob"); if(f){ f.scrollIntoView({block:"start"}); }
 }
 
 /* ---------- Detajet e punës ---------- */
@@ -462,7 +509,7 @@ async function loadNotifs(){ if(!me||!profile) return; try{ var r=await notifQue
 function unreadN(){ return NOTIF.filter(function(n){ return !n.read; }).length; }
 function bellHtml(){ var n=unreadN(); return '<button type="button" class="bell" id="bell" data-act="notif" aria-label="'+esc(t("nt_h")+(n?", "+t("nt_new").replace("{n}",n):""))+'">'+BELL+(n?'<span class="badge" aria-hidden="true">'+(n>9?"9+":n)+'</span>':'')+'</button>'; }
 function setTitle(){ var n=me&&profile?unreadN():0; document.title=(n?"("+n+") ":"")+BASE_TITLE; }
-function updateBell(){ var b=el("bell"); if(b) b.outerHTML=bellHtml(); else if(NT_OK&&me&&profile) renderAuth(); setTitle(); }
+function updateBell(){ var b=el("bell"); if(b) b.outerHTML=bellHtml(); else if(NT_OK&&me&&profile) renderAuth(); setTitle(); renderNav(); }
 function ago(ts){ var s=(Date.now()-new Date(ts).getTime())/1000, en=lang==="en"; if(!(s>=0)) return "";
   if(s<60) return en?"just now":"tani"; var m=Math.floor(s/60); if(m<60) return en?m+" min ago":"para "+m+" min";
   var h=Math.floor(m/60); if(h<24) return en?h+" h ago":"para "+h+(h===1?" ore":" orësh");
@@ -767,7 +814,7 @@ function phoneBox(){
 async function myReviews(){ var m={}; var r=await db.from("reviews").select("job_id,target_id").eq("author_id",me.id); (r.data||[]).forEach(function(x){ m[x.job_id+"|"+x.target_id]=1; }); return m; }
 async function renderAccount(){
   JOBS_P=null;
-  el("main").innerHTML='<p class="muted small">'+esc(t("acc"))+' · '+esc(L(ROLENAME[profile.role]))+'</p><h1 style="font-size:clamp(28px,5vw,44px)">'+esc(profile.name)+'</h1><div class="accnav"><button class="btn alt sm" data-act="home">← '+esc(t("back"))+'</button><button class="btn alt sm" data-act="editprof">'+esc(t("edit_prof"))+'</button></div><div id="acc"><p class="muted">'+esc(t("loading"))+'</p></div>';
+  el("main").innerHTML='<p class="muted small">'+esc(t("acc"))+' · '+esc(L(ROLENAME[profile.role]))+'</p><h1 style="font-size:clamp(28px,5vw,44px)">'+esc(profile.name)+'</h1><div class="accnav"><button class="btn alt sm" data-act="home">← '+esc(t("back"))+'</button><button class="btn alt sm" data-act="editprof">'+esc(t("edit_prof"))+'</button><button class="btn alt sm" data-act="logout">'+esc(t("logout"))+'</button></div><div id="acc"><p class="muted">'+esc(t("loading"))+'</p></div>';
   if(profile.role==="worker") return renderMyApps();
   var r=await db.from("jobs").select("*, applications(id,status,worker_id,worker:profiles(name,city))").eq("owner",me.id).order("created_at",{ascending:false});
   var jobs=r.data||[], wAll=[], wAcc=[];
@@ -972,6 +1019,7 @@ document.addEventListener("click",async function(e){
   if(k==="jobview"){ openJob(id); return; }
   if(k==="jdclose"){ el("jobDlg").close(); return; }
   if(k==="notif"){ openNotifs(); return; }
+  if(k==="navpost"){ goPost(); return; }
   if(k==="ntclose"){ el("notifDlg").close(); return; }
   if(k==="ntgo"){ el("notifDlg").close(); editing=false; view="account"; render(); toTop(); return; }
   if(k==="showpw"){ var pi=el(a.getAttribute("data-for")), sh=pi.type==="password"; pi.type=sh?"text":"password"; a.textContent=t(sh?"hide":"show"); return; }
