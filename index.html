@@ -132,9 +132,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 .ico .ib{fill:var(--ic-bg)}.ico g{stroke:var(--ic)}.ico .io{stroke:var(--signal)}.ico .ia{fill:var(--signal);stroke:none}.ico .if{fill:var(--signal);stroke:none}
 :root{--ic-bg:#E3EDE6;--ic:#0B3B2D}
 @media (prefers-color-scheme:dark){:root{--ic-bg:#163A2F;--ic:#F6F3EA}}
-.pwrow{display:flex;gap:6px;align-items:center}.pwrow input{flex:1;min-width:0}
 .gbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#fff;color:#1f1f1f;border:1.5px solid #747775}
-details.more>summary{list-style:none;cursor:pointer}details.more>summary::-webkit-details-marker{display:none}
 .skills{display:flex;flex-wrap:wrap;gap:6px}.skills label{margin:0;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;color:var(--ink);font-weight:600;cursor:pointer}.skills input{width:18px;height:18px}
 textarea{width:100%;font:500 17px var(--fb);padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);min-height:84px}
 .job[data-job]{cursor:pointer}
@@ -272,13 +270,9 @@ var T={
  free:["Falas","Free"],
 
  foot:["Eja Jobs · Pagesa për punën bëhet drejtpërdrejt mes palëve.","Eja Jobs · Payment for work goes directly between the parties."],
- email:["Email-i yt","Your email"],pw:["Fjalëkalimi (të paktën 6 shkronja)","Password (at least 6 characters)"],cont:["Vazhdo","Continue"],close:["Mbyll","Close"],ok:["Në rregull","OK"],
+ close:["Mbyll","Close"],ok:["Në rregull","OK"],
  e_rate:["Shumë kërkesa. Prit pak minuta dhe provo përsëri.","Too many requests. Wait a few minutes and try again."],e_dup:["Kjo ekziston tashmë.","This already exists."],e_net:["Nuk u lidh me serverin. Kontrollo internetin.","Could not reach the server. Check your connection."],e_gen:["Gabim: ","Error: "],
- show:["Shfaq","Show"],hide:["Fshih","Hide"],forgot:["Harrova fjalëkalimin","Forgot password"],forgot_need:["Shkruaj email-in më parë.","Enter your email first."],
- forgot_sent:["Të dërguam një link te {e}. Hape email-in dhe shtyp linkun. Shiko edhe te Spam.","We sent a link to {e}. Open the email and tap the link. Check Spam too."],
- newpw_h:["Vendos fjalëkalim të ri","Set a new password"],newpw:["Fjalëkalimi i ri (të paktën 6 shkronja)","New password (at least 6 characters)"],newpw_ok:["Fjalëkalimi u ndryshua.","Password changed."],
  google:["Vazhdo me Google","Continue with Google"],google_p:["Hyr me llogarinë tënde të Google. Pa fjalëkalim të ri.","Sign in with your Google account. No new password."],
- email_old:["Kam llogari me email dhe fjalëkalim","I have an account with email and password"],e_cred:["Email-i ose fjalëkalimi nuk është i saktë. Për llogari të re përdor Google.","Wrong email or password. For a new account use Google."],
  edit_prof:["Ndrysho profilin","Edit profile"],edit_h:["Profili yt","Your profile"],cancel:["Anulo","Cancel"],optional:["Këto janë opsionale, por ndihmojnë që të zgjedhin ty.","These are optional, but they help others choose you."],
  f_birth:["Viti i lindjes","Year of birth"],
  terms:["Kushtet e përdorimit","Terms of use"],agree:["Duke vazhduar pranon Kushtet e përdorimit dhe Politikën e privatësisë.","By continuing you accept the Terms of use and the Privacy policy."],
@@ -405,12 +399,11 @@ async function boot(){
   JOBS_P=fetchJobs(); JOBS_T=Date.now();
   var s=await db.auth.getSession(); me=s.data.session?s.data.session.user:null;
   if(me) await loadProfile();
-  if(me&&el("dlg").open&&!el("fNewPw")) el("dlg").close();
+  if(me&&el("dlg").open) el("dlg").close();
   if(me&&profile&&profile.role==="worker"&&pendingApply){ var id=pendingApply; pendingApply=null; savePending(); await apply(id); return; }
   render();
 }
 db.auth.onAuthStateChange(function(ev,session){
-  if(ev==="PASSWORD_RECOVERY"){ setTimeout(openNewPw,400); }
   if(!manual&&ev==="SIGNED_IN"&&session&&(!me||me.id!==session.user.id)){ setTimeout(function(){ boot(); },0); }
 });
 /* Të dhënat e llogarisë lexohen njëherësh (paralelisht), jo njëra pas tjetrës, që faqja të hapet më shpejt. */
@@ -661,11 +654,6 @@ function go(role){
 function openLogin(){
   el("dlgBody").innerHTML='<h2 style="margin-top:0">'+esc(t("login"))+'</h2><p class="muted">'+esc(t("google_p"))+'</p>'+
     '<button type="button" class="btn gbtn" data-act="google"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.5 12.2c0-.8-.1-1.500-.2-2.200H12v4.200h5.900a5 5 0 01-2.200 3.300v2.700h3.600c2.100-1.900 3.200-4.800 3.200-8z"/><path fill="#34A853" d="M12 23c3 0 5.500-1 7.300-2.800l-3.600-2.700c-1 .7-2.300 1.100-3.700 1.100-2.900 0-5.300-1.900-6.200-4.600H2.100v2.800A11 11 0 0012 23z"/><path fill="#FBBC05" d="M5.800 14a6.600 6.600 0 010-4.200V7H2.100a11 11 0 000 9.900z"/><path fill="#EA4335" d="M12 5.400c1.600 0 3.100.6 4.200 1.600l3.200-3.200A11 11 0 002.100 7l3.700 2.800C6.700 7.300 9.100 5.400 12 5.400z"/></svg> '+esc(t("google"))+'</button><div id="m0"></div>'+
-    '<details class="more" style="margin-top:16px"><summary class="link" style="padding-left:0">'+esc(t("email_old"))+'</summary>'+
-    '<form id="fEmail"><label for="em">'+esc(t("email"))+'</label><input id="em" type="email" required autocomplete="email" placeholder="emri@gmail.com">'+
-    '<label for="pw">'+esc(t("pw"))+'</label><div class="pwrow"><input id="pw" type="password" required minlength="6" autocomplete="current-password"><button type="button" class="link" data-act="showpw" data-for="pw">'+esc(t("show"))+'</button></div>'+
-    '<p style="margin:8px 0 0"><button type="button" class="link" data-act="forgot" style="padding-left:0">'+esc(t("forgot"))+'</button></p>'+
-    '<div id="m1"></div><button class="btn alt" type="submit" style="margin-top:12px">'+esc(t("cont"))+'</button></form></details>'+
     '<p style="margin:14px 0 0;text-align:right"><button class="link" type="button" data-act="close">'+esc(t("close"))+'</button></p>';
   el("dlg").showModal();
 }
@@ -673,35 +661,6 @@ async function googleIn(btn){
   btn.disabled=true; savePending();
   var r=await db.auth.signInWithOAuth({provider:"google",options:{redirectTo:location.origin+location.pathname}});
   if(r.error){ btn.disabled=false; msg(el("m0"),errText(r.error)); }
-}
-async function signIn(email,pw,btn){
-  btn.disabled=true; manual=true; savePending();
-  try{
-    var r=await db.auth.signInWithPassword({email:email,password:pw});
-    if(r.error){ msg(el("m1"),/invalid login credentials/i.test(r.error.message)?t("e_cred"):errText(r.error)); return; }
-    me=r.data.user; el("dlg").close(); await boot();
-  } finally { btn.disabled=false; manual=false; }
-}
-async function forgot(btn){
-  var email=(el("em").value||"").trim();
-  if(!email){ msg(el("m1"),t("forgot_need")); el("em").focus(); return; }
-  btn.disabled=true;
-  var r=await db.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});
-  btn.disabled=false;
-  if(r.error){ msg(el("m1"),errText(r.error)); return; }
-  msg(el("m1"),t("forgot_sent").replace("{e}",email),true);
-}
-function openNewPw(){
-  el("dlgBody").innerHTML='<h2 style="margin-top:0">'+esc(t("newpw_h"))+'</h2><form id="fNewPw"><label for="npw">'+esc(t("newpw"))+'</label><div class="pwrow"><input id="npw" type="password" required minlength="6" autocomplete="new-password"><button type="button" class="link" data-act="showpw" data-for="npw">'+esc(t("show"))+'</button></div>'+
-    '<div id="m6"></div><div class="row" style="margin-top:14px"><button class="btn" type="submit">'+esc(t("save"))+'</button></div></form>';
-  if(!el("dlg").open) el("dlg").showModal();
-}
-async function saveNewPw(btn){
-  btn.disabled=true;
-  var r=await db.auth.updateUser({password:el("npw").value});
-  btn.disabled=false;
-  if(r.error){ msg(el("m6"),errText(r.error)); return; }
-  el("dlgBody").innerHTML='<div class="msg ok">'+esc(t("newpw_ok"))+'</div><button class="btn" data-act="close">'+esc(t("ok"))+'</button>';
 }
 
 /* ---------- Profili ---------- */
@@ -1033,8 +992,7 @@ var HELP=[
  {k:"review",kw:["vleres","yje","yll","review","star","rating"],q:["Si vlerësoj?","How do I leave a review?"],a:["Pas pranimit del butoni \"Vlerëso\". Zgjedh 1 deri 5 yje. Firma vlerëson punëtorin dhe punëtori firmën. Çdo palë vlerëson një herë për një punë.","After acceptance a \"Review\" button appears. Choose 1 to 5 stars. The firm reviews the worker and the worker the firm, once per job."]},
  {k:"price",kw:["kushton","cmim","çmim","falas","tarif","price","cost","free"],q:["Sa kushton?","How much does it cost?"],a:["Për punëtorët është gjithmonë pa pagesë. Gjatë fazës së nisjes platforma është falas për të gjithë. Para se të fillojë ndonjë pagesë për firmat ose personat privatë, do të njoftoheni në faqe.", "It is always free for workers. During the launch phase the platform is free for everyone. Before any payment starts for firms or private persons, you will be notified on the site."]},
  {k:"pay",kw:["pagu","page","paga","rrog","para","paid","salary","money"],q:["Si paguhem për punën?","How do I get paid?"],a:["Pagën e merr drejtpërdrejt nga firma, me para në dorë ose me bankë, siç jeni marrë vesh. Eja Jobs nuk e prek pagën. Mos i jep askujt para përpara punës.","You are paid directly by the firm, in cash or by bank, as agreed. Eja Jobs does not touch the pay. Never pay anyone money before the job."]},
- {k:"role",kw:["rol","ndrysho","ndërro","nderro","role","switch","change"],q:["A mund ta ndryshoj rolin?","Can I change my role?"],a:["Për momentin jo. Një llogari është ose punëtor, ose firmë, ose person privat. Për një rol tjetër përdor një llogari tjetër Google.","Not at the moment. An account is a worker, a firm or a private person. For another role use a different Google account."]},
- {k:"pw",kw:["fjalekalim","fjalëkalim","harrova","password","forgot"],q:["Harrova fjalëkalimin","I forgot my password"],a:["Hyrja bëhet me Google, prandaj nuk të duhet fjalëkalim. Vetëm nëse ke një llogari të vjetër me email: shtyp \"Hyr\", shkruaj email-in dhe shtyp \"Harrova fjalëkalimin\". Të vjen një email me link për fjalëkalim të ri.", "Sign-in is with Google, so you need no password. Only if you have an old email account: tap \"Sign in\", type your email and tap \"Forgot password\". You get an email with a link for a new password."]}
+ {k:"role",kw:["rol","ndrysho","ndërro","nderro","role","switch","change"],q:["A mund ta ndryshoj rolin?","Can I change my role?"],a:["Për momentin jo. Një llogari është ose punëtor, ose firmë, ose person privat. Për një rol tjetër përdor një llogari tjetër Google.","Not at the moment. An account is a worker, a firm or a private person. For another role use a different Google account."]}
 ];
 var HT={title:["Ndihmë","Help"],ask:["Pyet","Ask"],faq:["Pyetje","FAQ"],hello:["Përshëndetje! Zgjidh një pyetje më poshtë ose shkruaje vetë.","Hi! Pick a question below or type your own."],ph:["Shkruaj pyetjen…","Type your question…"],send:["Dërgo","Send"],none:["Nuk e gjeta përgjigjen për këtë. Provo një nga pyetjet më poshtë, ose na shkruaj te @eja.jobs.","I couldn't find an answer to that. Try one of the questions below, or message us at @eja.jobs."]};
 function ht(k){ return HT[k][lang==="en"?1:0]; }
@@ -1066,9 +1024,7 @@ function helpAnswer(key,typed){
 /* ---------- Ngjarjet ---------- */
 document.addEventListener("submit",function(e){
   e.preventDefault(); var f=e.target, b=f.querySelector('button[type="submit"]');
-  if(f.id==="fNewPw") saveNewPw(b);
-  else if(f.id==="fEmail") signIn(el("em").value.trim(),el("pw").value,b);
-  else if(f.id==="fProf") saveProfile(b);
+  if(f.id==="fProf") saveProfile(b);
   else if(f.id==="fHero"){ fQ=el("hq").value.trim(); fCity=el("hc").value||"all"; fCat="all"; fStu=false; showAll=false; renderBoard(); toBoard(); }
   else if(f.id==="fTerms") acceptTerms(b);
   else if(f.id==="fJob") postJob(b);
@@ -1103,8 +1059,6 @@ document.addEventListener("click",async function(e){
   if(k==="gojobs"){ if(view!=="home"||editing){ goHome(); } setTimeout(toBoard,50); return; }
   if(k==="ntclose"){ el("notifDlg").close(); return; }
   if(k==="ntgo"){ el("notifDlg").close(); editing=false; view="account"; render(); toTop(); return; }
-  if(k==="showpw"){ var pi=el(a.getAttribute("data-for")), sh=pi.type==="password"; pi.type=sh?"text":"password"; a.textContent=t(sh?"hide":"show"); return; }
-  if(k==="forgot"){ forgot(a); return; }
   if(k==="google"){ googleIn(a); return; }
   if(k==="editprof"){ if(!profile) return; editing=true; render(); toTop(); return; }
   if(k==="report"){ if(el("jobDlg").open) el("jobDlg").close(); openReport(id); return; }
