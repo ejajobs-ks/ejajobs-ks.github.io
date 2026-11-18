@@ -442,7 +442,7 @@ function renderAuth(){
   document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed",b.getAttribute("data-lang")===lang?"true":"false"); });
   renderNav(); document.documentElement.lang=lang; el("helpLbl").textContent=ht("title"); setTitle(); el("foot").innerHTML='<div class="fcols"><div><b>'+esc(t("ft_w"))+'</b><button type="button" data-act="gojobs">'+esc(t("ft_find"))+'</button><button type="button" data-act="help">'+esc(t("ft_how"))+'</button><button type="button" data-act="helpfaq">'+esc(t("ft_faq"))+'</button></div>'+
     '<div><b>'+esc(t("ft_e"))+'</b><button type="button" data-act="navpost">'+esc(t("ft_post"))+'</button><a href="kushtet.html">'+esc(t("terms"))+'</a><a href="privatesia.html">'+esc(t("privacy"))+'</a></div></div>'+
-    '<div class="fbot"><span class="flogo">'+(el("home")?el("home").innerHTML:"")+'</span><a href="mailto:ejajobs.kosova@gmail.com">ejajobs.kosova@gmail.com</a><span>© 2026 Eja Jobs · '+esc(t("foot_pay"))+'</span></div>';
+    '<div class="fbot"><span class="flogo">'+(el("home")?el("home").innerHTML:"")+'</span><a href="mailto:info@ejajobs.com">info@ejajobs.com</a><span>© 2026 Eja Jobs · '+esc(t("foot_pay"))+'</span></div>';
 }
 function syncHash(){
   var want=(view==="account"&&me&&profile)?"#llogaria":"";
