@@ -71,7 +71,7 @@ a.wa{display:inline-flex;align-items:center;gap:6px;background:#1FA855;color:#ff
 .logo-sq{width:56px;height:56px;border-radius:14px;object-fit:cover;background:#fff;border:1px solid var(--line);display:block}
 .logo-lg{width:84px;height:84px;border-radius:18px;object-fit:cover;background:#fff;border:1px solid var(--line);display:block}
 .ini{display:grid;place-items:center;font:800 24px var(--fd);color:#fff;border:0}.logo-lg.ini{font-size:34px}
-.ini0{background:#0B3B2D}.ini1{background:#B8620C}.ini2{background:#3F5E8C}.ini3{background:#7A3B5C}
+.ini0{background:#0B3B2D}.ini1{background:#1F6B4F}.ini2{background:#B8620C}.ini3{background:#2F5D4C}
 .heart{background:var(--surface);border:1.5px solid var(--line);border-radius:50%;width:42px;height:42px;display:grid;place-items:center;color:var(--muted);cursor:pointer;padding:0}
 .heart.on{color:var(--bad);border-color:var(--bad);--hf:var(--bad)}
 .logorow{display:flex;align-items:center;gap:14px}.filebtn{position:relative;overflow:hidden;display:inline-flex;align-items:center;margin:0;color:var(--ink)}.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer}
@@ -156,7 +156,7 @@ textarea{width:100%;font:500 17px var(--fb);padding:12px 14px;border-radius:12px
 .hsearch .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;font-size:17px}
 .catchip .cnt{font-size:12px;font-weight:700;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:0 7px;line-height:18px;color:var(--ink)}
 .catchip[aria-pressed="true"] .cnt{background:rgba(255,255,255,.2);border-color:transparent;color:inherit}
-.catchip.zero{opacity:.55}.catchip .cnt:empty{display:none}.freeb{display:inline-block;background:var(--signal);color:var(--signal-ink);font:700 12.5px/1.3 var(--fb);padding:5px 12px;border-radius:999px;margin:0 0 10px}.empty .role{margin-top:0}.empty .btn{margin-top:12px}.empty .sep{border:0;border-top:1px solid var(--line);margin:18px 0}.empty .on{margin:10px 0 0;font-weight:600}
+.catchip.zero{opacity:.55}a.wa.ic{width:40px;height:40px;padding:0;justify-content:center}a.wa.ic span{display:none}a.wa.ic svg{width:21px;height:21px}@media(max-width:859px){.hero{padding:16px 16px 14px;gap:10px}.hero h1.hh{margin-bottom:4px}.hero .lead{font-size:14px;margin-bottom:4px}.freeb{margin-bottom:8px}.hsearch{gap:6px;padding:6px}.hf{padding:5px 12px}.hf small{font-size:11px}.hf input,.hf select{min-height:24px}.hsearch .btn{min-height:44px}.hroles{margin-top:6px}.hrole{padding:6px 4px}}.catchip .cnt:empty{display:none}.freeb{display:inline-block;background:var(--signal);color:var(--signal-ink);font:700 12.5px/1.3 var(--fb);padding:5px 12px;border-radius:999px;margin:0 0 10px}.empty .role{margin-top:0}.empty .btn{margin-top:12px}.empty .sep{border:0;border-top:1px solid var(--line);margin:18px 0}.empty .on{margin:10px 0 0;font-weight:600}
 .fcols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
 .fcols div{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
 .fcols b{color:var(--ink);font-size:13px;margin-bottom:6px}
@@ -448,7 +448,7 @@ function shareText(j){
   var w=fmtWhen(j);
   return "🔎 "+t("share_k")+": "+(L(ROLE[j.job_role])||j.job_role)+"\n📍 "+fmtPlace(j)+(w?"\n📅 "+w:"")+(Number(j.pay)?"\n💶 "+Number(j.pay)+" "+L(UNIT[j.unit]):"")+"\n\n"+t("share_ap")+" 👉 "+jobUrl(j);
 }
-function shareBtn(j){ return '<a class="wa" data-act="share" href="https://wa.me/?text='+encodeURIComponent(shareText(j))+'" target="_blank" rel="noopener">'+WA_IC+'<span>'+esc(t("share"))+'</span></a>'; }
+function shareBtn(j,ic){ return '<a class="wa'+(ic?' ic':'')+'" data-act="share" href="https://wa.me/?text='+encodeURIComponent(shareText(j))+'" target="_blank" rel="noopener"'+(ic?' aria-label="'+esc(t("share"))+' – WhatsApp" title="'+esc(t("share"))+'"':'')+'>'+WA_IC+'<span>'+esc(t("share"))+'</span></a>'; }
 /* Kur dikush hap linkun e një pune (ejajobs.com/#pune-…), puna hapet vetë. */
 var DEEP=(String(location.hash).match(/^#pune-(.+)$/)||[])[1]||null;
 function openDeep(){ if(!DEEP) return; var id=DEEP; if(!JOBMAP[id]){ var j=JOBS.filter(function(x){ return String(x.id)===String(id); })[0]; if(j) JOBMAP[id]=j; } DEEP=null;
@@ -811,7 +811,7 @@ function jobCard(j){
       '<div class="owner"><strong>'+esc(f.name||"")+'</strong>'+(f.verified?'<span class="tag">✓ '+esc(t("verified"))+'</span>':'')+rate(RT[j.owner])+'</div>'+
       '<div class="jmeta"><span>'+PIN+esc(fmtPlace(j))+'</span><span>'+(fmtWhen(j)?CAL+esc(fmtWhen(j)):'')+'</span></div></div>'+
       (!own&&canSave()?'<button type="button" class="heart'+(sv?" on":"")+'" data-act="save" data-id="'+j.id+'" aria-pressed="'+sv+'" aria-label="'+esc(t(sv?"unsave_job":"save_job"))+'">'+HEART+'</button>':'')+'</div>'+
-    '<div class="jbot"><div class="jpay"><div class="pay">'+esc(Number(j.pay))+' <small>'+esc(L(UNIT[j.unit]))+'</small></div><div class="jsub">'+esc(L(TYPE[j.job_type]))+' · '+esc(spots(j.spots))+(j.student?' · <b>'+esc(t("stu"))+'</b>':'')+'</div></div><div class="jbtn">'+shareBtn(j)+btn+'</div></div></article>'; }
+    '<div class="jbot"><div class="jpay"><div class="pay">'+esc(Number(j.pay))+' <small>'+esc(L(UNIT[j.unit]))+'</small></div><div class="jsub">'+esc(L(TYPE[j.job_type]))+' · '+esc(spots(j.spots))+(j.student?' · <b>'+esc(t("stu"))+'</b>':'')+'</div></div><div class="jbtn">'+shareBtn(j,1)+btn+'</div></div></article>'; }
 var SAVED={};
 async function loadSaved(){ SAVED={}; if(!me||!profile||profile.role!=="worker") return; var r=await db.from("saved_jobs").select("job_id").eq("user_id",me.id); (r.data||[]).forEach(function(x){ SAVED[x.job_id]=1; }); }
 async function toggleSave(id,btn){
