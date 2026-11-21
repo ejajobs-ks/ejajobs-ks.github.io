@@ -156,7 +156,7 @@ textarea{width:100%;font:500 17px var(--fb);padding:12px 14px;border-radius:12px
 .hsearch .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;font-size:17px}
 .catchip .cnt{font-size:12px;font-weight:700;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:0 7px;line-height:18px;color:var(--ink)}
 .catchip[aria-pressed="true"] .cnt{background:rgba(255,255,255,.2);border-color:transparent;color:inherit}
-.catchip.zero{opacity:.55}
+.catchip.zero{opacity:.55}.catchip .cnt:empty{display:none}.freeb{display:inline-block;background:var(--signal);color:var(--signal-ink);font:700 12.5px/1.3 var(--fb);padding:5px 12px;border-radius:999px;margin:0 0 10px}.empty .role{margin-top:0}.empty .btn{margin-top:12px}.empty .sep{border:0;border-top:1px solid var(--line);margin:18px 0}.empty .on{margin:10px 0 0;font-weight:600}
 .fcols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
 .fcols div{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
 .fcols b{color:var(--ink);font-size:13px;margin-bottom:6px}
@@ -267,7 +267,7 @@ var T={
  c1:["Falas për punëtorët","Free for workers"],c2:["Vlerësim nga të dy anët","Reviews from both sides"],
  stu:["Për studentë","For students"],board_h:["Punët e hapura","Open jobs"],
  search:["Kërko punë ose firmë…","Search job or firm…"],all_kos:["Gjithë Kosova","All of Kosovo"],clear_cat:["Hiq kategorinë","Clear category"],
- empty_h:["Ende asnjë punë këtu.","No jobs here yet."],empty_p:["Bëhu i pari që poston një punë, ose provo një filtër tjetër.","Be the first to post a job, or try another filter."],
+ empty_h:["Ende asnjë punë këtu.","No jobs here yet."],empty_p:["Bëhu i pari që poston një punë, ose provo një filtër tjetër.","Be the first to post a job, or try another filter."],em_f_h:["Asnjë punë me këta filtra.","No jobs match these filters."],em_f_p:["Provo një filtër tjetër ose gjithë Kosovën.","Try another filter or all of Kosovo."],em_f_btn:["Shiko të gjitha punët","Show all jobs"],em_w_h:["Punët e para po vijnë.","The first jobs are on the way."],em_w_p:["Aktivizo njoftimet dhe të lajmërojmë sapo të dalë punë në {c}.","Turn on alerts and we’ll let you know as soon as a job is posted in {c}."],em_w_on:["Njoftimet janë aktive. Të lajmërojmë sapo të dalë punë në {c}.","Alerts are on. We’ll let you know as soon as a job is posted in {c}."],em_city:["qytetin tënd","your city"],em_nt:["Më njofto","Notify me"],em_e_h:["Posto punën e parë, falas.","Post the first job, for free."],em_e_p:["Punëtorët e qytetit marrin njoftim sapo ta postosh.","Workers in the city are notified as soon as you post."],em_post:["Posto punë","Post a job"],free_b:["Postimi falas deri më 18 dhjetor","Free posting until 18 December"],wk_n:["{n} punëtorë në platformë","{n} workers on the platform"],
  more:["Shiko edhe {n} punë","Show {n} more jobs"],apply:["Apliko","Apply"],yours:["Puna jote","Your job"],urgent:["Urgjente","Urgent"],
  spot1:["vend","spot"],spotN:["vende","spots"],
  how_h:["Si funksionon","How it works"],
@@ -656,10 +656,14 @@ var SRCH='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="cu
 function cityOpts(){ var rest=Object.keys(CITY).filter(function(c){return BIG.indexOf(c)<0;}).sort(function(a,b){return L(CITY[a]).localeCompare(L(CITY[b]));}), co=function(c){ return '<option value="'+c+'"'+(fCity===c?" selected":"")+'>'+esc(L(CITY[c]))+'</option>'; };
   return '<option value="">'+esc(t("all_kos"))+'</option>'+BIG.map(co).join("")+'<option disabled>──────</option>'+rest.map(co).join(""); }
 function toBoard(){ var b=el("board"); if(b) b.scrollIntoView({block:"start"}); }
+var FREE_END=Date.parse("2026-12-19T00:00:00+01:00"), WKN=null;
+/* Sa punëtorë ka platforma. U shfaqet punëdhënësve vetëm kur numri bëhet bindës (30 e lart). */
+async function showWorkers(){ if(profile&&profile.role==="worker") return; try{ if(WKN===null){ var r=await db.rpc("public_worker_count"); WKN=(r&&!r.error&&typeof r.data==="number")?r.data:0; } }catch(_){ WKN=0; }
+  var c=document.querySelector(".hero .checks"); if(c&&WKN>=30&&!c.querySelector(".wkn")){ var sp=document.createElement("span"); sp.className="wkn"; sp.textContent="✓ "+t("wk_n").replace("{n}",WKN); c.appendChild(sp); } }
 async function renderHome(){
   var role=function(go,ill,sub){ return '<button type="button" class="hrole" data-go="'+go+'"><span class="ri">'+illus(ill,true)+'</span><span class="rt"><b>'+esc(L(ROLENAME[go]))+'</b><small>'+esc(t(sub))+'</small></span></button>'; };
   el("main").innerHTML=
-   '<section class="hero"><div><h1 class="hh">'+t("hero3_h").split("|").map(function(x,i){ return i?'<span class="hl">'+esc(x)+'</span>':esc(x)+'<br>'; }).join(" ")+'</h1><p class="lead">'+esc(t("hero3_p"))+'</p><div class="checks"><span>✓ '+esc(t("c1"))+'</span><span>✓ '+esc(t("c2"))+'</span></div></div>'+
+   '<section class="hero"><div>'+((Date.now()<FREE_END&&!(profile&&profile.role==="worker"))?'<p class="freeb">'+esc(t("free_b"))+'</p>':'')+'<h1 class="hh">'+t("hero3_h").split("|").map(function(x,i){ return i?'<span class="hl">'+esc(x)+'</span>':esc(x)+'<br>'; }).join(" ")+'</h1><p class="lead">'+esc(t("hero3_p"))+'</p><div class="checks"><span>✓ '+esc(t("c1"))+'</span><span>✓ '+esc(t("c2"))+'</span></div></div>'+
    '<div><form id="fHero" class="hsearch" role="search">'+
      '<label class="hf">'+SRCH+'<span><small>'+esc(t("hs_what"))+'</small><input id="hq" type="search" placeholder="'+esc(t("hs_ph"))+'" value="'+esc(fQ)+'"></span></label>'+
      '<label class="hf">'+PIN.replace(/width="15" height="15"/,'width="20" height="20"')+'<span><small>'+esc(t("hs_where"))+'</small><select id="hc">'+cityOpts()+'</select></span></label>'+
@@ -667,7 +671,7 @@ async function renderHome(){
      '<div class="hroles">'+role("firm","firm","hr_firm")+role("worker","worker","hr_worker")+role("private","home","hr_priv")+'</div></div></section>'+
    '<section id="board"><h2 class="bhead">'+esc(t("board_h"))+'<span id="jcount"></span></h2><div id="fbar"></div><div class="chips catrow" id="tiles"></div><div class="chips whenrow" id="whenrow"></div><div id="catbar"></div><div id="list">'+skel(3)+'</div></section>';
   el("tiles").innerHTML=stuBtn()+TILES.map(function(c){ return '<button type="button" class="chip catchip" data-cat="'+c+'" title="'+esc(L(CAT[c]))+'">'+illus(c,true)+'<span>'+esc(L(SHORT[c]||CAT[c]))+'</span><span class="cnt"></span></button>'; }).join("");
-  await loadJobs(); renderBoard();
+  showWorkers(); await loadJobs(); renderBoard();
 }
 /* Lexon punët me logon e firmës. Nëse baza nuk e ka ende kolonën e logos, i lexon pa të, që lista të mos mbetet bosh. */
 async function jobsQuery(build){
@@ -707,15 +711,26 @@ function renderBoard(){
   var rows=base.filter(function(j){ return (fCat==="all"||ROLECAT[j.job_role]===fCat)&&(!fStu||j.student); });
   /* Sa punë ka në secilën kategori (me filtrat e tjerë që janë zgjedhur) */
   var cnt={}; base.forEach(function(j){ if(!fStu||j.student){ var c=ROLECAT[j.job_role]; cnt[c]=(cnt[c]||0)+1; } });
-  document.querySelectorAll("#tiles [data-cat]").forEach(function(b){ var n=cnt[b.getAttribute("data-cat")]||0, e=b.querySelector(".cnt"); if(e){ e.textContent=n; b.classList.toggle("zero",!n); } });
-  var sn=base.filter(function(j){ return j.student&&(fCat==="all"||ROLECAT[j.job_role]===fCat); }).length, se=el("stuBtn").querySelector(".cnt"); if(se){ se.textContent=sn; el("stuBtn").classList.toggle("zero",!sn); }
-  el("jcount").textContent=JOBERR?"":" · "+rows.length;
+  document.querySelectorAll("#tiles [data-cat]").forEach(function(b){ var n=cnt[b.getAttribute("data-cat")]||0, e=b.querySelector(".cnt"); if(e){ e.textContent=n||""; b.classList.toggle("zero",!n); } });
+  var sn=base.filter(function(j){ return j.student&&(fCat==="all"||ROLECAT[j.job_role]===fCat); }).length, se=el("stuBtn").querySelector(".cnt"); if(se){ se.textContent=sn||""; el("stuBtn").classList.toggle("zero",!sn); }
+  el("jcount").textContent=(JOBERR||!rows.length)?"":" · "+rows.length;
   if(JOBERR&&JOBERR.slow){ el("list").innerHTML=slowHTML(); return; }
   if(JOBERR){ el("list").innerHTML='<div class="msg err">'+esc(errText(JOBERR))+'</div>'; return; }
-  if(!rows.length){ el("list").innerHTML=mnote+'<div class="card"><p class="role">'+esc(t("empty_h"))+'</p><p class="muted" style="margin:0">'+esc(t("empty_p"))+'</p></div>'; return; }
+  if(!rows.length){ el("list").innerHTML=mnote+emptyHTML(); return; }
   var LIM=8, vis=showAll?rows:rows.slice(0,LIM);
   el("list").innerHTML=mnote+vis.map(jobCard).join("")+(rows.length>vis.length?'<button class="btn alt" data-act="more" style="width:100%">'+esc(t("more").replace("{n}",rows.length-vis.length))+'</button>':'');
   openDeep();
+}
+/* Kur s'ka punë: punëtorit i ofron njoftimet, punëdhënësit postimin falas. Me filtra aktivë, i ofron t'i heqë. */
+function emptyHTML(){
+  var anyJob=JOBS.some(function(j){ return !jobEnded(j)&&!(isMinor()&&ADULT.indexOf(j.job_role)>=0); });
+  var filt=fQ.trim()||fCity!=="all"||fCat!=="all"||fStu||fWhen!=="all";
+  if(filt&&anyJob) return '<div class="card empty"><p class="role">'+esc(t("em_f_h"))+'</p><p class="muted" style="margin:0">'+esc(t("em_f_p"))+'</p><button type="button" class="btn alt" data-act="clearall">'+esc(t("em_f_btn"))+'</button></div>';
+  var isW=me&&profile&&profile.role==="worker", isE=me&&profile&&profile.role!=="worker";
+  var city=isW&&profile.city&&CITY[profile.city]?L(CITY[profile.city]):(fCity!=="all"&&CITY[fCity]?L(CITY[fCity]):t("em_city"));
+  var w='<p class="role">'+esc(t("em_w_h"))+'</p>'+((isW&&profile.notify_jobs)?'<p class="muted on">🔔 '+esc(t("em_w_on").replace("{c}",city))+'</p>':'<p class="muted" style="margin:0">'+esc(t("em_w_p").replace("{c}",city))+'</p><button type="button" class="btn" data-act="nton">🔔 '+esc(t("em_nt"))+'</button>');
+  var f='<p class="role">'+esc(t("em_e_h"))+'</p><p class="muted" style="margin:0">'+esc(t("em_e_p"))+'</p><button type="button" class="btn'+(isE?'':' alt')+'" data-act="navpost">'+esc(t("em_post"))+'</button>';
+  return '<div class="card empty">'+(isW?w:isE?f:w+'<hr class="sep">'+f)+'</div>';
 }
 function go(role){
   if(role==="worker"){ toBoard(); return; }
@@ -1158,6 +1173,9 @@ document.addEventListener("click",async function(e){
   if(k==="jdclose"){ el("jobDlg").close(); return; }
   if(k==="notif"){ openNotifs(); return; }
   if(k==="navpost"){ goPost(); return; }
+  if(k==="clearall"){ fQ=""; fCity="all"; fCat="all"; fStu=false; fWhen="all"; showAll=false; if(el("hq")) el("hq").value=""; if(el("hc")) el("hc").value=""; renderBoard(); return; }
+  if(k==="nton"){ if(!me){ openLogin(); return; } if(!profile||profile.role!=="worker") return; a.disabled=true;
+    db.from("profiles").update({notify_jobs:true}).eq("id",me.id).then(function(r){ if(r.error){ a.disabled=false; alertBox(errText(r.error)); return; } profile.notify_jobs=true; renderBoard(); }); return; }
   if(k==="clearsearch"){ fQ=""; fCity="all"; showAll=false; if(el("hq")) el("hq").value=""; if(el("hc")) el("hc").value=""; renderBoard(); return; }
   if(k==="helpfaq"){ openHelp("faq"); return; }
   if(k==="helpprice"){ openHelp("faq"); var pd=document.querySelector("#hPane details"); if(pd) pd.open=true; return; }
